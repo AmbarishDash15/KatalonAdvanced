@@ -25,7 +25,9 @@ WebUI.maximizeWindow()
 
 WebUI.setText(findTestObject('Object Repository/FirstTrial/Page_Google/textarea_Sign in_q'), 'om shree ganeshaya namah')
 
-WebUI.sendKeys(findTestObject(null), Keys.chord(Keys.ENTER))
+WebUI.click(findTestObject('FirstTrial/Page_Google/img_Sign in_lnXdpd'))
+
+WebUI.click(findTestObject('FirstTrial/Page_Google/input_Report inappropriate predictions_btnK'), FailureHandling.STOP_ON_FAILURE)
 
 WebUI.delay(1)
 
