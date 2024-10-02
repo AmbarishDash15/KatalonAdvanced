@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<TestCaseEntity>
-   <description></description>
-   <name>TC01</name>
-   <tag>Order_Products</tag>
-   <comment></comment>
-   <recordOption>OTHER</recordOption>
-   <testCaseGuid>b7967a19-29c1-44a5-be85-41ea6112b422</testCaseGuid>
-</TestCaseEntity>

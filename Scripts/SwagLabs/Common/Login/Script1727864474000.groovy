@@ -27,3 +27,9 @@ WebUI.setText(findTestObject('Page_Swag Labs/Password'), GlobalVariable.Password
 
 WebUI.click(findTestObject('Page_Swag Labs/Login button'))
 
+WebUI.verifyElementPresent(findTestObject('Page_Swag Labs/div_Open Menu_app_logo'), 0)
+
+WebUI.verifyElementPresent(findTestObject('Page_Swag Labs/div_ProductsBanner'), 0)
+
+WebUI.verifyElementText(findTestObject('Page_Swag Labs/div_Products'), 'Products')
+

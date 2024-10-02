@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>TC01</name>
+   <tag>Order_Products</tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>b7967a19-29c1-44a5-be85-41ea6112b422</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>1f32fb05-9b19-4d23-ac9f-22b16e428717</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>fb9cac6c-3fe0-4230-a2ae-698830cf5159</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'Sauce Labs Backpack'</defaultValue>
+      <description></description>
+      <id>1f32fb05-9b19-4d23-ac9f-22b16e428717</id>
+      <masked>false</masked>
+      <name>itemName</name>
+   </variable>
+   <variable>
+      <defaultValue>'$29.99'</defaultValue>
+      <description></description>
+      <id>fb9cac6c-3fe0-4230-a2ae-698830cf5159</id>
+      <masked>false</masked>
+      <name>itemPrice</name>
+   </variable>
+</TestCaseEntity>

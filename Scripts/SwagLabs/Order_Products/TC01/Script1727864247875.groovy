@@ -17,3 +17,15 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
+WebUI.callTestCase(findTestCase('SwagLabs/Common/Login'), [:], FailureHandling.STOP_ON_FAILURE)
+
+WebUI.verifyElementPresent(findTestObject('Page_Swag Labs/div_itemName', [('itemName') : itemName]), 0)
+
+WebUI.verifyElementText(findTestObject('Page_Swag Labs/div_itemPrice', [('itemName') : itemName]), itemPrice)
+
+WebUI.click(findTestObject('Page_Swag Labs/button_ADD TO CART', [('itemName') : itemName]))
+
+WebUI.verifyElementText(findTestObject('Page_Swag Labs/cartIconNumber'), '1')
+
+WebUI.click(findTestObject('Page_Swag Labs/shoppingCartIcon'))
+
