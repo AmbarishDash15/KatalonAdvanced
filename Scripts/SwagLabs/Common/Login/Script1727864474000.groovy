@@ -21,6 +21,8 @@ WebUI.openBrowser('')
 
 WebUI.navigateToUrl(GlobalVariable.siteURL)
 
+WebUI.maximizeWindow()
+
 WebUI.setText(findTestObject('Page_Swag Labs/Username'), GlobalVariable.Username)
 
 WebUI.setText(findTestObject('Page_Swag Labs/Password'), GlobalVariable.Password)

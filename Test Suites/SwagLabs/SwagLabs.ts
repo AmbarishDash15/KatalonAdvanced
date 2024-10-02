@@ -11,8 +11,8 @@
          <configuration>
             <groupName>Web Desktop</groupName>
             <profileName>AmbarishSwag</profileName>
-            <requireConfigurationData>true</requireConfigurationData>
-            <runConfigurationId>TestCloud</runConfigurationId>
+            <requireConfigurationData>false</requireConfigurationData>
+            <runConfigurationId>Firefox</runConfigurationId>
          </configuration>
          <runEnabled>true</runEnabled>
          <testSuiteEntity>Test Suites/SwagLabs/OrderFromProductsPage</testSuiteEntity>
