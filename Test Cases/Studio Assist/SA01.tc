@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>SA01</name>
+   <tag>SA</tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>f3fa72e8-5a59-4485-a850-28bac8276f39</testCaseGuid>
+</TestCaseEntity>
