@@ -17,7 +17,8 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-WebUI.callTestCase(findTestCase('SwagLabs/Common/Login'), [:], FailureHandling.STOP_ON_FAILURE)
+WebUI.callTestCase(findTestCase('SwagLabs/Common/Login'), [('siteURL') : findTestData('SwagLabs').getValue(1, 1), ('Username') : findTestData(
+            'SwagLabs').getValue(2, 1), ('Password') : findTestData('SwagLabs').getValue(3, 1)], FailureHandling.STOP_ON_FAILURE)
 
 WebUI.verifyElementPresent(findTestObject('Page_Swag Labs/div_itemName', [('itemName') : itemName]), 0)
 

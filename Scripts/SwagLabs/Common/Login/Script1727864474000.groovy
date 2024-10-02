@@ -19,13 +19,13 @@ import org.openqa.selenium.Keys as Keys
 
 WebUI.openBrowser('')
 
-WebUI.navigateToUrl(GlobalVariable.siteURL)
+WebUI.navigateToUrl(siteURL)
 
 WebUI.maximizeWindow()
 
-WebUI.setText(findTestObject('Page_Swag Labs/Username'), GlobalVariable.Username)
+WebUI.setText(findTestObject('Page_Swag Labs/Username'), Username)
 
-WebUI.setText(findTestObject('Page_Swag Labs/Password'), GlobalVariable.Password)
+WebUI.setText(findTestObject('Page_Swag Labs/Password'), Password)
 
 WebUI.click(findTestObject('Page_Swag Labs/Login button'))
 
