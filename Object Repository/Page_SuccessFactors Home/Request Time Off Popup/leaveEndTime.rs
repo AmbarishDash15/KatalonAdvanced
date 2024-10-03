@@ -11,7 +11,7 @@
       </entry>
       <entry>
          <key>CSS</key>
-         <value>input#__picker5-inner</value>
+         <value>input#__picker1-inner</value>
       </entry>
    </selectorCollection>
    <selectorMethod>CSS</selectorMethod>

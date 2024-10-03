@@ -15,8 +15,12 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
-import otherRequiredCodes.AdditionalFunctions as AdditionalFunctions
+import customUtilities.MultiplyTimePeriod as MultiplyTimePeriod
+import customUtilities.TimeDifference as TimeDifference
+import customUtilities.WorkingDaysCalculator as WorkingDaysCalculator
+import customUtilities.TimeDifferenceChecker as TimeDifferenceChecker
 import org.openqa.selenium.Keys as Keys
+import java.lang.Integer as Integer
 
 WebUI.openBrowser('')
 
@@ -83,26 +87,36 @@ WebUI.takeFullPageScreenshot()
 
 WebUI.setText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/timeType'), LeaveType, FailureHandling.STOP_ON_FAILURE)
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/timeTypeOption', [('timeType') : timeType]), 
+WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/timeTypeOption', [('timeType') : LeaveType]), 
     FailureHandling.STOP_ON_FAILURE)
 
 WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/availableBalance'), 10)
 
-leaveBalance = WebUI.getText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/availableBalance'))
-
-WebUI.verifyMatch(leaveBalance, LeaveBalance, false)
-
-WorkingHours = WebUI.getText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/plannedWorkingTime'))
-
 WebUI.setText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/leaveStartDate'), LeaveStartDate)
+
+WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/availableBalance'))
+
+WebUI.verifyElementAttributeValue(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/availableBalance'), 'value', 
+    LeaveBalance, 0)
+
+WorkingHours = WebUI.getAttribute(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/plannedWorkingTime'), 
+    'title')
 
 WebUI.setText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/leaveEndTime'), LeaveEndDate)
 
+WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/availableBalance'))
+
 if (NumberOfLeaveDays == '') {
-    NumberOfLeaveDays = AdditionalFunctions.calculateWorkingDays(LeaveStartDate, LeaveEndDate)
+    NumberOfLeaveDays = WorkingDaysCalculator.calculateWorkingDays(LeaveStartDate, LeaveEndDate)
 }
 
-LeaveDeducted = (NumberOfLeaveDays * AdditionalFunctions.calculateTimeDifference(WorkingHours))
+LeaveDeducted = MultiplyTimePeriod.multiplyTimePeriod(TimeDifference.calculateTimeDifference(WorkingHours), NumberOfLeaveDays)
 
-WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/leavesToBeDeducted'), LeaveDeducted)
+valueOnApp = WebUI.getAttribute(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/leavesToBeDeducted'), 'value')
+
+if (TimeDifferenceChecker.checkTimeDifference(LeaveDeducted, valueOnApp)) {
+    assert true
+}
+
+WebUI.takeFullPageScreenshot()
 
