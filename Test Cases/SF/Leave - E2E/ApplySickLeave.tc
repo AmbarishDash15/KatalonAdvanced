@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>ApplySickLeave</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>05d55fbf-7e38-49e0-8e0c-e3811560b98d</testCaseGuid>
+</TestCaseEntity>

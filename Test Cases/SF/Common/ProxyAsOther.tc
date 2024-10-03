@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>ProxyAsOther</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>1759272c-f291-48e1-b395-cdb38550fbdb</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>bdeab51b-c0e1-413d-862a-62e7cd7c57af</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>3b476ffc-26d7-48d0-9d8f-79c3fcb73308</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'166020'</defaultValue>
+      <description></description>
+      <id>bdeab51b-c0e1-413d-862a-62e7cd7c57af</id>
+      <masked>false</masked>
+      <name>employeeIDtoProxy</name>
+   </variable>
+   <variable>
+      <defaultValue>'Ben Skewes'</defaultValue>
+      <description></description>
+      <id>3b476ffc-26d7-48d0-9d8f-79c3fcb73308</id>
+      <masked>false</masked>
+      <name>employeeNameToProxy</name>
+   </variable>
+</TestCaseEntity>
