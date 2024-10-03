@@ -15,6 +15,7 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
+import otherRequiredCodes.AdditionalFunctions as AdditionalFunctions
 import org.openqa.selenium.Keys as Keys
 
 WebUI.openBrowser('')
@@ -30,4 +31,78 @@ WebUI.setEncryptedText(findTestObject('Object Repository/Page_SuccessFactors - s
     'LHKz3RaeJz/y9i0fuiHHdA==')
 
 WebUI.click(findTestObject('Object Repository/Page_SuccessFactors - snowyhydroT1 Sign In/div_Continue'))
+
+WebUI.waitForPageLoad(10)
+
+WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/button_ProfileButton'), 0)
+
+WebUI.takeFullPageScreenshot()
+
+WebUI.click(findTestObject('Page_SuccessFactors Home/button_ProfileButton'))
+
+WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/button_Proxy Now'), 0)
+
+WebUI.click(findTestObject('Page_SuccessFactors Home/button_Proxy Now'))
+
+WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/input_UserName'), 0)
+
+WebUI.setText(findTestObject('Page_SuccessFactors Home/input_UserName'), '166020')
+
+WebUI.delay(1)
+
+WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/ProxyPopupSearchResult'), 0)
+
+WebUI.verifyElementAttributeValue(findTestObject('Page_SuccessFactors Home/ProxyPopupSearchResult'), 'title', 'Ben Skewes', 
+    0)
+
+WebUI.takeFullPageScreenshot()
+
+WebUI.click(findTestObject('Page_SuccessFactors Home/ProxyPopupSearchResult'))
+
+WebUI.click(findTestObject('Page_SuccessFactors Home/ProxyPopup_OkButton'))
+
+WebUI.delay(10)
+
+WebUI.waitForPageLoad(15)
+
+title = WebUI.getAttribute(findTestObject('Page_SuccessFactors Home/button_ProfileButton'), 'title')
+
+WebUI.verifyMatch(title, '.*Ben Skewes.*', true)
+
+WebUI.click(findTestObject('Page_SuccessFactors Home/tilebutton_Request Time Off'))
+
+WebUI.delay(2)
+
+WebUI.waitForElementNotPresent(findTestObject('Page_SuccessFactors Home/busyIndicator'), 0)
+
+WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/dialogBox'), 0)
+
+WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/dialogHeader'), 'Request Time Off')
+
+WebUI.takeFullPageScreenshot()
+
+WebUI.setText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/timeType'), LeaveType, FailureHandling.STOP_ON_FAILURE)
+
+WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/timeTypeOption', [('timeType') : timeType]), 
+    FailureHandling.STOP_ON_FAILURE)
+
+WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/availableBalance'), 10)
+
+leaveBalance = WebUI.getText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/availableBalance'))
+
+WebUI.verifyMatch(leaveBalance, LeaveBalance, false)
+
+WorkingHours = WebUI.getText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/plannedWorkingTime'))
+
+WebUI.setText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/leaveStartDate'), LeaveStartDate)
+
+WebUI.setText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/leaveEndTime'), LeaveEndDate)
+
+if (NumberOfLeaveDays == '') {
+    NumberOfLeaveDays = AdditionalFunctions.calculateWorkingDays(LeaveStartDate, LeaveEndDate)
+}
+
+LeaveDeducted = (NumberOfLeaveDays * AdditionalFunctions.calculateTimeDifference(WorkingHours))
+
+WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/leavesToBeDeducted'), LeaveDeducted)
 
