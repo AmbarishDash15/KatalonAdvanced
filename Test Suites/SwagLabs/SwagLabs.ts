@@ -11,8 +11,28 @@
          <configuration>
             <groupName>Web Desktop</groupName>
             <profileName>default</profileName>
-            <requireConfigurationData>false</requireConfigurationData>
-            <runConfigurationId>Chrome (headless)</runConfigurationId>
+            <requireConfigurationData>true</requireConfigurationData>
+            <runConfigurationData>
+               <entry>
+                  <key>testCloudDesktopBrowser</key>
+                  <value>{
+  &quot;id&quot;: 409,
+  &quot;osDisplayName&quot;: &quot;Windows&quot;,
+  &quot;browserName&quot;: &quot;firefox&quot;,
+  &quot;browserDisplayName&quot;: &quot;Firefox&quot;,
+  &quot;browserVersion&quot;: &quot;130&quot;,
+  &quot;os&quot;: &quot;windows&quot;,
+  &quot;platformName&quot;: &quot;IOS&quot;,
+  &quot;timeout&quot;: 15,
+  &quot;usingTunnel&quot;: false
+}</value>
+               </entry>
+               <entry>
+                  <key>testCloudSessionType</key>
+                  <value>DESKTOP_BROWSER</value>
+               </entry>
+            </runConfigurationData>
+            <runConfigurationId>TestCloud</runConfigurationId>
          </configuration>
          <runEnabled>true</runEnabled>
          <testSuiteEntity>Test Suites/SwagLabs/OrderFromProductsPage</testSuiteEntity>
