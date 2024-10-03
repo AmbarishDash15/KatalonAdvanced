@@ -8,7 +8,7 @@
    <testCaseGuid>0c83671b-4db8-4c3d-a421-1820ed810de6</testCaseGuid>
    <testDataLinks>
       <combinationType>ONE</combinationType>
-      <id>764d8484-fa43-49e7-ae56-2fb4781dbd13</id>
+      <id>813a4b7a-50ad-41ff-b6ea-b2f077b991a4</id>
       <iterationEntity>
          <iterationType>ALL</iterationType>
          <value></value>
@@ -16,19 +16,19 @@
       <testDataId>Data Files/SwagLabs</testDataId>
    </testDataLinks>
    <variableLinks>
-      <testDataLinkId>764d8484-fa43-49e7-ae56-2fb4781dbd13</testDataLinkId>
+      <testDataLinkId>813a4b7a-50ad-41ff-b6ea-b2f077b991a4</testDataLinkId>
       <type>DATA_COLUMN</type>
       <value>siteURL</value>
       <variableId>195e0394-5003-47d7-adc4-9775f7a76151</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId>764d8484-fa43-49e7-ae56-2fb4781dbd13</testDataLinkId>
+      <testDataLinkId>813a4b7a-50ad-41ff-b6ea-b2f077b991a4</testDataLinkId>
       <type>DATA_COLUMN</type>
       <value>Username</value>
       <variableId>04eb49ba-d963-405b-92cd-c2107e971763</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId>764d8484-fa43-49e7-ae56-2fb4781dbd13</testDataLinkId>
+      <testDataLinkId>813a4b7a-50ad-41ff-b6ea-b2f077b991a4</testDataLinkId>
       <type>DATA_COLUMN</type>
       <value>Password</value>
       <variableId>7a2d0ce1-96fe-4777-996f-065267c5cf43</variableId>

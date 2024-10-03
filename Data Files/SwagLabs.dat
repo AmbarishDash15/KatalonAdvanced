@@ -7,9 +7,9 @@
    <containsHeaders>true</containsHeaders>
    <csvSeperator>COMMA</csvSeperator>
    <dataFileGUID>39498739-7af4-45ae-95bf-4774775655af</dataFileGUID>
-   <dataSourceUrl>C:\Users\5035\Katalon Studio\KatalonAdvanced\Datafiles\SwagLabsCredential.csv</dataSourceUrl>
+   <dataSourceUrl>Datafiles/SwagLabsCredential.csv</dataSourceUrl>
    <driver>CSV</driver>
-   <isInternalPath>false</isInternalPath>
+   <isInternalPath>true</isInternalPath>
    <query></query>
    <secureUserAccount>false</secureUserAccount>
    <sheetName></sheetName>

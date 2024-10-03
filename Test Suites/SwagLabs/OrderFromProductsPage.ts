@@ -16,15 +16,6 @@
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
       <testCaseId>Test Cases/SwagLabs/Order_Products/TC01</testCaseId>
-      <testDataLink>
-         <combinationType>ONE</combinationType>
-         <id>7cc8e9ab-48ea-403d-ba62-346460955154</id>
-         <iterationEntity>
-            <iterationType>ALL</iterationType>
-            <value></value>
-         </iterationEntity>
-         <testDataId>Data Files/SwagLabs</testDataId>
-      </testDataLink>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
       <variableLink>
          <testDataLinkId></testDataLinkId>
