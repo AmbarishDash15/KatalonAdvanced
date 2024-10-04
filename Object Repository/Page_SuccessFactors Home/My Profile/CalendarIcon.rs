@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>HomeScreen_ShadowRoot_ParentMain_ProxyNowButton</name>
+   <name>CalendarIcon</name>
    <tag></tag>
-   <elementGuidId>0d38214c-7484-4e1e-bae7-796491e9b336</elementGuidId>
+   <elementGuidId>091f688d-a755-4f54-9fe1-4e450df4420c</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
@@ -11,7 +11,7 @@
       </entry>
       <entry>
          <key>CSS</key>
-         <value>ui5-static-area-item-sf-header[data-ui5-stable = &quot;shellbar-profile-static&quot;]</value>
+         <value>span#__xmlview0--sfPeopleProfileObjectPageHeader-expand-img</value>
       </entry>
    </selectorCollection>
    <selectorMethod>CSS</selectorMethod>

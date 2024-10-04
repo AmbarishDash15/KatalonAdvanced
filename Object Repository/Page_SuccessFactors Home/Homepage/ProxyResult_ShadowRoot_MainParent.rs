@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>tilebutton_Request Time Off</name>
+   <name>ProxyResult_ShadowRoot_MainParent</name>
    <tag></tag>
-   <elementGuidId>32edd46e-9ce9-4296-9cce-4484a4933c1c</elementGuidId>
+   <elementGuidId>59c97777-ab20-4c22-813b-8334e94e72bd</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value></value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>button[title=&quot;Request Time Off&quot;]</value>
+         <value>ui5-static-area-item-sf-header[data-ui5-stable=&quot;shellbar-proxy-search-static&quot;]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>CSS</selectorMethod>

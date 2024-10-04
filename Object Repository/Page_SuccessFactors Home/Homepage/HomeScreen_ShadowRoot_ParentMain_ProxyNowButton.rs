@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>ProxyPopup_ParentMain_OkButton</name>
+   <name>HomeScreen_ShadowRoot_ParentMain_ProxyNowButton</name>
    <tag></tag>
-   <elementGuidId>0e2dcf10-d517-4a47-bb12-9c6bd214e150</elementGuidId>
+   <elementGuidId>0d38214c-7484-4e1e-bae7-796491e9b336</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value></value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>ui5-static-area-item-sf-header[data-ui5-stable=&quot;shellbar-proxy-static&quot;]</value>
+         <value>ui5-static-area-item-sf-header[data-ui5-stable = &quot;shellbar-profile-static&quot;]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>CSS</selectorMethod>

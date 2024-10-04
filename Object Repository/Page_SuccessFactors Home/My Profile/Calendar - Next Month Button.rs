@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>busyIndicator</name>
+   <name>Calendar - Next Month Button</name>
    <tag></tag>
-   <elementGuidId>9e7ac735-ffae-4699-841e-3ae2a97b2fd0</elementGuidId>
+   <elementGuidId>3b4bc034-c03f-408a-8af8-a49b89e4ecc5</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
@@ -11,7 +11,7 @@
       </entry>
       <entry>
          <key>CSS</key>
-         <value>div.ui5-busy-indicator-circles-wrapper</value>
+         <value>button#effectiveDateCalendar--Head-next</value>
       </entry>
    </selectorCollection>
    <selectorMethod>CSS</selectorMethod>

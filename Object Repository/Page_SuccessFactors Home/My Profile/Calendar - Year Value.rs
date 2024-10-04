@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>ProxyResult_ShadowRoot_MainParent</name>
+   <name>Calendar - Year Value</name>
    <tag></tag>
-   <elementGuidId>59c97777-ab20-4c22-813b-8334e94e72bd</elementGuidId>
+   <elementGuidId>7dc12905-bf91-4e46-854a-d34e4665e4e9</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
@@ -11,7 +11,7 @@
       </entry>
       <entry>
          <key>CSS</key>
-         <value>ui5-static-area-item-sf-header[data-ui5-stable=&quot;shellbar-proxy-search-static&quot;]</value>
+         <value>button#effectiveDateCalendar--Head-B2</value>
       </entry>
    </selectorCollection>
    <selectorMethod>CSS</selectorMethod>

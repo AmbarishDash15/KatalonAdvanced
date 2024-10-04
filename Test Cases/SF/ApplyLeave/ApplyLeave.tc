@@ -88,7 +88,7 @@
       <name>LeaveEndDate</name>
    </variable>
    <variable>
-      <defaultValue>'67:07 hours'</defaultValue>
+      <defaultValue>''</defaultValue>
       <description></description>
       <id>97a3c610-f16a-45da-b114-2b74e460ae16</id>
       <masked>false</masked>

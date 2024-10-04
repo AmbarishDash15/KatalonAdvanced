@@ -21,15 +21,15 @@ import customUtilities.TimeDifference as TimeDifference
 import customUtilities.WorkingDaysCalculator as WorkingDaysCalculator
 import customUtilities.TimeDifferenceChecker as TimeDifferenceChecker
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/tilebutton_Request Time Off'))
+WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/tilebutton_Request Time Off'))
 
 WebUI.delay(2)
 
-WebUI.waitForElementNotPresent(findTestObject('Page_SuccessFactors Home/busyIndicator'), 0)
+WebUI.waitForElementNotPresent(findTestObject('Page_SuccessFactors Home/Homepage/busyIndicator'), 0)
 
-WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/dialogBox'), 0)
+WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/dialogBox'), 0)
 
-WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/dialogHeader'), 'Request Time Off')
+WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/Homepage/dialogHeader'), 'Request Time Off')
 
 WebUI.takeFullPageScreenshot()
 
@@ -44,15 +44,15 @@ WebUI.setText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/le
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/availableBalance'))
 
-WebUI.verifyElementAttributeValue(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/availableBalance'), 'value', 
-    LeaveBalance, 0)
-
 WorkingHours = WebUI.getAttribute(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/plannedWorkingTime'), 
     'title')
 
 WebUI.setText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/leaveEndTime'), LeaveEndDate)
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/availableBalance'))
+
+WebUI.verifyElementAttributeValue(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/availableBalance'), 'value', 
+    GlobalVariable.LeaveBalance, 0)
 
 if (NumberOfLeaveDays == '') {
     NumberOfLeaveDays = WorkingDaysCalculator.calculateWorkingDays(LeaveStartDate, LeaveEndDate)

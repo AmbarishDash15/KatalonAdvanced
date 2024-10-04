@@ -15,7 +15,6 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
-
 import org.openqa.selenium.Keys as Keys
 import java.lang.Integer as Integer
 
@@ -35,7 +34,7 @@ WebUI.click(findTestObject('Object Repository/Page_SuccessFactors - snowyhydroT1
 
 WebUI.waitForPageLoad(10)
 
-WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/button_ProfileButton'), 0)
+WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/button_ProfileButton'), 0)
 
 WebUI.takeFullPageScreenshot()
 

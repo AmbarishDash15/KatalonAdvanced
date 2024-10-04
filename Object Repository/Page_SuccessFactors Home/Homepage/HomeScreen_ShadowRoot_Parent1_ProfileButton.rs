@@ -108,7 +108,7 @@
       <matchCondition>equals</matchCondition>
       <name>ref_element</name>
       <type>Main</type>
-      <value>Object Repository/Page_SuccessFactors Home/HomeScreen_ShadowRoot_ParentMain_ProfileButton</value>
+      <value>Object Repository/Page_SuccessFactors Home/Homepage/HomeScreen_ShadowRoot_ParentMain_ProfileButton</value>
       <webElementGuid>1bf21887-9aff-4db2-851c-6f48707a9e47</webElementGuid>
    </webElementProperties>
    <webElementXpaths>

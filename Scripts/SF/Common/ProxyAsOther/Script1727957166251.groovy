@@ -17,38 +17,38 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/button_ProfileButton'))
+WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/button_ProfileButton'))
 
-WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/button_Proxy Now'), 0)
+WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/button_Proxy Now'), 0)
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/button_Proxy Now'))
+WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/button_Proxy Now'))
 
-WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/input_UserName'), 0)
+WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/input_UserName'), 0)
 
-WebUI.setText(findTestObject('Page_SuccessFactors Home/input_UserName'), employeeIDtoProxy)
+WebUI.setText(findTestObject('Page_SuccessFactors Home/Homepage/input_UserName'), employeeIDtoProxy)
 
 WebUI.delay(1)
 
-WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/ProxyPopupSearchResult'), 0)
+WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/ProxyPopupSearchResult'), 0)
 
-WebUI.verifyElementAttributeValue(findTestObject('Page_SuccessFactors Home/ProxyPopupSearchResult'), 'title', employeeNameToProxy, 
+WebUI.verifyElementAttributeValue(findTestObject('Page_SuccessFactors Home/Homepage/ProxyPopupSearchResult'), 'title', employeeNameToProxy, 
     0)
 
 WebUI.takeFullPageScreenshot()
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/ProxyPopupSearchResult'))
+WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/ProxyPopupSearchResult'))
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/ProxyPopup_OkButton'))
+WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/ProxyPopup_OkButton'))
 
 WebUI.delay(10)
 
 WebUI.waitForPageLoad(15)
 
-title = WebUI.getAttribute(findTestObject('Page_SuccessFactors Home/button_ProfileButton'), 'title')
+title = WebUI.getAttribute(findTestObject('Page_SuccessFactors Home/Homepage/button_ProfileButton'), 'title')
 
 WebUI.verifyMatch(title, '.*on behalf of ' + (employeeNameToProxy + '.*'), true)
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/button_ProfileButton'))
+WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/button_ProfileButton'))
 
 WebUI.takeFullPageScreenshot()
 

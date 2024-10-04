@@ -7,7 +7,6 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value></value>
       </entry>
       <entry>
          <key>CSS</key>
@@ -22,7 +21,7 @@
       <matchCondition>equals</matchCondition>
       <name>ref_element</name>
       <type>Main</type>
-      <value>Object Repository/Page_SuccessFactors Home/ProxyPopup_Parent1_UserName</value>
+      <value>Object Repository/Page_SuccessFactors Home/Homepage/ProxyPopup_Parent1_UserName</value>
       <webElementGuid>0cdbeffb-d62a-4831-b358-f0a7d8f0d432</webElementGuid>
    </webElementProperties>
    <webElementProperties>

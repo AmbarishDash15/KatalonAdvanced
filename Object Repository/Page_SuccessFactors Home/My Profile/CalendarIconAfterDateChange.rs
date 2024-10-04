@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>ProxyPopup_ParentMain_SelectTargetUser</name>
+   <name>CalendarIconAfterDateChange</name>
    <tag></tag>
-   <elementGuidId>36ca2222-4a4e-4d04-b0a6-3d674d02163b</elementGuidId>
+   <elementGuidId>2b1760b4-bf9a-4ec3-a0ec-deaaf2f8ae02</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
@@ -11,7 +11,7 @@
       </entry>
       <entry>
          <key>CSS</key>
-         <value>ui5-static-area-item-sf-header[data-ui5-stable=&quot;shellbar-proxy-static&quot;]</value>
+         <value>button#__xmlview0--effectiveDateTitleBtn</value>
       </entry>
    </selectorCollection>
    <selectorMethod>CSS</selectorMethod>

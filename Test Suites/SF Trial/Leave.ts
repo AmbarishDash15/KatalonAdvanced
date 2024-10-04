@@ -38,6 +38,43 @@
       </variableLink>
    </testCaseLink>
    <testCaseLink>
+      <guid>14c2132c-0099-45f3-bf32-66f6bfef7ed7</guid>
+      <isReuseDriver>false</isReuseDriver>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/SF/Common/CheckSelfProfile - Leave</testCaseId>
+      <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>f5107d87-2ae0-4b15-a86a-dc68f473b670</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>10338879-ca9e-4e2a-93df-b4ab3b3b55c8</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>bf20dc68-89d9-4e01-b412-cd81826ce66e</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>a380441a-880d-4a6f-b4ae-e79305c75475</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>721c692e-9d1f-4e1e-8210-9aa412042c10</variableId>
+      </variableLink>
+   </testCaseLink>
+   <testCaseLink>
       <guid>74a1f441-c8bb-4dec-baa2-18d925fe0da4</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>

@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>dialogBox</name>
+   <name>busyIndicator</name>
    <tag></tag>
-   <elementGuidId>1bbfdc24-4778-488c-a3eb-aa692959267d</elementGuidId>
+   <elementGuidId>9e7ac735-ffae-4699-841e-3ae2a97b2fd0</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value></value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>div#__dialog0</value>
+         <value>div.ui5-busy-indicator-circles-wrapper</value>
       </entry>
    </selectorCollection>
    <selectorMethod>CSS</selectorMethod>
