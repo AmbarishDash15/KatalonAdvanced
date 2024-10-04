@@ -15,10 +15,7 @@ import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
-import customUtilities.MultiplyTimePeriod as MultiplyTimePeriod
-import customUtilities.TimeDifference as TimeDifference
-import customUtilities.WorkingDaysCalculator as WorkingDaysCalculator
-import customUtilities.TimeDifferenceChecker as TimeDifferenceChecker
+
 import org.openqa.selenium.Keys as Keys
 import java.lang.Integer as Integer
 
