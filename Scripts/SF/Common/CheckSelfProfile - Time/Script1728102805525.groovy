@@ -67,22 +67,19 @@ if (!(DateChecker.isTodayOrPast(LeaveStartDate))) {
         'title', 'As of ' + LeaveStartDate, 0)
 
     WebUI.takeFullPageScreenshot()
-
-    WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/SectionTabName', [('tabName') : 'Time']))
-
-    WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - title'), 0)
-
-    WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - title'), 0)
 }
+
+WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/SectionTabName'))
 
 if (WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Time - Section Show More Button'), 0)) {
     WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/Time - Section Show More Button'))
 }
 
-WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - Leave Type (var)', [('leaveType') : LeaveType]), 
-    0)
+WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - title'), 0)
 
-WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - Leave Type (var)', [('leaveType') : LeaveType]), 
+WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - title'), 0)
+
+WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - Leave Type (var)', [('leaveType') : LeaveType]), 
     0)
 
 LeaveBalance = WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - Leave Balance (var)', 
