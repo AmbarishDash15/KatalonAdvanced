@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>button_Proxy Now</name>
+   <name>CompanyIcon</name>
    <tag></tag>
-   <elementGuidId>3adc3def-b3ec-4ccd-b98a-9325393a1c58</elementGuidId>
+   <elementGuidId>169c6838-cee6-4fc3-8672-79979ff08ba0</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
+         <value></value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>div > ui5-popover-sf-header > div.popover-content > ui5-list-sf-header > ui5-li-sf-header[data-ui5-stable=&quot;profile-item-PROXY_NOW&quot;] > span > div</value>
+         <value>span.ui5-shellbar-logo[title=&quot;Logo image. Link to Home.&quot;]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>CSS</selectorMethod>
@@ -21,8 +22,8 @@
       <matchCondition>equals</matchCondition>
       <name>ref_element</name>
       <type>Main</type>
-      <value>Object Repository/Page_SuccessFactors Home/TitleBar/HomeScreen_ShadowRoot_ParentMain_ProxyNowButton</value>
-      <webElementGuid>c1b3cf73-997e-4288-8a60-0f74c270e46b</webElementGuid>
+      <value>Object Repository/Page_SuccessFactors Home/TitleBar/HomeScreen_ShadowRoot_Parent1_Banner</value>
+      <webElementGuid>de50ca6b-90a3-4349-9147-a7d40e92fdbf</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -30,6 +31,6 @@
       <name>ref_element_is_shadow_root</name>
       <type>Main</type>
       <value>true</value>
-      <webElementGuid>0fc1076d-db42-40bd-9e55-254aa6850b47</webElementGuid>
+      <webElementGuid>291c2c74-516e-47a4-a01e-291986ae3b0b</webElementGuid>
    </webElementProperties>
 </WebElementEntity>

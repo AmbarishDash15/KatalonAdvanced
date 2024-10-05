@@ -11,7 +11,7 @@
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//div[@data-sap-day=&quot;${date}&quot;]</value>
+         <value>//span[@class=&quot;sapUiCalItemText&quot;][contains(text(),&quot;${date}&quot;)]</value>
       </entry>
       <entry>
          <key>CSS</key>

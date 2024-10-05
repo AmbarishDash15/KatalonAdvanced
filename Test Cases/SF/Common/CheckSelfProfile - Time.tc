@@ -1,33 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>CheckSelfProfile - Leave</name>
+   <name>CheckSelfProfile - Time</name>
    <tag></tag>
    <comment></comment>
    <recordOption>OTHER</recordOption>
    <testCaseGuid>afe754b7-3b0b-4ed2-b963-4eeb1bed57ab</testCaseGuid>
+   <testDataLinks>
+      <combinationType>ONE</combinationType>
+      <id>a5ebefa0-8fc5-4575-ac18-7ac84838c663</id>
+      <iterationEntity>
+         <iterationType>ALL</iterationType>
+         <value></value>
+      </iterationEntity>
+      <testDataId>Data Files/SF/Leave</testDataId>
+   </testDataLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>a5ebefa0-8fc5-4575-ac18-7ac84838c663</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>EmployeeName</value>
       <variableId>f5107d87-2ae0-4b15-a86a-dc68f473b670</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>a5ebefa0-8fc5-4575-ac18-7ac84838c663</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>EmployeeID</value>
       <variableId>10338879-ca9e-4e2a-93df-b4ab3b3b55c8</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>a5ebefa0-8fc5-4575-ac18-7ac84838c663</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>LeaveStartDate</value>
       <variableId>bf20dc68-89d9-4e01-b412-cd81826ce66e</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>a5ebefa0-8fc5-4575-ac18-7ac84838c663</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>LeaveType</value>
       <variableId>a380441a-880d-4a6f-b4ae-e79305c75475</variableId>
    </variableLinks>
    <variableLinks>
@@ -37,14 +46,14 @@
       <variableId>721c692e-9d1f-4e1e-8210-9aa412042c10</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>''</defaultValue>
+      <defaultValue>'Ben Skewes'</defaultValue>
       <description></description>
       <id>f5107d87-2ae0-4b15-a86a-dc68f473b670</id>
       <masked>false</masked>
       <name>EmployeeName</name>
    </variable>
    <variable>
-      <defaultValue>''</defaultValue>
+      <defaultValue>'166020'</defaultValue>
       <description></description>
       <id>10338879-ca9e-4e2a-93df-b4ab3b3b55c8</id>
       <masked>false</masked>

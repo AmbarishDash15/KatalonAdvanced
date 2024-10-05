@@ -6,16 +6,25 @@
    <comment></comment>
    <recordOption>OTHER</recordOption>
    <testCaseGuid>1759272c-f291-48e1-b395-cdb38550fbdb</testCaseGuid>
+   <testDataLinks>
+      <combinationType>ONE</combinationType>
+      <id>cc0ff17b-ca91-4baf-8e57-80592a648af3</id>
+      <iterationEntity>
+         <iterationType>ALL</iterationType>
+         <value></value>
+      </iterationEntity>
+      <testDataId>Data Files/SF/Leave</testDataId>
+   </testDataLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>cc0ff17b-ca91-4baf-8e57-80592a648af3</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>EmployeeID</value>
       <variableId>bdeab51b-c0e1-413d-862a-62e7cd7c57af</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>cc0ff17b-ca91-4baf-8e57-80592a648af3</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>EmployeeName</value>
       <variableId>3b476ffc-26d7-48d0-9d8f-79c3fcb73308</variableId>
    </variableLinks>
    <variable>

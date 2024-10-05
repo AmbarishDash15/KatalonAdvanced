@@ -27,9 +27,9 @@ WebUI.delay(2)
 
 WebUI.waitForElementNotPresent(findTestObject('Page_SuccessFactors Home/Homepage/busyIndicator'), 0)
 
-WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/dialogBox'), 0)
+WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/dialogBox'), 0)
 
-WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/Homepage/dialogHeader'), 'Request Time Off')
+WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/dialogHeader'), 'Request Time Off')
 
 WebUI.takeFullPageScreenshot()
 

@@ -17,7 +17,7 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/button_ProfileButton'))
+WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/button_ProfileButton'))
 
 WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/button_Proxy Now'), 0)
 
@@ -44,11 +44,11 @@ WebUI.delay(10)
 
 WebUI.waitForPageLoad(15)
 
-title = WebUI.getAttribute(findTestObject('Page_SuccessFactors Home/Homepage/button_ProfileButton'), 'title')
+title = WebUI.getAttribute(findTestObject('Page_SuccessFactors Home/TitleBar/button_ProfileButton'), 'title')
 
 WebUI.verifyMatch(title, '.*on behalf of ' + (employeeNameToProxy + '.*'), true)
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/button_ProfileButton'))
+WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/button_ProfileButton'))
 
 WebUI.takeFullPageScreenshot()
 

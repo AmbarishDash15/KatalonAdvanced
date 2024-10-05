@@ -19,10 +19,13 @@ import org.openqa.selenium.Keys as Keys
 
 WebUI.callTestCase(findTestCase('SF/Common/Login'), [:], FailureHandling.STOP_ON_FAILURE)
 
-WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeeIDtoProxy') : '166020', ('employeeNameToProxy') : 'Ben Skewes'], 
+WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeeIDtoProxy') : EmployeeID, ('employeeNameToProxy') : EmployeeName], 
     FailureHandling.STOP_ON_FAILURE)
 
-WebUI.callTestCase(findTestCase('SF/ApplyLeave/ApplyLeave'), [('LeaveType') : 'Sick Leave', ('LeaveStartDate') : '14 Nov 2024'
-        , ('LeaveEndDate') : '15 Nov 2024', ('LeaveBalance') : '67:07 hours', ('LeaveDeducted') : '7 hours 54 minutes', ('FullDay') : true
-        , ('WorkingHours') : '06:00 - 14:24', ('StartTime') : '', ('EndTime') : '', ('NumberOfLeaveDays') : ''], FailureHandling.STOP_ON_FAILURE)
+WebUI.callTestCase(findTestCase('SF/Common/CheckSelfProfile - Time'), [('EmployeeName') : EmployeeName, ('EmployeeID') : EmployeeID
+        , ('LeaveStartDate') : LeaveStartDate, ('LeaveType') : LeaveType, ('LeaveBalance') : ''], FailureHandling.STOP_ON_FAILURE)
+
+WebUI.callTestCase(findTestCase('SF/ApplyLeave/ApplyLeave'), [('LeaveType') : LeaveType, ('LeaveStartDate') : LeaveStartDate
+        , ('LeaveEndDate') : LeaveEndDate, ('LeaveBalance') : '', ('LeaveDeducted') : '', ('FullDay') : true, ('WorkingHours') : ''
+        , ('StartTime') : '', ('EndTime') : '', ('NumberOfLeaveDays') : ''], FailureHandling.STOP_ON_FAILURE)
 

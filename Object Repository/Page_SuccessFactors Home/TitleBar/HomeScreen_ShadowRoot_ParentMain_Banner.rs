@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>HomeScreen_ShadowRoot_ParentMain_ProfileButton</name>
+   <name>HomeScreen_ShadowRoot_ParentMain_Banner</name>
    <tag></tag>
    <elementGuidId>494cde08-f87f-4b53-b188-5b552dacdbbb</elementGuidId>
    <selectorCollection>

@@ -11,7 +11,7 @@
       </entry>
       <entry>
          <key>CSS</key>
-         <value>span#__xmlview0--sfPeopleProfileObjectPageHeader-expand-img</value>
+         <value>span#__xmlview0--effectiveDateContentBtn-inner</value>
       </entry>
    </selectorCollection>
    <selectorMethod>CSS</selectorMethod>

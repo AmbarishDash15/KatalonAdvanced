@@ -11,7 +11,7 @@
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//span[@class=&quot;secondaryTextPattern&quot;][text()=' ${leaveType}']</value>
+         <value>//span[@class=&quot;secondaryTextPattern&quot;][text()=' ${leaveType}']/preceding-sibling::span[@class=&quot;valuePattern sapExtentUilibFormPatternLargeNumber&quot;]</value>
       </entry>
       <entry>
          <key>CSS</key>

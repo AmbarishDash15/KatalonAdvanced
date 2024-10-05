@@ -6,22 +6,31 @@
    <comment></comment>
    <recordOption>OTHER</recordOption>
    <testCaseGuid>714358ee-0748-40ac-ac9d-20a01d874c05</testCaseGuid>
+   <testDataLinks>
+      <combinationType>ONE</combinationType>
+      <id>1f199eda-3a84-4d48-a570-caa790add905</id>
+      <iterationEntity>
+         <iterationType>ALL</iterationType>
+         <value></value>
+      </iterationEntity>
+      <testDataId>Data Files/SF/Leave</testDataId>
+   </testDataLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>1f199eda-3a84-4d48-a570-caa790add905</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>LeaveType</value>
       <variableId>a1a786ef-fa3b-4020-86ce-f2f238bb4957</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>1f199eda-3a84-4d48-a570-caa790add905</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>LeaveStartDate</value>
       <variableId>ac5af484-a6a1-4666-8100-0d3b9effe4c6</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>1f199eda-3a84-4d48-a570-caa790add905</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>LeaveEndDate</value>
       <variableId>8ab85a75-1df1-456e-a0ea-2a27d5a99267</variableId>
    </variableLinks>
    <variableLinks>
@@ -37,9 +46,9 @@
       <variableId>45ff2a56-9e1b-4f52-be6f-4d920bd30080</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>1f199eda-3a84-4d48-a570-caa790add905</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>FullDay</value>
       <variableId>bcfb7833-fa93-498e-9b4d-4a831e4226db</variableId>
    </variableLinks>
    <variableLinks>
@@ -95,7 +104,7 @@
       <name>LeaveBalance</name>
    </variable>
    <variable>
-      <defaultValue>'7 hours 54 minutes'</defaultValue>
+      <defaultValue>''</defaultValue>
       <description></description>
       <id>45ff2a56-9e1b-4f52-be6f-4d920bd30080</id>
       <masked>false</masked>
@@ -109,7 +118,7 @@
       <name>FullDay</name>
    </variable>
    <variable>
-      <defaultValue>'06:00 - 14:24'</defaultValue>
+      <defaultValue>''</defaultValue>
       <description></description>
       <id>617d453b-a53b-45fc-afaf-bb7eaeae0d96</id>
       <masked>false</masked>

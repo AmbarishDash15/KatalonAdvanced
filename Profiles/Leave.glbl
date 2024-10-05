@@ -9,9 +9,4 @@
       <initValue>''</initValue>
       <name>LeaveBalance</name>
    </GlobalVariableEntity>
-   <GlobalVariableEntity>
-      <description></description>
-      <initValue>''</initValue>
-      <name>LeaveType</name>
-   </GlobalVariableEntity>
 </GlobalVariableEntities>

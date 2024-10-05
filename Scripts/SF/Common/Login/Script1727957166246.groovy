@@ -34,7 +34,9 @@ WebUI.click(findTestObject('Object Repository/Page_SuccessFactors - snowyhydroT1
 
 WebUI.waitForPageLoad(10)
 
-WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/button_ProfileButton'), 0)
+WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'), 0)
+
+WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/TitleBar/button_ProfileButton'), 0)
 
 WebUI.takeFullPageScreenshot()
 

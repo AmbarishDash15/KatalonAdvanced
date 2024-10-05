@@ -1,20 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>Time Off Balance - Leave Type (var)</name>
+   <name>SectionTabName</name>
    <tag></tag>
-   <elementGuidId>73cd9ab2-4efa-4cf7-8b34-b322ded14a80</elementGuidId>
+   <elementGuidId>d021f131-5ada-4b6c-8de3-4c5e12c01e68</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>BASIC</key>
-         <value></value>
-      </entry>
-      <entry>
          <key>XPATH</key>
-         <value>//span[@class=&quot;secondaryTextPattern&quot;][text()=' ${leaveType}']</value>
+         <value>//bdi[contains(text(),&quot;Time&quot;)]</value>
       </entry>
       <entry>
-         <key>CSS</key>
+         <key>BASIC</key>
          <value></value>
       </entry>
    </selectorCollection>

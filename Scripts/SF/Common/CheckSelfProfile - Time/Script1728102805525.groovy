@@ -35,28 +35,44 @@ if (!(DateChecker.isTodayOrPast(LeaveStartDate))) {
 
     WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Calendar'), 0)
 
-    def MonthForwader = CalendarNavigator.monthsToNext(LeaveStartDate)
-
-    for (def index : (0..MonthForwader)) {
-        WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Next Month Button'))
-    }
-    
-    selectedMonth = WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Month Value'))
-
     String[] parts = LeaveStartDate.split(' ')
 
     def paramDate = parts[0]
 
     def paramMonth = parts[1]
 
+    def paramYear = parts[2]
+
+    def fullMonthName = MonthConverter.getFullMonthName(paramMonth)
+
+    while (!((fullMonthName == WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Month Value'))) & 
+    (paramYear == WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Year Value'))))) {
+        WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Next Month Button'))
+    }
+    
+    /*
+    def MonthForwader = CalendarNavigator.monthsToNext(LeaveStartDate)
+
+    for (def index : (0..MonthForwader)) {
+        WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Next Month Button'))
+    }
+    */
+    selectedMonth = WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Month Value'))
+
     if (selectedMonth == MonthConverter.getFullMonthName(paramMonth)) {
         WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Date Icon (var)', [('date') : paramDate]))
     }
     
-    WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/My Profile/CalendarIconAfterDateChange'), 'As of ' + 
-        LeaveStartDate)
+    WebUI.verifyElementAttributeValue(findTestObject('Page_SuccessFactors Home/My Profile/CalendarIconAfterDateChange'), 
+        'title', 'As of ' + LeaveStartDate, 0)
 
     WebUI.takeFullPageScreenshot()
+
+    WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/SectionTabName', [('tabName') : 'Time']))
+
+    WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - title'), 0)
+
+    WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - title'), 0)
 }
 
 if (WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Time - Section Show More Button'), 0)) {
@@ -70,9 +86,11 @@ WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/My Profile/Time O
     0)
 
 LeaveBalance = WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - Leave Balance (var)', 
-        [('leaveType') : LeaveBalance]))
+        [('leaveType') : LeaveType]))
 
 GlobalVariable.LeaveBalance = LeaveBalance
 
 WebUI.takeFullPageScreenshot()
+
+WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
 

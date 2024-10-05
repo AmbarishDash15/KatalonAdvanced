@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>HomeScreen_ShadowRoot_Parent1_ProfileButton</name>
+   <name>HomeScreen_ShadowRoot_Parent1_Banner</name>
    <tag></tag>
    <elementGuidId>63746dff-2990-4ab0-b16b-10f09a1b44dd</elementGuidId>
    <selectorCollection>
@@ -108,7 +108,7 @@
       <matchCondition>equals</matchCondition>
       <name>ref_element</name>
       <type>Main</type>
-      <value>Object Repository/Page_SuccessFactors Home/Homepage/HomeScreen_ShadowRoot_ParentMain_ProfileButton</value>
+      <value>Object Repository/Page_SuccessFactors Home/TitleBar/HomeScreen_ShadowRoot_ParentMain_Banner</value>
       <webElementGuid>1bf21887-9aff-4db2-851c-6f48707a9e47</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
