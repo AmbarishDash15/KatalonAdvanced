@@ -6,16 +6,15 @@
    <elementGuidId>b2132693-f27e-4cde-90fb-e03ed8b390a9</elementGuidId>
    <selectorCollection>
       <entry>
+         <key>CSS</key>
+         <value>.sapMText.sapUiSelectable.sapMTextMaxWidth.sapExtentUilibFormPatternValueLabel</value>
+      </entry>
+      <entry>
          <key>BASIC</key>
-         <value></value>
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//span[@class=&quot;sapMText sapUiSelectable sapMTextMaxWidth sapExtentUilibFormPatternValueLabel&quot;][text()= &quot;${leaveTypeandHours}&quot;]</value>
-      </entry>
-      <entry>
-         <key>CSS</key>
-         <value>.sapMText.sapUiSelectable.sapMTextMaxWidth.sapExtentUilibFormPatternValueLabel</value>
+         <value>//span[@class=&quot;sapMText sapUiSelectable sapMTextMaxWidth&quot;][text()= &quot;${leaveDates}&quot;]/parent::td/parent::tr/parent::tbody/tr[1]/td/span</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>

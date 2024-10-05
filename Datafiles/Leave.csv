@@ -1,3 +1,2 @@
-EmployeeName,EmployeeID,LeaveType,LeaveStartDate,LeaveEndDate,FullDay
-Ben Skewes,166020,Annual Leave,17 Feb 2025,20 Feb 2025,true
-Nikki Scholes,174159,Sick Leave,14 Nov 2024,15 Nov 2024,true
+EmployeeName,EmployeeID,LeaveType,LeaveStartDate,LeaveEndDate,FullDay,ApproverID,ApproverName
+Nikki Scholes,174159,Annual Leave,14 Nov 2024,15 Nov 2024,true,174139,Chris Elliott

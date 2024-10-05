@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>Upcoming Timeoff - From - To Date (var)</name>
+   <name>Aprroval Card Details Field Name (var)</name>
    <tag></tag>
-   <elementGuidId>2340002a-d4f2-4a5c-b9eb-41f9230e686e</elementGuidId>
+   <elementGuidId>98a47fd0-af4c-4644-8041-436d9249fc70</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>CSS</key>
-         <value>.sapMText.sapUiSelectable.sapMTextMaxWidth.sapExtentUilibFormPatternValueLabel</value>
-      </entry>
-      <entry>
          <key>BASIC</key>
+         <value></value>
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//span[@class=&quot;sapMText sapUiSelectable sapMTextMaxWidth&quot;][text()= &quot;${leaveDates}&quot;]</value>
+         <value>//span[contains(@class,&quot;KeyValueFields_label&quot;)][@title='${fieldName}']</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value></value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>

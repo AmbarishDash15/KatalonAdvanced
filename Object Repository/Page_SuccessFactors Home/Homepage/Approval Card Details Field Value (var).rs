@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>Aprroval Card Details Field Name</name>
+   <name>Approval Card Details Field Value (var)</name>
    <tag></tag>
-   <elementGuidId>98a47fd0-af4c-4644-8041-436d9249fc70</elementGuidId>
+   <elementGuidId>a732bb48-0330-4b49-aa0f-2c0b7c801ea6</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
          <value></value>
       </entry>
       <entry>
+         <key>XPATH</key>
+         <value>//span[contains(@class,&quot;KeyValueFields_label&quot;)][@title='${fieldName}']/following-sibling::span</value>
+      </entry>
+      <entry>
          <key>CSS</key>
-         <value>//span[contains(@class,&quot;KeyValueFields_label&quot;)][@title='${fieldName}']</value>
+         <value></value>
       </entry>
    </selectorCollection>
-   <selectorMethod>CSS</selectorMethod>
+   <selectorMethod>XPATH</selectorMethod>
    <smartLocatorEnabled>false</smartLocatorEnabled>
    <useRalativeImagePath>false</useRalativeImagePath>
 </WebElementEntity>

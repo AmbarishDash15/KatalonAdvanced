@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>ApplySickLeave</name>
+   <name>Verify Approved Leave on Self Profile</name>
    <tag></tag>
    <comment></comment>
    <recordOption>OTHER</recordOption>
-   <testCaseGuid>05d55fbf-7e38-49e0-8e0c-e3811560b98d</testCaseGuid>
+   <testCaseGuid>9e9bdb90-9a41-4ab7-a4c2-0c93edb1fb3e</testCaseGuid>
    <testDataLinks>
       <combinationType>ONE</combinationType>
-      <id>49438155-21c5-4308-bbb9-511af2177843</id>
+      <id>a5ebefa0-8fc5-4575-ac18-7ac84838c663</id>
       <iterationEntity>
          <iterationType>ALL</iterationType>
          <value></value>
@@ -16,94 +16,81 @@
       <testDataId>Data Files/SF/Leave</testDataId>
    </testDataLinks>
    <variableLinks>
-      <testDataLinkId>49438155-21c5-4308-bbb9-511af2177843</testDataLinkId>
+      <testDataLinkId>a5ebefa0-8fc5-4575-ac18-7ac84838c663</testDataLinkId>
       <type>DATA_COLUMN</type>
       <value>EmployeeName</value>
-      <variableId>a68b532e-4be4-4e42-a34f-81cba8e9d997</variableId>
+      <variableId>adfda558-9a05-4bad-b9a1-50ba3dfcb12b</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId>49438155-21c5-4308-bbb9-511af2177843</testDataLinkId>
+      <testDataLinkId>a5ebefa0-8fc5-4575-ac18-7ac84838c663</testDataLinkId>
       <type>DATA_COLUMN</type>
       <value>EmployeeID</value>
-      <variableId>1e89d3a0-d3f6-4010-b82f-ef523eebb485</variableId>
+      <variableId>3c83c423-4fea-4902-a0a9-f4fd3bd5dc1a</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId>49438155-21c5-4308-bbb9-511af2177843</testDataLinkId>
-      <type>DATA_COLUMN</type>
-      <value>LeaveType</value>
-      <variableId>143b946a-d507-42c9-a61d-0a22d9eadf4d</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId>49438155-21c5-4308-bbb9-511af2177843</testDataLinkId>
+      <testDataLinkId>a5ebefa0-8fc5-4575-ac18-7ac84838c663</testDataLinkId>
       <type>DATA_COLUMN</type>
       <value>LeaveStartDate</value>
-      <variableId>ba243dcf-9f7e-4d04-9b05-faf8184ea485</variableId>
+      <variableId>cdccfc85-64b0-4b12-a3aa-6cf3b992b29b</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId>49438155-21c5-4308-bbb9-511af2177843</testDataLinkId>
+      <testDataLinkId>a5ebefa0-8fc5-4575-ac18-7ac84838c663</testDataLinkId>
       <type>DATA_COLUMN</type>
-      <value>LeaveEndDate</value>
-      <variableId>da34847f-4ad7-4aca-afc4-fb92f171df18</variableId>
+      <value>LeaveType</value>
+      <variableId>7d08d48d-bdbc-42f9-a289-b5b126b1866c</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>2dad17ea-6b27-4964-91da-d4fabd84d079</variableId>
+      <variableId>c4206206-f545-4a25-b855-a7a0d95e86f3</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>d34648cc-3fb2-4208-a0e3-c8b6ce7d02e7</variableId>
+      <variableId>60838bcc-ca8c-43c5-93b5-fa8f8df5ef45</variableId>
    </variableLinks>
    <variable>
       <defaultValue>''</defaultValue>
       <description></description>
-      <id>a68b532e-4be4-4e42-a34f-81cba8e9d997</id>
+      <id>adfda558-9a05-4bad-b9a1-50ba3dfcb12b</id>
       <masked>false</masked>
       <name>EmployeeName</name>
    </variable>
    <variable>
       <defaultValue>''</defaultValue>
       <description></description>
-      <id>1e89d3a0-d3f6-4010-b82f-ef523eebb485</id>
+      <id>3c83c423-4fea-4902-a0a9-f4fd3bd5dc1a</id>
       <masked>false</masked>
       <name>EmployeeID</name>
    </variable>
    <variable>
       <defaultValue>''</defaultValue>
       <description></description>
-      <id>143b946a-d507-42c9-a61d-0a22d9eadf4d</id>
-      <masked>false</masked>
-      <name>LeaveType</name>
-   </variable>
-   <variable>
-      <defaultValue>''</defaultValue>
-      <description></description>
-      <id>ba243dcf-9f7e-4d04-9b05-faf8184ea485</id>
+      <id>cdccfc85-64b0-4b12-a3aa-6cf3b992b29b</id>
       <masked>false</masked>
       <name>LeaveStartDate</name>
    </variable>
    <variable>
       <defaultValue>''</defaultValue>
       <description></description>
-      <id>da34847f-4ad7-4aca-afc4-fb92f171df18</id>
+      <id>7d08d48d-bdbc-42f9-a289-b5b126b1866c</id>
+      <masked>false</masked>
+      <name>LeaveType</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>c4206206-f545-4a25-b855-a7a0d95e86f3</id>
+      <masked>false</masked>
+      <name>LeaveBalance</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>60838bcc-ca8c-43c5-93b5-fa8f8df5ef45</id>
       <masked>false</masked>
       <name>LeaveEndDate</name>
-   </variable>
-   <variable>
-      <defaultValue>''</defaultValue>
-      <description></description>
-      <id>2dad17ea-6b27-4964-91da-d4fabd84d079</id>
-      <masked>false</masked>
-      <name>ApproverID</name>
-   </variable>
-   <variable>
-      <defaultValue>''</defaultValue>
-      <description></description>
-      <id>d34648cc-3fb2-4208-a0e3-c8b6ce7d02e7</id>
-      <masked>false</masked>
-      <name>ApproverName</name>
    </variable>
 </TestCaseEntity>

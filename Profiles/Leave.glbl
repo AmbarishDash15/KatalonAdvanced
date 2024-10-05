@@ -9,4 +9,14 @@
       <initValue>''</initValue>
       <name>LeaveBalance</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>LeaveDeducted</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>RemainingLeaveBalance</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

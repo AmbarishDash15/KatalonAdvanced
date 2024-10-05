@@ -68,3 +68,11 @@ if (TimeDifferenceChecker.checkTimeDifference(LeaveDeducted, valueOnApp)) {
 
 WebUI.takeFullPageScreenshot()
 
+GlobalVariable.LeaveDeducted = valueOnApp
+
+WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/submitButton'))
+
+WebUI.delay(2)
+
+WebUI.takeFullPageScreenshot()
+

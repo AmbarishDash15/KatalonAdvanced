@@ -52,3 +52,5 @@ WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/button_ProfileButt
 
 WebUI.takeFullPageScreenshot()
 
+WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/button_ProfileButton'))
+
