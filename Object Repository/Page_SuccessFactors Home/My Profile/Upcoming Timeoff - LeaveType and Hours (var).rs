@@ -14,7 +14,7 @@
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//span[@class=&quot;sapMText sapUiSelectable sapMTextMaxWidth&quot;][text()= &quot;${leaveDates}&quot;]/parent::td/parent::tr/parent::tbody/tr[1]/td/span</value>
+         <value>//span[@class=&quot;sapMText sapUiSelectable sapMTextMaxWidth&quot;][text()=&quot;${leaveDates}&quot;]/parent::td/parent::tr/parent::tbody/tr[1]/td/span</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>

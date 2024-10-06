@@ -88,9 +88,11 @@ WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/WorkFlowDetails
 WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/WorkFlowDetails/Approval Request Field Name (var)', 
         [('fieldName') : 'Balance as of ' + customUtilities.DateConverter.convertDateFormat(LeaveEndDate)]), 0)
 
-GlobalVariable.RemainingLeaveBalance = WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/WorkFlowDetails/Approval Request FieldWithOutQuestionMark Value (var)', 
+WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/WorkFlowDetails/Approval Request FieldWithOutQuestionMark Value (var)', 
         [('fieldName') : 'Balance as of ' + customUtilities.DateConverter.convertDateFormat(LeaveEndDate)]), TimeSubtractor.subtractTime(
         GlobalVariable.LeaveBalance, GlobalVariable.LeaveDeducted))
+
+GlobalVariable.RemainingLeaveBalance = TimeSubtractor.subtractTime(GlobalVariable.LeaveBalance, GlobalVariable.LeaveDeducted)
 
 WebUI.takeFullPageScreenshot()
 
@@ -101,11 +103,11 @@ WebUI.takeFullPageScreenshot()
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/WorkFlowDetails/Approve Button'))
 
-WebUI.delay(2)
+WebUI.delay(1)
 
 WebUI.takeFullPageScreenshot()
 
 WebUI.waitForPageLoad(0, FailureHandling.STOP_ON_FAILURE)
 
-WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/Approval Card Container'), 0)
+WebUI.verifyElementNotPresent(findTestObject('Page_SuccessFactors Home/Homepage/Approval Card Container'), 0)
 

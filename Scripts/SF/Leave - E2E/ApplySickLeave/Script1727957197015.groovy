@@ -33,3 +33,10 @@ WebUI.callTestCase(findTestCase('SF/Approval/Approve Leave'), [('ApproverID') : 
         , ('EmployeeID') : EmployeeID, ('EmployeeName') : EmployeeName, ('LeaveType') : LeaveType, ('LeaveStartDate') : LeaveStartDate
         , ('LeaveEndDate') : LeaveEndDate], FailureHandling.STOP_ON_FAILURE)
 
+WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeeIDtoProxy') : EmployeeID, ('employeeNameToProxy') : EmployeeName], 
+    FailureHandling.STOP_ON_FAILURE)
+
+WebUI.callTestCase(findTestCase('SF/ApplyLeave/Verify Approved Leave on Self Profile'), [('EmployeeName') : EmployeeName
+        , ('EmployeeID') : EmployeeID, ('LeaveStartDate') : LeaveStartDate, ('LeaveType') : LeaveType, ('LeaveEndDate') : LeaveEndDate], 
+    FailureHandling.STOP_ON_FAILURE)
+

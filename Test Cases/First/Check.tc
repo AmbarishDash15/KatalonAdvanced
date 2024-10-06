@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Check</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>87e9f21b-aa3e-4609-8f6b-4b729fdf6309</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>91f1c86d-bb91-4376-96d6-f6a14233300d</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>91f1c86d-bb91-4376-96d6-f6a14233300d</id>
+      <masked>false</masked>
+      <name>formattedDate</name>
+   </variable>
+</TestCaseEntity>

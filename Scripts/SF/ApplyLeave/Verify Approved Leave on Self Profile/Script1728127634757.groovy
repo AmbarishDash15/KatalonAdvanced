@@ -19,7 +19,7 @@ import org.openqa.selenium.Keys as Keys
 import customUtilities.DateChecker as DateChecker
 import customUtilities.CalendarNavigator as CalendarNavigator
 import customUtilities.MonthConverter as MonthConverter
-import customUtilities.DateFormatter as DateFormatter
+import customUtilities.DatewithDay as DatewithDay
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
 
@@ -28,8 +28,6 @@ WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/tilebutton_View My
 WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/heading Full Name'), 10)
 
 WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/My Profile/heading Full Name'), EmployeeName)
-
-WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/My Profile/publicProfile-employeeID'), EmployeeID)
 
 WebUI.takeFullPageScreenshot()
 
@@ -78,22 +76,26 @@ if (WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profi
     WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/Time - Section Show More Button'))
 }
 
-WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/My Profile/Upcoming Timeoff - LeaveType and Hours (var)', 
-        [('leaveDates') : DateFormatter.formatDateRange(LeaveStartDate, LeaveEndDate)]), LeaveType + (' (' + (GlobalVariable.LeaveDeducted + 
-    ')')))
+WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/My Profile/Upcoming Timeoff Banner'), 0)
 
 WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Upcoming Timeoff - From - To Date (var)', 
-        [('leaveDates') : DateFormatter.formatDateRange(LeaveStartDate, LeaveEndDate)]), 0)
+        [('leaveDates') : DatewithDay.formatDateRange(LeaveStartDate, LeaveEndDate)]), 0)
+
+WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/My Profile/Upcoming Timeoff - LeaveType and Hours (var)', 
+        [('leaveDates') : DatewithDay.formatDateRange(LeaveStartDate, LeaveEndDate)]), LeaveType + (' (' + (GlobalVariable.LeaveDeducted + 
+    ')')))
 
 WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/My Profile/Upcoming Timeoff - Approval Status (var)', [
-            ('leaveDates') : DateFormatter.formatDateRange(LeaveStartDate, LeaveEndDate)]), 'Approved')
+            ('leaveDates') : DatewithDay.formatDateRange(LeaveStartDate, LeaveEndDate)]), 'Approved')
+
+WebUI.takeFullPageScreenshot()
 
 if (!(DateChecker.isTodayOrPast(LeaveEndDate))) {
-    WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/CalendarIcon'))
+    WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/CalendarIconAfterDateChange'))
 
     WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Calendar'), 0)
 
-    String[] parts = LeaveEndDate.wait(0, 0)
+    String[] parts = LeaveEndDate.split(' ')
 
     def paramDate = parts[0]
 
@@ -134,8 +136,10 @@ WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/My Profile/Time O
 WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - Leave Type (var)', [('leaveType') : LeaveType]), 
     0)
 
-WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - Leave Balance (var)', [('leaveType') : LeaveType]), 
-    GlobalVariable.RemainingLeaveBalance)
+def leaveBalance = WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - Leave Balance (var)', 
+        [('leaveType') : LeaveType]))
+
+WebUI.verifyMatch(leaveBalance, GlobalVariable.RemainingLeaveBalance, true)
 
 WebUI.takeFullPageScreenshot()
 

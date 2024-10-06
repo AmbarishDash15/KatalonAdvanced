@@ -26,25 +26,25 @@ import java.util.Date;
 
 public class DateConverter {
 
-    public static String convertDateFormat(String dateString) {
-        // Define the input and output date formats
-        SimpleDateFormat inputFormat = new SimpleDateFormat("dd MMM yyyy");
-        SimpleDateFormat outputFormat = new SimpleDateFormat("dd/MM/yyyy");
-        
-        try {
-            // Parse the input date string to a Date object
-            Date date = inputFormat.parse(dateString);
-            // Format the Date object to the desired output format
-            return outputFormat.format(date);
-        } catch (ParseException e) {
-            e.printStackTrace(); // Handle parsing errors
-            return null; // Return null if parsing fails
-        }
-    }
+	public static String convertDateFormat(String dateString) {
+		// Define the input and output date formats
+		SimpleDateFormat inputFormat = new SimpleDateFormat("dd MMM yyyy");
+		SimpleDateFormat outputFormat = new SimpleDateFormat("dd/MM/yyyy");
 
-    public static void main(String[] args) {
-        String dateStr = "14 Nov 2024";
-        String convertedDate = convertDateFormat(dateStr);
-        //System.out.println("Converted Date: " + convertedDate); // Output: Converted Date: 14/11/2024
-    }
+		try {
+			// Parse the input date string to a Date object
+			Date date = inputFormat.parse(dateString);
+			// Format the Date object to the desired output format
+			return outputFormat.format(date);
+		} catch (ParseException e) {
+			e.printStackTrace(); // Handle parsing errors
+			return null; // Return null if parsing fails
+		}
+	}
+
+	public static void main(String[] args) {
+		String dateStr = "14 Nov 2024";
+		String convertedDate = convertDateFormat(dateStr);
+		//System.out.println("Converted Date: " + convertedDate); // Output: Converted Date: 14/11/2024
+	}
 }

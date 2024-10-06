@@ -40,15 +40,9 @@
       <variableId>7d08d48d-bdbc-42f9-a289-b5b126b1866c</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>c4206206-f545-4a25-b855-a7a0d95e86f3</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
+      <testDataLinkId>a5ebefa0-8fc5-4575-ac18-7ac84838c663</testDataLinkId>
+      <type>DATA_COLUMN</type>
+      <value>LeaveEndDate</value>
       <variableId>60838bcc-ca8c-43c5-93b5-fa8f8df5ef45</variableId>
    </variableLinks>
    <variable>
@@ -78,13 +72,6 @@
       <id>7d08d48d-bdbc-42f9-a289-b5b126b1866c</id>
       <masked>false</masked>
       <name>LeaveType</name>
-   </variable>
-   <variable>
-      <defaultValue>''</defaultValue>
-      <description></description>
-      <id>c4206206-f545-4a25-b855-a7a0d95e86f3</id>
-      <masked>false</masked>
-      <name>LeaveBalance</name>
    </variable>
    <variable>
       <defaultValue>''</defaultValue>

@@ -14,7 +14,7 @@
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//span[@class=&quot;sapMText sapUiSelectable sapMTextMaxWidth&quot;][text()= &quot;${leaveDates}&quot;]</value>
+         <value>//span[@class=&quot;sapMText sapUiSelectable sapMTextMaxWidth&quot;][text()=&quot;${leaveDates}&quot;]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
