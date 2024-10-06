@@ -26,38 +26,38 @@ import java.util.Date;
 
 public class DatewithDay {
 
-    public static String formatDateRange(String dateStr1, String dateStr2) {
-        // Define the input date format
-        SimpleDateFormat inputFormat = new SimpleDateFormat("dd MMM yyyy");
-        // Define the output date format
-        SimpleDateFormat outputFormat = new SimpleDateFormat("EEE dd MMM");
+	public static String formatDateRange(String dateStr1, String dateStr2) {
+		// Define the input date format
+		SimpleDateFormat inputFormat = new SimpleDateFormat("dd MMM yyyy");
+		// Define the output date format
+		SimpleDateFormat outputFormat = new SimpleDateFormat("EEE dd MMM");
 
-        try {
-            // Parse the input date strings to Date objects
-            Date date1 = inputFormat.parse(dateStr1);
-            Date date2 = inputFormat.parse(dateStr2);
+		try {
+			// Parse the input date strings to Date objects
+			Date date1 = inputFormat.parse(dateStr1);
+			Date date2 = inputFormat.parse(dateStr2);
 
-            // Format the dates to the desired output format
-            String formattedDate1 = outputFormat.format(date1);
-            String formattedDate2 = outputFormat.format(date2);
+			// Format the dates to the desired output format
+			String formattedDate1 = outputFormat.format(date1);
+			String formattedDate2 = outputFormat.format(date2);
 
-            // Check if the two dates are the same
-            if (date1.equals(date2)) {
-                return formattedDate1; // Return single date format
-            } else {
-                return formattedDate1 + " \u2013 " + formattedDate2; // Return date range format with hyphen
-            }
-        } catch (ParseException e) {
-            e.printStackTrace(); // Handle parsing errors
-            return null; // Return null if parsing fails
-        }
-    }
+			// Check if the two dates are the same
+			if (date1.equals(date2)) {
+				return formattedDate1; // Return single date format
+			} else {
+				return formattedDate1 + " \u2013 " + formattedDate2; // Return date range format with hyphen
+			}
+		} catch (ParseException e) {
+			e.printStackTrace(); // Handle parsing errors
+			return null; // Return null if parsing fails
+		}
+	}
 
-    public static void main(String[] args) {
-        String date1 = "14 Nov 2024";
-        String date2 = "15 Nov 2024";
-        
-        String result = formatDateRange(date1, date2);
-        System.out.println("Formatted Date Range: " + result); // Output: Formatted Date Range: Thu 14 Nov - Fri 15 Nov
-    }
+	public static void main(String[] args) {
+		String date1 = "14 Nov 2024";
+		String date2 = "15 Nov 2024";
+
+		String result = formatDateRange(date1, date2);
+		System.out.println("Formatted Date Range: " + result); // Output: Formatted Date Range: Thu 14 Nov - Fri 15 Nov
+	}
 }

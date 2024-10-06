@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Check Team Absence by Manager</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>50b9240c-598c-4c64-ac07-66e31c4e9abf</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>a1c7f91b-2477-4e3e-ab9c-30123497b1f6</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>8ccfcb27-ade4-4203-9c29-e6fc3438c5a0</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>39f63cb7-6c39-4030-94aa-f371d1d76008</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>54fafe8c-bfe8-455b-a21a-26554f28c9c3</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'Nikki Scholes'</defaultValue>
+      <description></description>
+      <id>a1c7f91b-2477-4e3e-ab9c-30123497b1f6</id>
+      <masked>false</masked>
+      <name>EmployeeName</name>
+   </variable>
+   <variable>
+      <defaultValue>'Annual Leave'</defaultValue>
+      <description></description>
+      <id>8ccfcb27-ade4-4203-9c29-e6fc3438c5a0</id>
+      <masked>false</masked>
+      <name>LeaveType</name>
+   </variable>
+   <variable>
+      <defaultValue>'14 Nov 2024'</defaultValue>
+      <description></description>
+      <id>39f63cb7-6c39-4030-94aa-f371d1d76008</id>
+      <masked>false</masked>
+      <name>LeaveStartDate</name>
+   </variable>
+   <variable>
+      <defaultValue>'15 Nov 2024'</defaultValue>
+      <description></description>
+      <id>54fafe8c-bfe8-455b-a21a-26554f28c9c3</id>
+      <masked>false</masked>
+      <name>LeaveEndDate</name>
+   </variable>
+</TestCaseEntity>

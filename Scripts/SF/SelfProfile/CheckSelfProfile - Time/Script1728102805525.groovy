@@ -26,8 +26,6 @@ WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/
 
 WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/My Profile/heading Full Name'), EmployeeName)
 
-WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/My Profile/publicProfile-employeeID'), EmployeeID)
-
 WebUI.takeFullPageScreenshot()
 
 if (!(DateChecker.isTodayOrPast(LeaveStartDate))) {

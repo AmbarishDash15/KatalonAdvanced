@@ -40,3 +40,9 @@ WebUI.callTestCase(findTestCase('SF/ApplyLeave/Verify Approved Leave on Self Pro
         , ('EmployeeID') : EmployeeID, ('LeaveStartDate') : LeaveStartDate, ('LeaveType') : LeaveType, ('LeaveEndDate') : LeaveEndDate], 
     FailureHandling.STOP_ON_FAILURE)
 
+WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeeIDtoProxy') : ApproverID, ('employeeNameToProxy') : ApproverName], 
+    FailureHandling.STOP_ON_FAILURE)
+
+WebUI.callTestCase(findTestCase('SF/ApplyLeave/Check Team Absence by Manager'), [('EmployeeName') : EmployeeName, ('LeaveType') : LeaveType
+        , ('LeaveStartDate') : LeaveStartDate, ('LeaveEndDate') : LeaveEndDate], FailureHandling.STOP_ON_FAILURE)
+
