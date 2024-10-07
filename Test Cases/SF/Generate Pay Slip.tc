@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Generate Pay Slip</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>eeda487f-502c-467b-98d7-c15dc34152e8</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>e4cdd453-cf75-4259-b3d4-af4180b03b8f</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>490f7aca-ffe0-4baa-9143-31110874bd28</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>66ebb4fd-f75c-427a-94d5-feb9abf5a43e</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>e4cdd453-cf75-4259-b3d4-af4180b03b8f</id>
+      <masked>false</masked>
+      <name>LeaveStartDate</name>
+   </variable>
+   <variable>
+      <defaultValue>'15 Nov 2024'</defaultValue>
+      <description></description>
+      <id>490f7aca-ffe0-4baa-9143-31110874bd28</id>
+      <masked>false</masked>
+      <name>LeaveEndDate</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>66ebb4fd-f75c-427a-94d5-feb9abf5a43e</id>
+      <masked>false</masked>
+      <name>EmployeeID</name>
+   </variable>
+</TestCaseEntity>

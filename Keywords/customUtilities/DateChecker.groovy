@@ -33,7 +33,7 @@ public class DateChecker {
 		try {
 			// Parse the input date string to a LocalDate
 			LocalDate inputDate = LocalDate.parse(dateString, formatter);
-			
+
 			// Get today's date in AEST timezone
 			LocalDate today = LocalDate.now(ZoneId.of("Australia/Sydney"));
 
