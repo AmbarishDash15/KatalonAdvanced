@@ -39,7 +39,7 @@
       <name>LeaveEndDate</name>
    </variable>
    <variable>
-      <defaultValue>''</defaultValue>
+      <defaultValue>'174159'</defaultValue>
       <description></description>
       <id>66ebb4fd-f75c-427a-94d5-feb9abf5a43e</id>
       <masked>false</masked>

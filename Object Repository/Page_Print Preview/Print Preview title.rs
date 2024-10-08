@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>Team Absence Calendar_Half Month tab</name>
+   <name>Print Preview title</name>
    <tag></tag>
-   <elementGuidId>8356ccf9-194f-402c-959f-e0045d96e705</elementGuidId>
+   <elementGuidId>48d6971c-129e-4c8a-93d3-84b7ee59a329</elementGuidId>
    <selectorCollection>
+      <entry>
+         <key>CSS</key>
+         <value>#cuaheader-title</value>
+      </entry>
       <entry>
          <key>BASIC</key>
          <value></value>
       </entry>
-      <entry>
-         <key>XPATH</key>
-         <value>//div[text()='Month']</value>
-      </entry>
    </selectorCollection>
-   <selectorMethod>XPATH</selectorMethod>
+   <selectorMethod>CSS</selectorMethod>
    <smartLocatorEnabled>false</smartLocatorEnabled>
    <useRalativeImagePath>false</useRalativeImagePath>
 </WebElementEntity>

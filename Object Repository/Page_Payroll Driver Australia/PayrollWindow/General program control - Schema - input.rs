@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>Team Absence Calendar_Half Month tab</name>
+   <name>General program control - Schema - input</name>
    <tag></tag>
-   <elementGuidId>8356ccf9-194f-402c-959f-e0045d96e705</elementGuidId>
+   <elementGuidId>092b42c4-eacc-4376-8d33-b1f3f0bf0fc4</elementGuidId>
    <selectorCollection>
+      <entry>
+         <key>CSS</key>
+         <value>input[title=&quot;Personnel calculation schema&quot;]</value>
+      </entry>
       <entry>
          <key>BASIC</key>
          <value></value>
       </entry>
-      <entry>
-         <key>XPATH</key>
-         <value>//div[text()='Month']</value>
-      </entry>
    </selectorCollection>
-   <selectorMethod>XPATH</selectorMethod>
+   <selectorMethod>CSS</selectorMethod>
    <smartLocatorEnabled>false</smartLocatorEnabled>
    <useRalativeImagePath>false</useRalativeImagePath>
 </WebElementEntity>

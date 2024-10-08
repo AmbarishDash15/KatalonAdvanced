@@ -46,3 +46,6 @@ WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeeIDtoProxy'
 WebUI.callTestCase(findTestCase('SF/ApplyLeave/Check Team Absence by Manager'), [('EmployeeName') : EmployeeName, ('LeaveType') : LeaveType
         , ('LeaveStartDate') : LeaveStartDate, ('LeaveEndDate') : LeaveEndDate], FailureHandling.STOP_ON_FAILURE)
 
+WebUI.callTestCase(findTestCase('SF/Generate Pay Slip'), [('LeaveStartDate') : LeaveStartDate, ('LeaveEndDate') : LeaveEndDate
+        , ('EmployeeID') : EmployeeID], FailureHandling.STOP_ON_FAILURE)
+

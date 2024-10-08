@@ -18,8 +18,9 @@ import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 import customUtilities.PayPeriodCalculator as PayPeriodCalculator
 import customUtilities.DateRangeChecker as DateRangeChecker
+import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUiBuiltInKeywords
 
-WebUI.callTestCase(findTestCase('SF/Common/Login'), [:], FailureHandling.STOP_ON_FAILURE)
+WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
 
 WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeeIDtoProxy') : '169105', ('employeeNameToProxy') : 'Tracey Mears'], 
     FailureHandling.STOP_ON_FAILURE)
@@ -78,6 +79,40 @@ payPeriodEnd = WebUI.getAttribute(findTestObject('Page_Payroll Driver Australia/
     'value')
 
 if (DateRangeChecker.isDateInPayPeriodRange(payPeriodStart, payPeriodEnd, LeaveEndDate)) {
-    assert true
+    WebUI.setText(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Selection - Personnel Number - input'), EmployeeID)
+
+    WebUI.setText(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Selection - Payroll area - input'), 'F1')
+
+    WebUI.setText(findTestObject('Page_Payroll Driver Australia/PayrollWindow/General program control - Schema - input'), 
+        'ZQ01')
+
+    WebUI.takeFullPageScreenshot()
+
+    WebUI.scrollToElement(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Remuneration - HR form name - option'), 
+        0)
+
+    if (!(WebUiBuiltInKeywords.getAttribute(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Remuneration - HR form name - option'), 
+        'ti') == 0)) {
+        WebUI.check(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Remuneration - HR form name - option'))
+    }
+    
+    WebUI.delay(1)
+
+    WebUI.verifyElementAttributeValue(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Remuneration - HR form name - input'), 
+        'ti', '0', 0)
+
+    WebUI.verifyElementClickable(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Remuneration - HR form name - input'))
+
+    WebUI.setText(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Remuneration - HR form name - input'), 'ZHR_PAYSLIP_AU')
+
+    WebUI.takeFullPageScreenshot()
+
+    WebUI.verifyElementPresent(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Payroll Execute Button'), 0)
+
+    WebUI.click(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Payroll Execute Button'))
+
+    WebUI.verifyElementPresent(findTestObject('Page_Print Preview/Print Preview title'), 0)
+
+    WebUI.click(findTestObject('Page_Print Preview/Last Document button'))
 }
 

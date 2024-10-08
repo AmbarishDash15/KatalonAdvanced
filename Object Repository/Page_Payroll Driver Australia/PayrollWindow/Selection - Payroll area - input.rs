@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>Team Absence Calendar_Half Month tab</name>
+   <name>Selection - Payroll area - input</name>
    <tag></tag>
-   <elementGuidId>8356ccf9-194f-402c-959f-e0045d96e705</elementGuidId>
+   <elementGuidId>b80b65a5-a457-440b-95db-873bb0153a5e</elementGuidId>
    <selectorCollection>
+      <entry>
+         <key>CSS</key>
+         <value>input[title=&quot;Payroll Area&quot;]</value>
+      </entry>
       <entry>
          <key>BASIC</key>
          <value></value>
       </entry>
-      <entry>
-         <key>XPATH</key>
-         <value>//div[text()='Month']</value>
-      </entry>
    </selectorCollection>
-   <selectorMethod>XPATH</selectorMethod>
+   <selectorMethod>CSS</selectorMethod>
    <smartLocatorEnabled>false</smartLocatorEnabled>
    <useRalativeImagePath>false</useRalativeImagePath>
 </WebElementEntity>

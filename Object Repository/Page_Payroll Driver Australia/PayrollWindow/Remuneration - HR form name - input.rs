@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>Team Absence Calendar_Half Month tab</name>
+   <name>Remuneration - HR form name - input</name>
    <tag></tag>
-   <elementGuidId>8356ccf9-194f-402c-959f-e0045d96e705</elementGuidId>
+   <elementGuidId>ee3824fc-b478-4e81-9897-beece8b3f302</elementGuidId>
    <selectorCollection>
+      <entry>
+         <key>CSS</key>
+         <value>input[title=&quot;HR Forms: Object Name&quot;]</value>
+      </entry>
       <entry>
          <key>BASIC</key>
          <value></value>
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//div[text()='Month']</value>
+         <value>//span[text()='HR form name']</value>
       </entry>
    </selectorCollection>
-   <selectorMethod>XPATH</selectorMethod>
+   <selectorMethod>CSS</selectorMethod>
    <smartLocatorEnabled>false</smartLocatorEnabled>
    <useRalativeImagePath>false</useRalativeImagePath>
 </WebElementEntity>
