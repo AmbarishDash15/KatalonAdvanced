@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>Job Information -Work Schedule</name>
+   <name>Selected Week</name>
    <tag></tag>
-   <elementGuidId>0d95db84-586f-4774-b552-93db9ef46dfc</elementGuidId>
+   <elementGuidId>76de6999-331c-4243-9960-5740ffe4e13e</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
@@ -11,7 +11,7 @@
       </entry>
       <entry>
          <key>CSS</key>
-         <value>span#__label83</value>
+         <value>span.weekSelectionAreaText</value>
       </entry>
    </selectorCollection>
    <selectorMethod>CSS</selectorMethod>

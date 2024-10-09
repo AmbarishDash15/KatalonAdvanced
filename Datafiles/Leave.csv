@@ -1,2 +1,2 @@
-EmployeeName,EmployeeID,LeaveType,LeaveStartDate,LeaveEndDate,FullDay,ApproverID,ApproverName
-Nikki Scholes,174159,Annual Leave,14 Nov 2024,15 Nov 2024,true,174139,Chris Elliott
+EmployeeName,EmployeeID,WorkSchedule,LeaveType,LeaveStartDate,LeaveEndDate,FullDay,LeaveStartTime,LeaveEndTime
+Nikki Scholes,174159,STD 10 DAY,Annual Leave,14 Nov 2024,15 Nov 2024,true,,

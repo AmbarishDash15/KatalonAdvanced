@@ -24,6 +24,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 public class DateRangeChecker {
 
@@ -37,7 +40,7 @@ public class DateRangeChecker {
 			Date date = dateFormat.parse(dateStr);
 
 			// Split the date range into start and end dates
-			String[] dateRangeParts = dateRangeStr.split(" - ");
+			String[] dateRangeParts = dateRangeStr.split(" - ");//Hyphen - in Team Absence Calendar
 			Date startDate = dateRangeFormat.parse(dateRangeParts[0].trim());
 			Date endDate = dateRangeFormat.parse(dateRangeParts[1].trim());
 
@@ -48,7 +51,7 @@ public class DateRangeChecker {
 			return false; // Return false if parsing fails
 		}
 	}
-	
+
 	public static boolean isDateInPayPeriodRange(String startDateStr, String endDateStr, String targetDateStr) {
 		SimpleDateFormat format1 = new SimpleDateFormat("dd.MM.yyyy");
 		SimpleDateFormat format2 = new SimpleDateFormat("d MMM yyyy", Locale.ENGLISH);
@@ -61,10 +64,27 @@ public class DateRangeChecker {
 
 			// Check if the target date is between start and end dates
 			return !targetDate.before(startDate) && !targetDate.after(endDate);
-
 		} catch (ParseException e) {
 			e.printStackTrace();
 			return false; // Return false if there's a parsing error
+		}
+	}
+	
+	public static boolean isDateInValueRange(String dateRange, String dateToCheck) {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMM yyyy");
+		try {
+			// Split the date range into start and end dates using the provided format
+			String[] dates = dateRange.split(" – "); // Using the long dash as the separator, in Work Schedule Details
+			LocalDate startDate = LocalDate.parse(dates[0].trim(), formatter);
+			LocalDate endDate = LocalDate.parse(dates[1].trim(), formatter);
+			LocalDate date = LocalDate.parse(dateToCheck, formatter);
+			
+			// Check if the date is within the range (inclusive)
+			return !date.isBefore(startDate) && !date.isAfter(endDate);
+		} catch (DateTimeParseException | ArrayIndexOutOfBoundsException e) {
+			// Handle the case where parsing fails or the range is invalid
+			System.err.println("Invalid date format: " + e.getMessage());
+			return false;
 		}
 	}
 

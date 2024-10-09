@@ -67,7 +67,7 @@ if (!(DateChecker.isTodayOrPast(LeaveStartDate))) {
     WebUI.takeFullPageScreenshot()
 }
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/SectionTabName'))
+WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/SectionTabName (var)', [('tabName') : 'Time']))
 
 if (WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Time - Section Show More Button'), 0)) {
     WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/Time - Section Show More Button'))

@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>temp</name>
+   <name>Day Type (var)</name>
    <tag></tag>
-   <elementGuidId>018f4b41-d7ab-46e2-9928-72dc0779d7bb</elementGuidId>
+   <elementGuidId>2106b35c-2fb5-4a5b-8692-f8157622f8a4</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>CSS</key>
-         <value>#__text164</value>
+         <key>XPATH</key>
+         <value>//span[contains(@class,'dayNumberText')][contains(text(),'${date}')]/ancestor::li</value>
       </entry>
       <entry>
          <key>BASIC</key>
          <value></value>
       </entry>
    </selectorCollection>
-   <selectorMethod>CSS</selectorMethod>
+   <selectorMethod>XPATH</selectorMethod>
    <smartLocatorEnabled>false</smartLocatorEnabled>
    <useRalativeImagePath>false</useRalativeImagePath>
 </WebElementEntity>

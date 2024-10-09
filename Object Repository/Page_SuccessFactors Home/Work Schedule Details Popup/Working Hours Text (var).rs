@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>SectionTabName</name>
+   <name>Working Hours Text (var)</name>
    <tag></tag>
-   <elementGuidId>d021f131-5ada-4b6c-8de3-4c5e12c01e68</elementGuidId>
+   <elementGuidId>32ba0536-e39f-43f2-b294-242d8083653d</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//bdi[contains(text(),&quot;Time&quot;)]</value>
+         <value>//span[contains(@class,'dayNumberText')][contains(text(),'${date}')]/following-sibling::span</value>
       </entry>
       <entry>
          <key>BASIC</key>

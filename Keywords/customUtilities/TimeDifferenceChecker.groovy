@@ -21,47 +21,47 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable
 
 public class TimeDifferenceChecker {
-    public static void main(String[] args) {
-        if (args.length != 2) {
-            System.out.println("Usage: java TimeDifferenceChecker 'X hours Y minutes' 'A hours B minutes'");
-            return;
-        }
+	public static void main(String[] args) {
+		if (args.length != 2) {
+			System.out.println("Usage: java TimeDifferenceChecker 'X hours Y minutes' 'A hours B minutes'");
+			return;
+		}
 
-        String startTime = args[0]; // First argument
-        String endTime = args[1];   // Second argument
+		String startTime = args[0]; // First argument
+		String endTime = args[1];   // Second argument
 
-        // Call the method and print the boolean result
-        boolean isLessThanTenMinutes = checkTimeDifference(startTime, endTime);
-        System.out.println(isLessThanTenMinutes);
-    }
+		// Call the method and print the boolean result
+		boolean isLessThanTenMinutes = checkTimeDifference(startTime, endTime);
+		System.out.println(isLessThanTenMinutes);
+	}
 
-    public static boolean checkTimeDifference(String startTimeStr, String endTimeStr) {
-        int startTotalMinutes = parseTimeString(startTimeStr);
-        int endTotalMinutes = parseTimeString(endTimeStr);
+	public static boolean checkTimeDifference(String startTimeStr, String endTimeStr) {
+		int startTotalMinutes = parseTimeString(startTimeStr);
+		int endTotalMinutes = parseTimeString(endTimeStr);
 
-        // Calculate the absolute difference in minutes
-        int difference = Math.abs(endTotalMinutes - startTotalMinutes);
+		// Calculate the absolute difference in minutes
+		int difference = Math.abs(endTotalMinutes - startTotalMinutes);
 
-        // Return true if the difference is less than 10 minutes
-        return difference < 10;
-    }
+		// Return true if the difference is less than 10 minutes
+		return difference < 10;
+	}
 
-    private static int parseTimeString(String timeStr) {
-        String[] parts = timeStr.split(" ");
-        int hours = 0;
-        int minutes = 0;
+	private static int parseTimeString(String timeStr) {
+		String[] parts = timeStr.split(" ");
+		int hours = 0;
+		int minutes = 0;
 
-        for (int i = 0; i < parts.length; i++) {
-            if (parts[i].equals("hours")) {
-                hours = Integer.parseInt(parts[i - 1]);
-            } else if (parts[i].equals("minutes")) {
-                minutes = Integer.parseInt(parts[i - 1]);
-            }
-        }
+		for (int i = 0; i < parts.length; i++) {
+			if (parts[i].equals("hours")) {
+				hours = Integer.parseInt(parts[i - 1]);
+			} else if (parts[i].equals("minutes")) {
+				minutes = Integer.parseInt(parts[i - 1]);
+			}
+		}
 
-        // Convert to total minutes
-        return (hours * 60) + minutes;
-    }
+		// Convert to total minutes
+		return (hours * 60) + minutes;
+	}
 }
 
 
