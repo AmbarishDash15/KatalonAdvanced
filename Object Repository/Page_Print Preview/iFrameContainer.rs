@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>Team Absence Calendar_Half Month tab</name>
+   <name>iFrameContainer</name>
    <tag></tag>
-   <elementGuidId>8356ccf9-194f-402c-959f-e0045d96e705</elementGuidId>
+   <elementGuidId>1556c0ca-9a4b-4eae-8da4-f8e7a15a8ea9</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>BASIC</key>
+         <key>CSS</key>
+         <value>iframe[class='lsIFrame lsControl--fullwidth urHtmlContainerBrd lsControl--fullheight']</value>
       </entry>
       <entry>
-         <key>XPATH</key>
-         <value>//div[text()='Week']</value>
+         <key>BASIC</key>
+         <value></value>
       </entry>
    </selectorCollection>
-   <selectorMethod>XPATH</selectorMethod>
+   <selectorMethod>CSS</selectorMethod>
    <smartLocatorEnabled>false</smartLocatorEnabled>
    <useRalativeImagePath>false</useRalativeImagePath>
 </WebElementEntity>

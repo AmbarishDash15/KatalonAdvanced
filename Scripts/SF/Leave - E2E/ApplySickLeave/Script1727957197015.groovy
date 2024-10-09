@@ -25,13 +25,16 @@ WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeeIDtoProxy'
 WebUI.callTestCase(findTestCase('SF/SelfProfile/CheckSelfProfile - Time'), [('EmployeeName') : EmployeeName, ('EmployeeID') : EmployeeID
         , ('LeaveStartDate') : LeaveStartDate, ('LeaveType') : LeaveType, ('LeaveBalance') : ''], FailureHandling.STOP_ON_FAILURE)
 
-WebUI.callTestCase(findTestCase('SF/ApplyLeave/ApplyLeave'), [('LeaveType') : LeaveType, ('LeaveStartDate') : LeaveStartDate
+WebUI.callTestCase(findTestCase('SF/ApplyLeave/ApplyLeave - calculated in hours'), [('LeaveType') : LeaveType, ('LeaveStartDate') : LeaveStartDate
         , ('LeaveEndDate') : LeaveEndDate, ('LeaveBalance') : '', ('LeaveDeducted') : '', ('FullDay') : true, ('WorkingHours') : ''
         , ('StartTime') : '', ('EndTime') : '', ('NumberOfLeaveDays') : ''], FailureHandling.STOP_ON_FAILURE)
 
 WebUI.callTestCase(findTestCase('SF/Approval/Approve Leave'), [('ApproverID') : ApproverID, ('ApproverName') : ApproverName
         , ('EmployeeID') : EmployeeID, ('EmployeeName') : EmployeeName, ('LeaveType') : LeaveType, ('LeaveStartDate') : LeaveStartDate
         , ('LeaveEndDate') : LeaveEndDate], FailureHandling.STOP_ON_FAILURE)
+
+WebUI.callTestCase(findTestCase('SF/ApplyLeave/Check Team Absence by Manager'), [('EmployeeName') : EmployeeName, ('LeaveType') : LeaveType
+        , ('LeaveStartDate') : LeaveStartDate, ('LeaveEndDate') : LeaveEndDate], FailureHandling.STOP_ON_FAILURE)
 
 WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeeIDtoProxy') : EmployeeID, ('employeeNameToProxy') : EmployeeName], 
     FailureHandling.STOP_ON_FAILURE)
@@ -40,12 +43,7 @@ WebUI.callTestCase(findTestCase('SF/ApplyLeave/Verify Approved Leave on Self Pro
         , ('EmployeeID') : EmployeeID, ('LeaveStartDate') : LeaveStartDate, ('LeaveType') : LeaveType, ('LeaveEndDate') : LeaveEndDate], 
     FailureHandling.STOP_ON_FAILURE)
 
-WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeeIDtoProxy') : ApproverID, ('employeeNameToProxy') : ApproverName], 
+WebUI.callTestCase(findTestCase('SF/Payslip/Generate Pay Slip'), [('LeaveStartDate') : LeaveStartDate, ('LeaveEndDate') : LeaveEndDate
+        , ('EmployeeID') : EmployeeID, ('textToVerify') : '', ('LeaveType') : LeaveType, ('LeaveDeducted') : GlobalVariable.LeaveDeducted], 
     FailureHandling.STOP_ON_FAILURE)
-
-WebUI.callTestCase(findTestCase('SF/ApplyLeave/Check Team Absence by Manager'), [('EmployeeName') : EmployeeName, ('LeaveType') : LeaveType
-        , ('LeaveStartDate') : LeaveStartDate, ('LeaveEndDate') : LeaveEndDate], FailureHandling.STOP_ON_FAILURE)
-
-WebUI.callTestCase(findTestCase('SF/Generate Pay Slip'), [('LeaveStartDate') : LeaveStartDate, ('LeaveEndDate') : LeaveEndDate
-        , ('EmployeeID') : EmployeeID], FailureHandling.STOP_ON_FAILURE)
 

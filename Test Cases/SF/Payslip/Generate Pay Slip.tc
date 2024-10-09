@@ -24,8 +24,26 @@
       <value></value>
       <variableId>66ebb4fd-f75c-427a-94d5-feb9abf5a43e</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>9f1d549c-85ed-48c8-8750-a6ee4b5c4ec1</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>9303c7c5-908e-4a29-bc22-15b59e2b4b1d</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>8b247143-ae09-4e52-bdc6-833d56568b44</variableId>
+   </variableLinks>
    <variable>
-      <defaultValue>''</defaultValue>
+      <defaultValue>'14 Nov 2024'</defaultValue>
       <description></description>
       <id>e4cdd453-cf75-4259-b3d4-af4180b03b8f</id>
       <masked>false</masked>
@@ -44,5 +62,26 @@
       <id>66ebb4fd-f75c-427a-94d5-feb9abf5a43e</id>
       <masked>false</masked>
       <name>EmployeeID</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>9f1d549c-85ed-48c8-8750-a6ee4b5c4ec1</id>
+      <masked>false</masked>
+      <name>textToVerify</name>
+   </variable>
+   <variable>
+      <defaultValue>'Annual Leave'</defaultValue>
+      <description></description>
+      <id>9303c7c5-908e-4a29-bc22-15b59e2b4b1d</id>
+      <masked>false</masked>
+      <name>LeaveType</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>8b247143-ae09-4e52-bdc6-833d56568b44</id>
+      <masked>false</masked>
+      <name>LeaveDeducted</name>
    </variable>
 </TestCaseEntity>

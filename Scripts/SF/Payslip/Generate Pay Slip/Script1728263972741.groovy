@@ -19,6 +19,11 @@ import org.openqa.selenium.Keys as Keys
 import customUtilities.PayPeriodCalculator as PayPeriodCalculator
 import customUtilities.DateRangeChecker as DateRangeChecker
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUiBuiltInKeywords
+import customUtilities.DateFormatConverter as DateFormatConverter
+import customUtilities.TimeConverter as TimeConverter
+import com.kms.katalon.core.logging.KeywordLogger as KeywordLogger
+
+KeywordLogger logger = new KeywordLogger()
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
 
@@ -111,8 +116,52 @@ if (DateRangeChecker.isDateInPayPeriodRange(payPeriodStart, payPeriodEnd, LeaveE
 
     WebUI.click(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Payroll Execute Button'))
 
+    WebUI.delay(2)
+
     WebUI.verifyElementPresent(findTestObject('Page_Print Preview/Print Preview title'), 0)
 
     WebUI.click(findTestObject('Page_Print Preview/Last Document button'))
+
+    WebUI.delay(2)
+
+    WebUI.verifyElementPresent(findTestObject('Page_Print Preview/pdfElement'), 0)
+
+    textToVerify = ('00' + EmployeeID)
+
+    WebUI.verifyElementPresent(findTestObject('Page_Print Preview/pdfText', [('pdfText') : textToVerify]), 0)
+
+    logger.logInfo('Verified Employee ID as ' + textToVerify)
+
+    textToVerify = LeaveType
+
+    WebUI.verifyElementPresent(findTestObject('Page_Print Preview/pdfText', [('pdfText') : textToVerify]), 0)
+
+    logger.logInfo('Verified Leave Type as ' + textToVerify)
+
+    textToVerify = customUtilities.DateFormatConverter.convertDateFormat(LeaveStartDate)
+
+    WebUI.verifyElementPresent(findTestObject('Page_Print Preview/pdfText', [('pdfText') : textToVerify]), 0)
+
+    logger.logInfo('Verified Leave Start Date as ' + textToVerify)
+
+    textToVerify = customUtilities.DateFormatConverter.convertDateFormat(LeaveEndDate)
+
+    WebUI.verifyElementPresent(findTestObject('Page_Print Preview/pdfText', [('pdfText') : textToVerify]), 0)
+
+    logger.logInfo('Verified Leave End Date as ' + textToVerify)
+
+    textToVerify = customUtilities.TimeConverter.convertToDecimalHoursWhole(LeaveDeducted)
+
+    WebUI.verifyElementPresent(findTestObject('Page_Print Preview/pdfText', [('pdfText') : textToVerify]), 0)
+
+    logger.logInfo('Verified Earnings Leave Hours as ' + textToVerify)
+
+    textToVerify = customUtilities.TimeConverter.convertToDecimalHours2Decimal(LeaveDeducted)
+
+    WebUI.verifyElementPresent(findTestObject('Page_Print Preview/pdfText', [('pdfText') : textToVerify]), 0)
+
+    logger.logInfo('Verified Absences Leave Hours as ' + textToVerify)
+
+    WebUI.takeFullPageScreenshot()
 }
 

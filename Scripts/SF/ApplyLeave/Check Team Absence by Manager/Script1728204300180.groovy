@@ -22,6 +22,8 @@ import java.lang.String as String
 import customUtilities.DateRangeFormatter as DateRangeFormatter
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUiBuiltInKeywords
 
+WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
+
 WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/tileButton_View Team Absences'), 0)
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/tileButton_View Team Absences'))
