@@ -57,16 +57,10 @@
          <variableId>da34847f-4ad7-4aca-afc4-fb92f171df18</variableId>
       </variableLink>
       <variableLink>
-         <testDataLinkId>9a19ac50-37d2-4195-ac61-d47956044967</testDataLinkId>
-         <type>DATA_COLUMN</type>
-         <value>ApproverID</value>
-         <variableId>2dad17ea-6b27-4964-91da-d4fabd84d079</variableId>
-      </variableLink>
-      <variableLink>
-         <testDataLinkId>9a19ac50-37d2-4195-ac61-d47956044967</testDataLinkId>
-         <type>DATA_COLUMN</type>
-         <value>ApproverName</value>
-         <variableId>d34648cc-3fb2-4208-a0e3-c8b6ce7d02e7</variableId>
+         <testDataLinkId></testDataLinkId>
+         <type>DEFAULT</type>
+         <value></value>
+         <variableId>92bde7f5-20a5-4dd0-aa3f-7e8b5f5ff101</variableId>
       </variableLink>
    </testCaseLink>
 </TestSuiteEntity>

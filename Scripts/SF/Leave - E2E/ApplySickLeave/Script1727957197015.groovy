@@ -22,10 +22,13 @@ WebUI.callTestCase(findTestCase('SF/Common/Login'), [:], FailureHandling.STOP_ON
 WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeeIDtoProxy') : EmployeeID, ('employeeNameToProxy') : EmployeeName], 
     FailureHandling.STOP_ON_FAILURE)
 
+WebUI.callTestCase(findTestCase('SF/SelfProfile/Get Working Hours Between Dates'), [('WorkSchedule') : WorkSchedule, ('LeaveStartDate') : LeaveStartDate
+        , ('LeaveEndDate') : LeaveEndDate], FailureHandling.STOP_ON_FAILURE)
+
 WebUI.callTestCase(findTestCase('SF/SelfProfile/CheckSelfProfile - Time'), [('EmployeeName') : EmployeeName, ('EmployeeID') : EmployeeID
         , ('LeaveStartDate') : LeaveStartDate, ('LeaveType') : LeaveType, ('LeaveBalance') : ''], FailureHandling.STOP_ON_FAILURE)
 
-WebUI.callTestCase(findTestCase('SF/ApplyLeave/ApplyLeave - calculated in hours'), [('LeaveType') : LeaveType, ('LeaveStartDate') : LeaveStartDate
+WebUI.callTestCase(findTestCase('SF/ApplyLeave/ApplyLeave - Full Day in hours'), [('LeaveType') : LeaveType, ('LeaveStartDate') : LeaveStartDate
         , ('LeaveEndDate') : LeaveEndDate, ('LeaveBalance') : '', ('LeaveDeducted') : '', ('FullDay') : true, ('WorkingHours') : ''
         , ('StartTime') : '', ('EndTime') : '', ('NumberOfLeaveDays') : ''], FailureHandling.STOP_ON_FAILURE)
 

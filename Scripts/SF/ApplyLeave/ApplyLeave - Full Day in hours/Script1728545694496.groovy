@@ -58,11 +58,11 @@ if (NumberOfLeaveDays == '') {
     NumberOfLeaveDays = WorkingDaysCalculator.calculateWorkingDays(LeaveStartDate, LeaveEndDate)
 }
 
-LeaveDeducted = MultiplyTimePeriod.multiplyTimePeriod(TimeDifference.calculateTimeDifference(WorkingHours), NumberOfLeaveDays)
+
 
 valueOnApp = WebUI.getAttribute(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/leavesToBeDeducted'), 'value')
 
-if (TimeDifferenceChecker.checkTimeDifference(LeaveDeducted, valueOnApp)) {
+if (TimeDifferenceChecker.checkTimeDifference(GlobalVariable.LeaveDeducted, valueOnApp)) {
     assert true
 }
 

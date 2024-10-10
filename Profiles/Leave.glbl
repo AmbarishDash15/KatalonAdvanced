@@ -44,4 +44,9 @@
       <initValue>''</initValue>
       <name>TotalLeaveDays</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>LeaveStatus</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

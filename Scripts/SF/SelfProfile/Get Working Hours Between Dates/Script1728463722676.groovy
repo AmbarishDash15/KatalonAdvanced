@@ -84,38 +84,46 @@ if (LeaveStartDate == LeaveEndDate) {
                 [('date') : dateStart])).split('_')
 
         leaveDeducted = TimeConverter.convertDecimalToHoursAndMinutes(tempArr[0])
-    } 
-	else {
-		logger.logFailed("Leave Date is a Non-Working Day")
+    } else {
+        logger.logFailed('Leave Date is a Non-Working Day')
+
         assert false
     }
-}
-else {
-	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d MMM yyyy");
-	LocalDate startDate = LocalDate.parse(LeaveStartDate.trim(), formatter);
-	LocalDate endDate = LocalDate.parse(LeaveEndDate.trim(), formatter);
-	LocalDate currentDate = startDate
-	while(!currentDate.isAfter(endDate)) {
-		currentCalDate = currentDate.getDayOfMonth().toString()
-		logger.logInfo(currentCalDate)
-		dayType = WebUI.getAttribute(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Day Type (var)', [
-			('date') : currentCalDate]), 'class')
+} else {
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern('d MMM yyyy')
 
-		if (dayType == 'workingDay') {
-			String[] tempArr = WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Working Hours Text (var)',
-					[('date') : currentCalDate])).split('_')
-	
-			leaveDeducted = (leaveDeducted.toDouble() + tempArr[0].toDouble()).toString()
-		}
-		if (currentDate.getDayOfWeek().getValue() == 7) {
-			WebUI.click(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Next Week Button'))
-			WebUI.delay(1)
-		}
-		currentDate = currentDate.plusDays(1);
-		
-	}
+    LocalDate startDate = LocalDate.parse(LeaveStartDate.trim(), formatter)
+
+    LocalDate endDate = LocalDate.parse(LeaveEndDate.trim(), formatter)
+
+    LocalDate currentDate = startDate
+
+    while (!(currentDate.isAfter(endDate))) {
+        currentCalDate = currentDate.getDayOfMonth().toString()
+
+        logger.logInfo(currentCalDate)
+
+        dayType = WebUI.getAttribute(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Day Type (var)', 
+                [('date') : currentCalDate]), 'class')
+
+        if (dayType == 'workingDay') {
+            String[] tempArr = WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Working Hours Text (var)', 
+                    [('date') : currentCalDate])).split('_')
+
+            leaveDeducted = (leaveDeducted.toDouble() + (tempArr[0]).toDouble()).toString()
+        }
+        
+        if (currentDate.getDayOfWeek().getValue() == 7) {
+            WebUI.click(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Next Week Button'))
+
+            WebUI.delay(1)
+        }
+        
+        currentDate = currentDate.plusDays(1)
+    }
 }
 
-leaveDeducted = TimeConverter.convertDecimalToHoursAndMinutes(leaveDeducted)
-logger.logInfo(leaveDeducted)
+GlobalVariable.LeaveDeducted = TimeConverter.convertDecimalToHoursAndMinutes(leaveDeducted)
+
+logger.logInfo("Total working hours : " + leaveDeducted)
 

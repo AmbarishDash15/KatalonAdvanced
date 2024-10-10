@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>Get Working Hours Between Dates</name>
+   <name>Get Approver</name>
    <tag></tag>
    <comment></comment>
    <recordOption>OTHER</recordOption>
-   <testCaseGuid>420b09af-538b-4b8b-b677-82f62077bc09</testCaseGuid>
+   <testCaseGuid>68a87fe4-bb22-46b9-9e9d-39063dfd0e77</testCaseGuid>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>b1ba2850-678c-4010-8148-d4695d430f07</variableId>
+      <variableId>940a69f1-3782-4703-8a66-6163be6df8d2</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>f1a28df0-83ba-4157-99ca-bc6626dadfce</variableId>
+      <variableId>4eaa453e-65e1-4ed6-8a39-198f6cf0658c</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>06f29e87-446a-4f1a-b80d-2e0a592e8331</variableId>
+      <variableId>694bb487-0028-4b02-a1f2-ca4b2947c517</variableId>
    </variableLinks>
    <variable>
-      <defaultValue>'STD 10 DAY'</defaultValue>
+      <defaultValue>''</defaultValue>
       <description></description>
-      <id>b1ba2850-678c-4010-8148-d4695d430f07</id>
+      <id>940a69f1-3782-4703-8a66-6163be6df8d2</id>
       <masked>false</masked>
-      <name>WorkSchedule</name>
+      <name>LeaveType</name>
    </variable>
    <variable>
-      <defaultValue>'18 Nov 2024'</defaultValue>
+      <defaultValue>''</defaultValue>
       <description></description>
-      <id>f1a28df0-83ba-4157-99ca-bc6626dadfce</id>
+      <id>4eaa453e-65e1-4ed6-8a39-198f6cf0658c</id>
       <masked>false</masked>
       <name>LeaveStartDate</name>
    </variable>
    <variable>
-      <defaultValue>'6 Dec 2024'</defaultValue>
+      <defaultValue>''</defaultValue>
       <description></description>
-      <id>06f29e87-446a-4f1a-b80d-2e0a592e8331</id>
+      <id>694bb487-0028-4b02-a1f2-ca4b2947c517</id>
       <masked>false</masked>
       <name>LeaveEndDate</name>
    </variable>
