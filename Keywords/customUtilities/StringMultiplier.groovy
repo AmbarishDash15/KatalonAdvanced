@@ -20,34 +20,32 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 
 import internal.GlobalVariable
 
-import java.time.LocalTime;
-import java.time.Duration;
+import java.text.DecimalFormat;
 
-public class TimeDifference {
-	public static void main(String[] args) {
-		if (args.length != 1) {
-			System.out.println("Usage: java TimeDifference 'HH:mm - HH:mm'");
-			return;
-		}
+public class StringMultiplier {
 
-		String timeRange = args[0];
-		String result = calculateTimeDifference(timeRange);
-		System.out.println("Time difference: " + result);
-	}
+    public static void main(String[] args) {
+        String doubleStr = "3.14"; // Example double as string
+        String numberStr = "2.5";  // Example number as string
 
-	public static String calculateTimeDifference(String timeRange) {
-		String[] times = timeRange.split(" – ");
-		LocalTime start = LocalTime.parse(times[0]);
-		LocalTime end = LocalTime.parse(times[1]);
+        String result = multiplyStrings(doubleStr, numberStr);
+        System.out.println(result); // Output: 7.85
+    }
 
-		Duration duration = Duration.between(start, end);
-		long totalMinutes = duration.toMinutes() - 30; // Deduct 30 minutes
+    public static String multiplyStrings(String doubleStr, String numberStr) {
+        try {
+            // Convert strings to double
+            double doubleValue = Double.parseDouble(doubleStr);
+            double numberValue = Double.parseDouble(numberStr);
 
-//		long hours = totalMinutes / 60;
-//		long minutes = totalMinutes % 60;
+            // Multiply the values
+            double result = doubleValue * numberValue;
 
-//		return hours + " hours " + minutes + " minutes";
-		return String.valueOf(totalMinutes)
-	}
+            // Format the result to 2 decimal places
+            DecimalFormat df = new DecimalFormat("#.00");
+            return df.format(result);
+        } catch (NumberFormatException e) {
+            return "Invalid input"; // Handle exceptions for invalid inputs
+        }
+    }
 }
-

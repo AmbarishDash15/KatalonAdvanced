@@ -25,39 +25,38 @@ import java.util.Map;
 
 public class MonthConverter {
 
-    private static final Map<String, String> monthMap = new HashMap<>();
+	private static final Map<String, String> monthMap = new HashMap<>();
 
-    static {
-        monthMap.put("jan", "January");
-        monthMap.put("feb", "February");
-        monthMap.put("mar", "March");
-        monthMap.put("apr", "April");
-        monthMap.put("may", "May");
-        monthMap.put("jun", "June");
-        monthMap.put("jul", "July");
-        monthMap.put("aug", "August");
-        monthMap.put("sep", "September");
-        monthMap.put("oct", "October");
-        monthMap.put("nov", "November");
-        monthMap.put("dec", "December");
-    }
+	static {
+		monthMap.put("jan", "January");
+		monthMap.put("feb", "February");
+		monthMap.put("mar", "March");
+		monthMap.put("apr", "April");
+		monthMap.put("may", "May");
+		monthMap.put("jun", "June");
+		monthMap.put("jul", "July");
+		monthMap.put("aug", "August");
+		monthMap.put("sep", "September");
+		monthMap.put("oct", "October");
+		monthMap.put("nov", "November");
+		monthMap.put("dec", "December");
+	}
 
-    public static String getFullMonthName(String shortMonth) {
-        if (shortMonth == null || shortMonth.length() != 3) {
-            return "Invalid input. Please provide the first three letters of a month.";
-        }
+	public static String getFullMonthName(String shortMonth) {
+		if (shortMonth == null || shortMonth.length() != 3) {
+			return "Invalid input. Please provide the first three letters of a month.";
+		}
 
-        // Convert the input to lowercase to ensure case insensitivity
-        String monthKey = shortMonth.toLowerCase();
+		// Convert the input to lowercase to ensure case insensitivity
+		String monthKey = shortMonth.toLowerCase();
 
-        // Get the full month name from the map
-        return monthMap.getOrDefault(monthKey, "Invalid month abbreviation.");
-    }
+		// Get the full month name from the map
+		return monthMap.getOrDefault(monthKey, "Invalid month abbreviation.");
+	}
 
-    public static void main(String[] args) {
-        // Example usage
-        String shortMonth = "Feb"; // Change this for testing
-        String fullMonth = getFullMonthName(shortMonth);
-        
-    }
+	public static void main(String[] args) {
+		// Example usage
+		String shortMonth = "Feb"; // Change this for testing
+		String fullMonth = getFullMonthName(shortMonth);
+	}
 }

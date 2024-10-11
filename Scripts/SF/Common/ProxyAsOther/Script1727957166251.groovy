@@ -29,13 +29,13 @@ WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/button_Proxy Now')
 
 WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/input_UserName'), 0)
 
-WebUI.setText(findTestObject('Page_SuccessFactors Home/Homepage/input_UserName'), employeeIDtoProxy)
+WebUI.setText(findTestObject('Page_SuccessFactors Home/Homepage/input_UserName'), employeetoProxy)
 
 WebUI.delay(1)
 
 WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/ProxyPopupSearchResult'), 0)
 
-WebUI.verifyElementAttributeValue(findTestObject('Page_SuccessFactors Home/Homepage/ProxyPopupSearchResult'), 'title', employeeNameToProxy, 
+WebUI.verifyElementAttributeValue(findTestObject('Page_SuccessFactors Home/Homepage/ProxyPopupSearchResult'), 'title', employeeName, 
     0)
 
 WebUI.takeFullPageScreenshot()
@@ -46,11 +46,9 @@ WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/ProxyPopup_OkButto
 
 WebUI.delay(10)
 
-WebUI.waitForPageLoad(15)
-
 title = WebUI.getAttribute(findTestObject('Page_SuccessFactors Home/TitleBar/button_ProfileButton'), 'title')
 
-WebUI.verifyMatch(title, '.*on behalf of ' + (employeeNameToProxy + '.*'), true)
+WebUI.verifyMatch(title, '.*on behalf of ' + (employeeName + '.*'), true)
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/button_ProfileButton'))
 

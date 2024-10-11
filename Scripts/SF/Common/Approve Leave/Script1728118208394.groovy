@@ -21,7 +21,7 @@ import customUtilities.TimeSubtractor as TimeSubtractor
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
 
-WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeeIDtoProxy') : ApproverID, ('employeeNameToProxy') : ApproverName], 
+WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeetoProxy') : ApproverName, ('employeeName') : ApproverName], 
     FailureHandling.STOP_ON_FAILURE)
 
 WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/Approval Card Container'), 0)

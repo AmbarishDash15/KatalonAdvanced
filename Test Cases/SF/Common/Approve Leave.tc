@@ -10,12 +10,6 @@
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>e2f44482-2f0a-409e-9eda-3c264fa84c91</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
       <variableId>74589f33-41a2-484f-b02a-281c04bf8394</variableId>
    </variableLinks>
    <variableLinks>
@@ -48,13 +42,6 @@
       <value></value>
       <variableId>e496a740-4666-4bb4-8183-7aa4cfe41c3b</variableId>
    </variableLinks>
-   <variable>
-      <defaultValue>''</defaultValue>
-      <description></description>
-      <id>e2f44482-2f0a-409e-9eda-3c264fa84c91</id>
-      <masked>false</masked>
-      <name>ApproverID</name>
-   </variable>
    <variable>
       <defaultValue>''</defaultValue>
       <description></description>

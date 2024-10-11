@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>Show in Calendar button</name>
+   <name>Left Calendar Year</name>
    <tag></tag>
-   <elementGuidId>ed5e1ab7-5d0b-4b5e-9fcc-8d8ab2e43c12</elementGuidId>
+   <elementGuidId>db151af7-78ca-4840-8f5d-dee130c9849b</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
@@ -11,7 +11,7 @@
       </entry>
       <entry>
          <key>CSS</key>
-         <value>bdi#idEssContainer---main--showInCalendarButton-BDI-content</value>
+         <value>#idEssContainer---main--calendar--Head-B2</value>
       </entry>
    </selectorCollection>
    <selectorMethod>CSS</selectorMethod>

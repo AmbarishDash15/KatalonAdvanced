@@ -32,13 +32,13 @@
       <description></description>
       <id>bdeab51b-c0e1-413d-862a-62e7cd7c57af</id>
       <masked>false</masked>
-      <name>employeeIDtoProxy</name>
+      <name>employeetoProxy</name>
    </variable>
    <variable>
       <defaultValue>'Ben Skewes'</defaultValue>
       <description></description>
       <id>3b476ffc-26d7-48d0-9d8f-79c3fcb73308</id>
       <masked>false</masked>
-      <name>employeeNameToProxy</name>
+      <name>employeeName</name>
    </variable>
 </TestCaseEntity>

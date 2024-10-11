@@ -1,16 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>Working Hours Text (var)</name>
+   <name>Leave Day on Left Calendar (var)</name>
    <tag></tag>
-   <elementGuidId>32ba0536-e39f-43f2-b294-242d8083653d</elementGuidId>
+   <elementGuidId>a3f3618e-e67e-4708-b1a6-96a8fc26516b</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>//span[contains(@class,'dayNumberText')][contains(text(),'${date}')]/following-sibling::a</value>
+         <key>BASIC</key>
+         <value></value>
       </entry>
       <entry>
-         <key>BASIC</key>
+         <key>XPATH</key>
+         <value>//div[@id='idEssContainer---main--calendar--Month0']//div[@data-sap-day=&quot;${startdate}&quot;]</value>
+      </entry>
+      <entry>
+         <key>CSS</key>
+         <value></value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>

@@ -22,12 +22,9 @@ import java.time.temporal.ChronoUnit as ChronoUnit
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUiBuiltInKeywords
 import customUtilities.DateRangeChecker as DateRangeChecker
 import customUtilities.TimeConverter as TimeConverter
+import customUtilities.TimeDifference as TimeDifference
 import com.kms.katalon.core.logging.KeywordLogger as KeywordLogger
-
-WebUI.callTestCase(findTestCase('SF/Common/Login'), [:], FailureHandling.STOP_ON_FAILURE)
-
-WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeeIDtoProxy') : '174159', ('employeeNameToProxy') : 'Nikki Scholes'], 
-    FailureHandling.STOP_ON_FAILURE)
+import java.lang.Integer as Integer
 
 KeywordLogger logger = new KeywordLogger()
 
@@ -39,7 +36,9 @@ def dateStart = arrLeaveStart[0]
 
 def dateEnd = arrLeaveEnd[0]
 
-def leaveDeducted = '0'
+def leaveDeductedinMin = '0'
+
+def leaveDeductedinMinforTheDay = '0'
 
 def currentCalDate = '0'
 
@@ -57,6 +56,8 @@ if (WebUiBuiltInKeywords.verifyElementPresent(findTestObject('Page_SuccessFactor
 }
 
 WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/My Profile/Job Information -Work Schedule label'), 0)
+
+GlobalVariable.EmployeeManager = WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Manager Name'))
 
 WebUI.takeFullPageScreenshot()
 
@@ -76,14 +77,14 @@ while (!(DateRangeChecker.isDateInValueRange(WebUiBuiltInKeywords.getText(findTe
 }
 
 if (LeaveStartDate == LeaveEndDate) {
+    WebUI.takeFullPageScreenshot()
+
     dayType = WebUI.getAttribute(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Day Type (var)', [
                 ('date') : dateStart]), 'class')
 
     if (dayType == 'workingDay') {
-        String[] tempArr = WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Working Hours Text (var)', 
-                [('date') : dateStart])).split('_')
-
-        leaveDeducted = TimeConverter.convertDecimalToHoursAndMinutes(tempArr[0])
+        leaveDeductedinMin = TimeDifference.calculateTimeDifference(WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Working Hours Text (var)', 
+                    [('date') : dateStart])))
     } else {
         logger.logFailed('Leave Date is a Non-Working Day')
 
@@ -101,19 +102,19 @@ if (LeaveStartDate == LeaveEndDate) {
     while (!(currentDate.isAfter(endDate))) {
         currentCalDate = currentDate.getDayOfMonth().toString()
 
-        logger.logInfo(currentCalDate)
-
         dayType = WebUI.getAttribute(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Day Type (var)', 
                 [('date') : currentCalDate]), 'class')
 
         if (dayType == 'workingDay') {
-            String[] tempArr = WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Working Hours Text (var)', 
-                    [('date') : currentCalDate])).split('_')
+            leaveDeductedinMinforTheDay = String.valueOf(TimeDifference.calculateTimeDifference(WebUiBuiltInKeywords.getText(findTestObject(
+                        'Page_SuccessFactors Home/Work Schedule Details Popup/Working Hours Text (var)', [('date') : currentCalDate]))))
 
-            leaveDeducted = (leaveDeducted.toDouble() + (tempArr[0]).toDouble()).toString()
+            leaveDeductedinMin = String.valueOf(Integer.valueOf(leaveDeductedinMin) + Integer.valueOf(leaveDeductedinMinforTheDay))
         }
         
         if (currentDate.getDayOfWeek().getValue() == 7) {
+            WebUI.takeFullPageScreenshot()
+
             WebUI.click(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Next Week Button'))
 
             WebUI.delay(1)
@@ -123,7 +124,21 @@ if (LeaveStartDate == LeaveEndDate) {
     }
 }
 
-GlobalVariable.LeaveDeducted = TimeConverter.convertDecimalToHoursAndMinutes(leaveDeducted)
+GlobalVariable.workMinutes = leaveDeductedinMin
 
-logger.logInfo("Total working hours : " + leaveDeducted)
+def totalMins = Integer.valueOf(leaveDeductedinMin)
+
+int totminConvertedToHours = totalMins / 60
+
+int totminConvertedToMin = totalMins % 60
+
+if (totminConvertedToMin == 0) {
+    GlobalVariable.LeaveDeducted = (totminConvertedToHours + ' hours')
+} else {
+    GlobalVariable.LeaveDeducted = (((totminConvertedToHours + ' hours ') + totminConvertedToMin) + ' minutes')
+}
+
+logger.logInfo('Total working hours : ' + GlobalVariable.LeaveDeducted)
+
+WebUI.click(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Popup Close Button'))
 

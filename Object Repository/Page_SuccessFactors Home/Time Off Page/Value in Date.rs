@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>LeaveRequestStatus (var)</name>
+   <name>Value in Date</name>
    <tag></tag>
-   <elementGuidId>12c6f990-a7ce-4e02-b755-a78b1bfa41bb</elementGuidId>
+   <elementGuidId>00a91a68-54ed-44bd-8ef5-29fb0cb256e6</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//div[@id='idEssContainer---main--allAbsencesDialog']//div[@class='sapMObjectAttributeDiv upcomingAbsenceDateDescription']/span[text()='${dateFormatWithDay}']/ancestor::div[@class='sapMObjLAttrRow']/div[@class='sapMObjLStatusDiv']//span</value>
+         <value>//span[text()='Date']/parent::td/following-sibling::td//span</value>
       </entry>
       <entry>
          <key>BASIC</key>

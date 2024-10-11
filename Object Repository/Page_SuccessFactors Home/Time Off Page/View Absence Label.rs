@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>Working Hours Text (var)</name>
+   <name>View Absence Label</name>
    <tag></tag>
-   <elementGuidId>32ba0536-e39f-43f2-b294-242d8083653d</elementGuidId>
+   <elementGuidId>df80c3a9-f211-4653-a16f-8fd29af41f09</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>//span[contains(@class,'dayNumberText')][contains(text(),'${date}')]/following-sibling::a</value>
+         <key>BASIC</key>
+         <value></value>
       </entry>
       <entry>
-         <key>BASIC</key>
+         <key>CSS</key>
+         <value>#idEssContainer---main--absenceViewTitle-inner</value>
       </entry>
    </selectorCollection>
-   <selectorMethod>XPATH</selectorMethod>
+   <selectorMethod>CSS</selectorMethod>
    <smartLocatorEnabled>false</smartLocatorEnabled>
    <useRalativeImagePath>false</useRalativeImagePath>
 </WebElementEntity>

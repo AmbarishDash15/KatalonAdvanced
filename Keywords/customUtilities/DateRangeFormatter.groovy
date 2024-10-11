@@ -69,13 +69,13 @@ public class DateRangeFormatter {
 			return null; // Return null if parsing fails
 		}
 	}
-	
+
 	public static String dateRangewithDay(String dateStr1, String dateStr2) {
 		SimpleDateFormat sdf = new SimpleDateFormat("d MMM yyyy");
 		try {
 			Date date1 = sdf.parse(dateStr1);
 			Date date2 = sdf.parse(dateStr2);
-			
+
 			Calendar cal1 = Calendar.getInstance();
 			Calendar cal2 = Calendar.getInstance();
 			cal1.setTime(date1);
@@ -94,19 +94,19 @@ public class DateRangeFormatter {
 			if (date1.equals(date2)) {
 				return String.format("%s, %d %s %d", dayName1, day1, new SimpleDateFormat("MMM").format(date1), year1);
 			} else if (month1 == month2 && year1 == year2) {
-				return String.format("%s, %d–%s, %d %s %d", dayName1, day1, dayName2, day2, new SimpleDateFormat("MMM").format(date1), year1);
+				return String.format("%s, %d – %s, %d %s %d", dayName1, day1, dayName2, day2, new SimpleDateFormat("MMM").format(date1), year1);
 			} else if (year1 == year2) {
-				return String.format("%s, %d %s–%s, %d %s %d", dayName1, day1, new SimpleDateFormat("MMM").format(date1), dayName2, day2, new SimpleDateFormat("MMM").format(date2), year1);
+				return String.format("%s, %d %s – %s, %d %s %d", dayName1, day1, new SimpleDateFormat("MMM").format(date1), dayName2, day2, new SimpleDateFormat("MMM").format(date2), year1);
 			} else {
-				return String.format("%s, %d %s %d–%s, %d %s %d", dayName1, day1, new SimpleDateFormat("MMM").format(date1), year1, dayName2, day2, new SimpleDateFormat("MMM").format(date2), year2);
+				return String.format("%s, %d %s %d – %s, %d %s %d", dayName1, day1, new SimpleDateFormat("MMM").format(date1), year1, dayName2, day2, new SimpleDateFormat("MMM").format(date2), year2);
 			}
 		} catch (ParseException e) {
 			e.printStackTrace();
 			return "Invalid date format";
 		}
 	}
-	
-	
+
+
 
 	public static void main(String[] args) {
 		// Test cases

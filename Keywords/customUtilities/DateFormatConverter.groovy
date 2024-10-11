@@ -25,22 +25,33 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DateFormatConverter {
-    public static void main(String[] args) {
-        String inputDate = "8 Oct 2024"; // Input date in "d MMM yyyy" format
-        String outputDate = convertDateFormat(inputDate);
-        System.out.println("Converted Date: " + outputDate);
-    }
+	public static void main(String[] args) {
+		String inputDate = "8 Oct 2024"; // Input date in "d MMM yyyy" format
+		String outputDate = convertDateFormat(inputDate);
+		System.out.println("Converted Date: " + outputDate);
+	}
 
-    public static String convertDateFormat(String inputDate) {
-        SimpleDateFormat inputFormat = new SimpleDateFormat("d MMM yyyy");
-        SimpleDateFormat outputFormat = new SimpleDateFormat("dd.MM.yyyy");
-        
-        try {
-            Date date = inputFormat.parse(inputDate); // Parse the input date
-            return outputFormat.format(date); // Format to the desired output format
-        } catch (ParseException e) {
-            e.printStackTrace();
-            return null; // Return null if there's an error
-        }
-    }
+	public static String convertDateFormat(String inputDate) {
+		SimpleDateFormat inputFormat = new SimpleDateFormat("d MMM yyyy");
+		SimpleDateFormat outputFormat = new SimpleDateFormat("dd.MM.yyyy");
+
+		try {
+			Date date = inputFormat.parse(inputDate); // Parse the input date
+			return outputFormat.format(date); // Format to the desired output format
+		} catch (ParseException e) {
+			e.printStackTrace();
+			return null; // Return null if there's an error
+		}
+	}
+	public static String convertDateFormatToyyyymmdd(String dateStr) {
+		SimpleDateFormat inputFormat = new SimpleDateFormat("d MMM yyyy");
+		SimpleDateFormat outputFormat = new SimpleDateFormat("yyyyMMdd");
+		try {
+			Date date = inputFormat.parse(dateStr);
+			return outputFormat.format(date);
+		} catch (ParseException e) {
+			e.printStackTrace();
+			return "Invalid date format";
+		}
+	}
 }

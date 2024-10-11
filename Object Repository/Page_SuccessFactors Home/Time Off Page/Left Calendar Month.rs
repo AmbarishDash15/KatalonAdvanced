@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>Popup Header</name>
+   <name>Left Calendar Month</name>
    <tag></tag>
-   <elementGuidId>adc3b176-18d0-458e-b0dc-4f88af2b1d8e</elementGuidId>
+   <elementGuidId>f9a1d0cc-c4a2-4406-a3ed-43289d8a6c6f</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
@@ -11,7 +11,7 @@
       </entry>
       <entry>
          <key>CSS</key>
-         <value>#idEssContainer---main--allAbsencesDialog-title-inner</value>
+         <value>#idEssContainer---main--calendar--Head-B1</value>
       </entry>
    </selectorCollection>
    <selectorMethod>CSS</selectorMethod>

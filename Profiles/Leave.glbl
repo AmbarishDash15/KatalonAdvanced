@@ -22,17 +22,12 @@
    <GlobalVariableEntity>
       <description></description>
       <initValue>''</initValue>
-      <name>FirstLevelApprover</name>
+      <name>NextApprover</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
       <initValue>''</initValue>
-      <name>SecondLevelApprover</name>
-   </GlobalVariableEntity>
-   <GlobalVariableEntity>
-      <description></description>
-      <initValue>''</initValue>
-      <name>ThirdLevelApprover</name>
+      <name>EmployeeManager</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
@@ -48,5 +43,10 @@
       <description></description>
       <initValue>''</initValue>
       <name>LeaveStatus</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>workMinutes</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>

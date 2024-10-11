@@ -44,9 +44,6 @@ WebUI.setText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/le
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/availableBalance'))
 
-WorkingHours = WebUI.getAttribute(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/plannedWorkingTime'), 
-    'title')
-
 WebUI.setText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/leaveEndTime'), LeaveEndDate)
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/availableBalance'))
@@ -54,21 +51,11 @@ WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/avai
 WebUI.verifyElementAttributeValue(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/availableBalance'), 'value', 
     GlobalVariable.LeaveBalance, 0)
 
-if (NumberOfLeaveDays == '') {
-    NumberOfLeaveDays = WorkingDaysCalculator.calculateWorkingDays(LeaveStartDate, LeaveEndDate)
-}
-
-
-
 valueOnApp = WebUI.getAttribute(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/leavesToBeDeducted'), 'value')
 
-if (TimeDifferenceChecker.checkTimeDifference(GlobalVariable.LeaveDeducted, valueOnApp)) {
-    assert true
-}
+WebUI.verifyMatch(valueOnApp, GlobalVariable.LeaveDeducted, false)
 
 WebUI.takeFullPageScreenshot()
-
-GlobalVariable.LeaveDeducted = valueOnApp
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/submitButton'))
 

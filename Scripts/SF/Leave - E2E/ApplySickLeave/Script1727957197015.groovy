@@ -32,7 +32,7 @@ WebUI.callTestCase(findTestCase('SF/ApplyLeave/ApplyLeave - Full Day in hours'),
         , ('LeaveEndDate') : LeaveEndDate, ('LeaveBalance') : '', ('LeaveDeducted') : '', ('FullDay') : true, ('WorkingHours') : ''
         , ('StartTime') : '', ('EndTime') : '', ('NumberOfLeaveDays') : ''], FailureHandling.STOP_ON_FAILURE)
 
-WebUI.callTestCase(findTestCase('SF/Approval/Approve Leave'), [('ApproverID') : ApproverID, ('ApproverName') : ApproverName
+WebUI.callTestCase(findTestCase('SF/Common/Approve Leave'), [('ApproverID') : ApproverID, ('ApproverName') : ApproverName
         , ('EmployeeID') : EmployeeID, ('EmployeeName') : EmployeeName, ('LeaveType') : LeaveType, ('LeaveStartDate') : LeaveStartDate
         , ('LeaveEndDate') : LeaveEndDate], FailureHandling.STOP_ON_FAILURE)
 

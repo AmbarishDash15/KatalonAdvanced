@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Test Progress</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>e20cfe65-5531-4299-86b3-8aed56473895</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>6a7adb3d-b0cd-465a-bd63-c0d5edf04bd0</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>738e15e6-1750-4781-b598-acb5c4fca9a2</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>65b60e64-2b58-4e71-a5d2-9751d8b2d5bc</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>ccb8b145-501c-4bde-b90a-fbc030a4fc9e</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>04dfbd89-6cb3-4c77-922b-8be9a63b02bd</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>941e5ad8-386a-48d0-a46a-b55488826692</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'174159'</defaultValue>
+      <description></description>
+      <id>6a7adb3d-b0cd-465a-bd63-c0d5edf04bd0</id>
+      <masked>false</masked>
+      <name>EmployeeID</name>
+   </variable>
+   <variable>
+      <defaultValue>'Nikki Scholes'</defaultValue>
+      <description></description>
+      <id>738e15e6-1750-4781-b598-acb5c4fca9a2</id>
+      <masked>false</masked>
+      <name>EmployeeName</name>
+   </variable>
+   <variable>
+      <defaultValue>'Annual Leave'</defaultValue>
+      <description></description>
+      <id>65b60e64-2b58-4e71-a5d2-9751d8b2d5bc</id>
+      <masked>false</masked>
+      <name>LeaveType</name>
+   </variable>
+   <variable>
+      <defaultValue>'18 Nov 2024'</defaultValue>
+      <description></description>
+      <id>ccb8b145-501c-4bde-b90a-fbc030a4fc9e</id>
+      <masked>false</masked>
+      <name>LeaveStartDate</name>
+   </variable>
+   <variable>
+      <defaultValue>'6 Dec 2024'</defaultValue>
+      <description></description>
+      <id>04dfbd89-6cb3-4c77-922b-8be9a63b02bd</id>
+      <masked>false</masked>
+      <name>LeaveEndDate</name>
+   </variable>
+   <variable>
+      <defaultValue>'STD 10 DAY'</defaultValue>
+      <description></description>
+      <id>941e5ad8-386a-48d0-a46a-b55488826692</id>
+      <masked>false</masked>
+      <name>WorkSchedule</name>
+   </variable>
+</TestCaseEntity>

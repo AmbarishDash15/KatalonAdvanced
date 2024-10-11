@@ -20,6 +20,8 @@ import customUtilities.DateChecker as DateChecker
 import customUtilities.CalendarNavigator as CalendarNavigator
 import customUtilities.MonthConverter as MonthConverter
 
+WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
+
 WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/tilebutton_View My Profile'))
 
 WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/heading Full Name'), 10)
