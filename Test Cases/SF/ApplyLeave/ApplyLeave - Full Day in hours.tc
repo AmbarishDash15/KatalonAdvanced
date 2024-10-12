@@ -34,40 +34,10 @@
       <variableId>8ab85a75-1df1-456e-a0ea-2a27d5a99267</variableId>
    </variableLinks>
    <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>97a3c610-f16a-45da-b114-2b74e460ae16</variableId>
-   </variableLinks>
-   <variableLinks>
       <testDataLinkId>1f199eda-3a84-4d48-a570-caa790add905</testDataLinkId>
       <type>DATA_COLUMN</type>
       <value>FullDay</value>
       <variableId>bcfb7833-fa93-498e-9b4d-4a831e4226db</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>617d453b-a53b-45fc-afaf-bb7eaeae0d96</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>05ed3cf4-d74a-4c6b-8f88-3785076a3100</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>4efb199c-c5cc-4e9c-b1e8-1047f74c39ba</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>367cab21-d545-44c6-b464-22b9082e07e6</variableId>
    </variableLinks>
    <variable>
       <defaultValue>'Sick Leave'</defaultValue>
@@ -91,45 +61,10 @@
       <name>LeaveEndDate</name>
    </variable>
    <variable>
-      <defaultValue>''</defaultValue>
-      <description></description>
-      <id>97a3c610-f16a-45da-b114-2b74e460ae16</id>
-      <masked>false</masked>
-      <name>LeaveBalance</name>
-   </variable>
-   <variable>
       <defaultValue>true</defaultValue>
       <description></description>
       <id>bcfb7833-fa93-498e-9b4d-4a831e4226db</id>
       <masked>false</masked>
       <name>FullDay</name>
-   </variable>
-   <variable>
-      <defaultValue>''</defaultValue>
-      <description></description>
-      <id>617d453b-a53b-45fc-afaf-bb7eaeae0d96</id>
-      <masked>false</masked>
-      <name>WorkingHours</name>
-   </variable>
-   <variable>
-      <defaultValue>''</defaultValue>
-      <description></description>
-      <id>05ed3cf4-d74a-4c6b-8f88-3785076a3100</id>
-      <masked>false</masked>
-      <name>StartTime</name>
-   </variable>
-   <variable>
-      <defaultValue>''</defaultValue>
-      <description></description>
-      <id>4efb199c-c5cc-4e9c-b1e8-1047f74c39ba</id>
-      <masked>false</masked>
-      <name>EndTime</name>
-   </variable>
-   <variable>
-      <defaultValue>''</defaultValue>
-      <description></description>
-      <id>367cab21-d545-44c6-b464-22b9082e07e6</id>
-      <masked>false</masked>
-      <name>NumberOfLeaveDays</name>
    </variable>
 </TestCaseEntity>

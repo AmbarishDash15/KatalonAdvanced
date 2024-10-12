@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>Approval Card Type</name>
+   <name>All Approval Card Popup Container</name>
    <tag></tag>
-   <elementGuidId>7b936069-3399-45ca-a7b2-b290b431f2a5</elementGuidId>
+   <elementGuidId>58c6d631-925a-4d3a-8c5a-2f89722304c5</elementGuidId>
    <selectorCollection>
       <entry>
          <key>XPATH</key>
-         <value>//div[contains(@class,&quot;ApprovalCard_body__&quot;)]/ui5-link</value>
+         <value>//ui5-dialog[@accessible-name=&quot;Time Off&quot;]</value>
       </entry>
       <entry>
          <key>BASIC</key>

@@ -23,6 +23,9 @@ import customUtilities.DatewithDay as DatewithDay
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
 
+WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeetoProxy') : EmployeeID, ('employeeName') : EmployeeName], 
+    FailureHandling.STOP_ON_FAILURE)
+
 WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/tilebutton_View My Profile'))
 
 WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/heading Full Name'), 10)

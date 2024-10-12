@@ -82,10 +82,10 @@ WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/My Profile/Time O
 WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - Leave Type (var)', [('leaveType') : LeaveType]), 
     0)
 
-LeaveBalance = WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - Leave Balance (var)', 
+def leaveBalance = WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - Leave Balance (var)', 
         [('leaveType') : LeaveType]))
 
-GlobalVariable.LeaveBalance = LeaveBalance
+GlobalVariable.LeaveBalance = leaveBalance
 
 WebUI.takeFullPageScreenshot()
 

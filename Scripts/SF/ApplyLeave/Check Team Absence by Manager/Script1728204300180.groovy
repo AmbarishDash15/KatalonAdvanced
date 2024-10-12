@@ -24,6 +24,9 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUiBuiltInKe
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
 
+WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeetoProxy') : GlobalVariable.EmployeeManager, ('employeeName') : GlobalVariable.EmployeeManager], 
+    FailureHandling.STOP_ON_FAILURE)
+
 WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/tileButton_View Team Absences'), 0)
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/tileButton_View Team Absences'))

@@ -28,6 +28,12 @@
       <variableId>1e89d3a0-d3f6-4010-b82f-ef523eebb485</variableId>
    </variableLinks>
    <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>92bde7f5-20a5-4dd0-aa3f-7e8b5f5ff101</variableId>
+   </variableLinks>
+   <variableLinks>
       <testDataLinkId>49438155-21c5-4308-bbb9-511af2177843</testDataLinkId>
       <type>DATA_COLUMN</type>
       <value>LeaveType</value>
@@ -49,7 +55,7 @@
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>92bde7f5-20a5-4dd0-aa3f-7e8b5f5ff101</variableId>
+      <variableId>e1618aff-d1b6-4d92-bb6c-d53f21383c8c</variableId>
    </variableLinks>
    <variable>
       <defaultValue>''</defaultValue>
@@ -64,6 +70,13 @@
       <id>1e89d3a0-d3f6-4010-b82f-ef523eebb485</id>
       <masked>false</masked>
       <name>EmployeeID</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>92bde7f5-20a5-4dd0-aa3f-7e8b5f5ff101</id>
+      <masked>false</masked>
+      <name>WorkSchedule</name>
    </variable>
    <variable>
       <defaultValue>''</defaultValue>
@@ -89,8 +102,8 @@
    <variable>
       <defaultValue>''</defaultValue>
       <description></description>
-      <id>92bde7f5-20a5-4dd0-aa3f-7e8b5f5ff101</id>
+      <id>e1618aff-d1b6-4d92-bb6c-d53f21383c8c</id>
       <masked>false</masked>
-      <name>WorkSchedule</name>
+      <name>FullDay</name>
    </variable>
 </TestCaseEntity>

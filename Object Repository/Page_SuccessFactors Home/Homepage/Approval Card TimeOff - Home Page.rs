@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>Approval Card Details Field Value (var)</name>
+   <name>Approval Card TimeOff - Home Page</name>
    <tag></tag>
-   <elementGuidId>a732bb48-0330-4b49-aa0f-2c0b7c801ea6</elementGuidId>
+   <elementGuidId>7b936069-3399-45ca-a7b2-b290b431f2a5</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>BASIC</key>
-      </entry>
-      <entry>
          <key>XPATH</key>
-         <value>//ui5-dialog[@accessible-name=&quot;Time Off&quot;]//span[contains(@class,&quot;KeyValueFields_label&quot;)][@title='${fieldName}']/following-sibling::span</value>
+         <value>//div[contains(@class,&quot;ApprovalCard_body__&quot;)]/ui5-link[text()='Time Off']/ancestor::div[contains(@class,'CardContainer_cardContainer')]</value>
       </entry>
       <entry>
-         <key>CSS</key>
+         <key>BASIC</key>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>

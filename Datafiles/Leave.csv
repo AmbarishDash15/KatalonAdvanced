@@ -1,2 +1,2 @@
-EmployeeName,EmployeeID,WorkSchedule,LeaveType,LeaveStartDate,LeaveEndDate,FullDay,LeaveStartTime,LeaveEndTime
-Nikki Scholes,174159,STD 10 DAY,Annual Leave,14 Nov 2024,15 Nov 2024,true,,
+EmployeeName,EmployeeID,WorkSchedule,LeaveType,LeaveStartDate,LeaveEndDate,FullDay
+Nikki Scholes,174159,STD 10 DAY,Annual Leave,14 Nov 2024,6 Dec 2024,true

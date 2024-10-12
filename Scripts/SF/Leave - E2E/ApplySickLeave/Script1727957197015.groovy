@@ -19,34 +19,29 @@ import org.openqa.selenium.Keys as Keys
 
 WebUI.callTestCase(findTestCase('SF/Common/Login'), [:], FailureHandling.STOP_ON_FAILURE)
 
-WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeeIDtoProxy') : EmployeeID, ('employeeNameToProxy') : EmployeeName], 
+WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeetoProxy') : EmployeeID, ('employeeName') : EmployeeName], 
     FailureHandling.STOP_ON_FAILURE)
 
 WebUI.callTestCase(findTestCase('SF/SelfProfile/Get Working Hours Between Dates'), [('WorkSchedule') : WorkSchedule, ('LeaveStartDate') : LeaveStartDate
-        , ('LeaveEndDate') : LeaveEndDate], FailureHandling.STOP_ON_FAILURE)
+        , ('LeaveEndDate') : LeaveEndDate, ('EmployeeID') : EmployeeID, ('EmployeeName') : EmployeeName], FailureHandling.STOP_ON_FAILURE)
 
 WebUI.callTestCase(findTestCase('SF/SelfProfile/CheckSelfProfile - Time'), [('EmployeeName') : EmployeeName, ('EmployeeID') : EmployeeID
-        , ('LeaveStartDate') : LeaveStartDate, ('LeaveType') : LeaveType, ('LeaveBalance') : ''], FailureHandling.STOP_ON_FAILURE)
+        , ('LeaveStartDate') : LeaveStartDate, ('LeaveType') : LeaveType], FailureHandling.STOP_ON_FAILURE)
 
 WebUI.callTestCase(findTestCase('SF/ApplyLeave/ApplyLeave - Full Day in hours'), [('LeaveType') : LeaveType, ('LeaveStartDate') : LeaveStartDate
-        , ('LeaveEndDate') : LeaveEndDate, ('LeaveBalance') : '', ('LeaveDeducted') : '', ('FullDay') : true, ('WorkingHours') : ''
-        , ('StartTime') : '', ('EndTime') : '', ('NumberOfLeaveDays') : ''], FailureHandling.STOP_ON_FAILURE)
+        , ('LeaveEndDate') : LeaveEndDate, ('FullDay') : true], FailureHandling.STOP_ON_FAILURE)
 
-WebUI.callTestCase(findTestCase('SF/Common/Approve Leave'), [('ApproverID') : ApproverID, ('ApproverName') : ApproverName
-        , ('EmployeeID') : EmployeeID, ('EmployeeName') : EmployeeName, ('LeaveType') : LeaveType, ('LeaveStartDate') : LeaveStartDate
-        , ('LeaveEndDate') : LeaveEndDate], FailureHandling.STOP_ON_FAILURE)
+WebUI.callTestCase(findTestCase('SF/Approval/Approve Leave by gettting Leave Status and Approver'), [('LeaveType') : LeaveType
+        , ('LeaveStartDate') : LeaveStartDate, ('LeaveEndDate') : LeaveEndDate, ('EmployeeID') : EmployeeID, ('EmployeeName') : EmployeeName], 
+    FailureHandling.STOP_ON_FAILURE)
 
 WebUI.callTestCase(findTestCase('SF/ApplyLeave/Check Team Absence by Manager'), [('EmployeeName') : EmployeeName, ('LeaveType') : LeaveType
         , ('LeaveStartDate') : LeaveStartDate, ('LeaveEndDate') : LeaveEndDate], FailureHandling.STOP_ON_FAILURE)
-
-WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeeIDtoProxy') : EmployeeID, ('employeeNameToProxy') : EmployeeName], 
-    FailureHandling.STOP_ON_FAILURE)
 
 WebUI.callTestCase(findTestCase('SF/ApplyLeave/Verify Approved Leave on Self Profile'), [('EmployeeName') : EmployeeName
         , ('EmployeeID') : EmployeeID, ('LeaveStartDate') : LeaveStartDate, ('LeaveType') : LeaveType, ('LeaveEndDate') : LeaveEndDate], 
     FailureHandling.STOP_ON_FAILURE)
 
 WebUI.callTestCase(findTestCase('SF/Payslip/Generate Pay Slip'), [('LeaveStartDate') : LeaveStartDate, ('LeaveEndDate') : LeaveEndDate
-        , ('EmployeeID') : EmployeeID, ('textToVerify') : '', ('LeaveType') : LeaveType, ('LeaveDeducted') : GlobalVariable.LeaveDeducted], 
-    FailureHandling.STOP_ON_FAILURE)
+        , ('EmployeeID') : EmployeeID, ('LeaveType') : LeaveType], FailureHandling.STOP_ON_FAILURE)
 

@@ -25,6 +25,8 @@ import com.kms.katalon.core.logging.KeywordLogger as KeywordLogger
 
 KeywordLogger logger = new KeywordLogger()
 
+def textToVerify = ""
+
 WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
 
 WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeeIDtoProxy') : '169105', ('employeeNameToProxy') : 'Tracey Mears'], 
@@ -150,13 +152,13 @@ if (DateRangeChecker.isDateInPayPeriodRange(payPeriodStart, payPeriodEnd, LeaveE
 
     logger.logInfo('Verified Leave End Date as ' + textToVerify)
 
-    textToVerify = customUtilities.TimeConverter.convertToDecimalHoursWhole(LeaveDeducted)
+    textToVerify = customUtilities.TimeConverter.convertToDecimalHoursWhole(GlobalVariable.LeaveDeducted)
 
     WebUI.verifyElementPresent(findTestObject('Page_Print Preview/pdfText', [('pdfText') : textToVerify]), 0)
 
     logger.logInfo('Verified Earnings Leave Hours as ' + textToVerify)
 
-    textToVerify = customUtilities.TimeConverter.convertToDecimalHours2Decimal(LeaveDeducted)
+    textToVerify = customUtilities.TimeConverter.convertToDecimalHours2Decimal(GlobalVariable.LeaveDeducted)
 
     WebUI.verifyElementPresent(findTestObject('Page_Print Preview/pdfText', [('pdfText') : textToVerify]), 0)
 

@@ -18,18 +18,58 @@ import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 import customUtilities.DateConverter as DateConverter
 import customUtilities.TimeSubtractor as TimeSubtractor
+import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUiBuiltInKeywords
+import org.openqa.selenium.WebElement as WebElement
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
 
 WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeetoProxy') : ApproverName, ('employeeName') : ApproverName], 
     FailureHandling.STOP_ON_FAILURE)
 
-WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/Approval Card Container'), 0)
+WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/Approvals Label'), 0)
 
-WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/Homepage/Approval Card Container'), 0)
+WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/Homepage/Approvals Label'), 0)
 
-WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/Homepage/Approval Card Type'), 'Time Off')
+WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/Approval Card TimeOff - Home Page'), 0)
 
+try {
+	if (WebUiBuiltInKeywords.findWebElement(findTestObject('Page_SuccessFactors Home/Homepage/Approval Time Off View All'))) {
+		WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/Approval Time Off View All'))
+	
+		WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/All Time Off Approval Popup/All Approval Card Popup Header'),
+			0)
+	
+		def List<WebElement> Cards = WebUI.findWebElements(findTestObject('Page_SuccessFactors Home/Homepage/All Time Off Approval Popup/Approval Popup Individual Card'),
+			0)
+	
+		for (WebElement indCard : Cards) {
+			def cardContentID = indCard.getAttribute('id')
+	
+			def cardID = cardContentID.split('-cardContent')[0]
+	
+			logger.logInfo(cardID)
+	
+			if (((WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Homepage/All Time Off Approval Popup/Approval Popup Card Initiator',
+					[('cardID') : cardID])) == EmployeeName) && (WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Homepage/All Time Off Approval Popup/Approval Popup Card Details Field Value (var)',
+					[('fieldName') : 'Period', ('cardID') : cardID])) == (LeaveStartDate + (' - ' + LeaveEndDate)))) && ((WebUiBuiltInKeywords.getText(
+				findTestObject('Page_SuccessFactors Home/Homepage/All Time Off Approval Popup/Approval Popup Card Details Field Value (var)',
+					[('fieldName') : 'Time Type', ('cardID') : cardID])) == LeaveType) && (WebUiBuiltInKeywords.getText(findTestObject(
+					'Page_SuccessFactors Home/Homepage/All Time Off Approval Popup/Approval Popup Card Details Field Value (var)',
+					[('fieldName') : 'Duration', ('cardID') : cardID])) == GlobalVariable.LeaveDeducted))) {
+				WebUI.takeFullPageScreenshot()
+	
+				WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/All Time Off Approval Popup/Approval Popup Card Initiator',
+						[('cardID') : cardID]))
+			}
+		}
+	}
+} catch (Exception e) {
+    WebUI.takeFullPageScreenshot()
+
+    WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/Approval Card TimeOff - Home Page'))
+}
+
+/*
 WebUI.verifyElementAttributeValue(findTestObject('Page_SuccessFactors Home/Homepage/Approval Card Initiator'), 'title', 
     EmployeeName, 0)
 
@@ -47,8 +87,8 @@ WebUI.verifyElementAttributeValue(findTestObject('Page_SuccessFactors Home/Homep
 
 WebUI.takeFullPageScreenshot()
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/Approval Card Type'))
-
+WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/Approval Card TimeOff - Home Page'))
+*/
 WebUI.waitForPageLoad(10)
 
 WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/WorkFlowDetails/ApprovalQuestionBanner'), 0)
@@ -109,5 +149,5 @@ WebUI.takeFullPageScreenshot()
 
 WebUI.waitForPageLoad(0, FailureHandling.STOP_ON_FAILURE)
 
-WebUI.verifyElementNotPresent(findTestObject('Page_SuccessFactors Home/Homepage/Approval Card Container'), 0)
+WebUI.verifyElementNotPresent(findTestObject('Page_SuccessFactors Home/Homepage/Approvals Label'), 0)
 

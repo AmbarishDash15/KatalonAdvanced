@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>Approval Card Details Field Value (var)</name>
+   <name>Aprroval Popup Card Details Field Name (var)</name>
    <tag></tag>
-   <elementGuidId>a732bb48-0330-4b49-aa0f-2c0b7c801ea6</elementGuidId>
+   <elementGuidId>e3fd4e8f-715a-44b8-badc-4a2485f96072</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//ui5-dialog[@accessible-name=&quot;Time Off&quot;]//span[contains(@class,&quot;KeyValueFields_label&quot;)][@title='${fieldName}']/following-sibling::span</value>
+         <value>//ui5-dialog[@accessible-name=&quot;Time Off&quot;]//div[contains(@id,'${cardID}')]//span[contains(@class,&quot;KeyValueFields_label&quot;)][@title='${fieldName}']</value>
       </entry>
       <entry>
          <key>CSS</key>
