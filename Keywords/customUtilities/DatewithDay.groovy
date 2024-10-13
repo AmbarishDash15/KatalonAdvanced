@@ -23,14 +23,17 @@ import internal.GlobalVariable
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Calendar;
 
 public class DatewithDay {
 
 	public static String formatDateRange(String dateStr1, String dateStr2) {
 		// Define the input date format
-		SimpleDateFormat inputFormat = new SimpleDateFormat("dd MMM yyyy");
-		// Define the output date format
-		SimpleDateFormat outputFormat = new SimpleDateFormat("EEE dd MMM");
+        SimpleDateFormat inputFormat = new SimpleDateFormat("d MMM yyyy");
+        // Define the output date format for different years
+        SimpleDateFormat outputFormatFull = new SimpleDateFormat("EEE d MMM yyyy");
+        // Define the output date format for the same year
+        SimpleDateFormat outputFormat = new SimpleDateFormat("EEE d MMM");
 
 		try {
 			// Parse the input date strings to Date objects
@@ -40,12 +43,25 @@ public class DatewithDay {
 			// Format the dates to the desired output format
 			String formattedDate1 = outputFormat.format(date1);
 			String formattedDate2 = outputFormat.format(date2);
+			
+			// Get the years using Calendar
+			Calendar cal1 = Calendar.getInstance();
+			cal1.setTime(date1);
+			int year1 = cal1.get(Calendar.YEAR);
+
+			Calendar cal2 = Calendar.getInstance();
+			cal2.setTime(date2);
+			int year2 = cal2.get(Calendar.YEAR);
 
 			// Check if the two dates are the same
 			if (date1.equals(date2)) {
 				return formattedDate1; // Return single date format
-			} else {
-				return formattedDate1 + " \u2013 " + formattedDate2; // Return date range format with hyphen
+			}
+			else if (year1 != year2) {
+				return outputFormatFull.format(date1) + " – " + outputFormatFull.format(date2);
+			}
+			else {
+				return formattedDate1 + " – " + formattedDate2; // Return date range format with hyphen
 			}
 		} catch (ParseException e) {
 			e.printStackTrace(); // Handle parsing errors

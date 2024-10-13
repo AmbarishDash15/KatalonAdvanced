@@ -81,22 +81,22 @@ public class TimeConverter {
 			return String.format("%.1f", decimalHours); // Return as decimal
 		}
 	}
-	
-	public static String convertDecimalToHoursAndMinutes(String decimalHoursStr) {
-        try {
-            double decimalHours = Double.parseDouble(decimalHoursStr); // Parse the string to double
-            int hours = (int) decimalHours; // Get the whole number of hours
-            int minutes = (int) ((decimalHours - hours) * 60); // Calculate minutes
 
-            if (minutes == 0) {
-                return hours + " hours";
-            } 
+	public static String convertDecimalToHoursAndMinutes(String decimalHoursStr) {
+		try {
+			double decimalHours = Double.parseDouble(decimalHoursStr); // Parse the string to double
+			int hours = (int) decimalHours; // Get the whole number of hours
+			int minutes = (int) ((decimalHours - hours) * 60); // Calculate minutes
+
+			if (minutes == 0) {
+				return hours + " hours";
+			}
 			else {
-                return hours + " hours " + minutes + " minutes";
-            }
-        } catch (NumberFormatException e) {
-            return "Invalid input"; // Handle invalid input
-        }
-    }
+				return hours + " hours " + minutes + " minutes";
+			}
+		} catch (NumberFormatException e) {
+			return "Invalid input"; // Handle invalid input
+		}
+	}
 }
 

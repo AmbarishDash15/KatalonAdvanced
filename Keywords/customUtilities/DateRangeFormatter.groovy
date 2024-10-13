@@ -28,7 +28,7 @@ public class DateRangeFormatter {
 
 	public static String formatDateRange(String dateStr1, String dateStr2) {
 		// Define the date format
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy");
+		SimpleDateFormat dateFormat = new SimpleDateFormat("d MMM yyyy");
 
 		try {
 			// Parse the date strings into Date objects
@@ -41,7 +41,7 @@ public class DateRangeFormatter {
 			}
 
 			// Extract day, month, and year information
-			SimpleDateFormat dayFormat = new SimpleDateFormat("dd");
+			SimpleDateFormat dayFormat = new SimpleDateFormat("d");
 			SimpleDateFormat monthFormat = new SimpleDateFormat("MMM");
 			SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy");
 
@@ -103,6 +103,50 @@ public class DateRangeFormatter {
 		} catch (ParseException e) {
 			e.printStackTrace();
 			return "Invalid date format";
+		}
+	}
+	
+	public static String formatDateRangeTeamAbsence(String dateStr1, String dateStr2) {
+		// Define the date format
+		SimpleDateFormat dateFormat = new SimpleDateFormat("d MMM yyyy");
+
+		try {
+			// Parse the date strings into Date objects
+			Date date1 = dateFormat.parse(dateStr1);
+			Date date2 = dateFormat.parse(dateStr2);
+
+			// Check if both dates are the same
+			if (date1.equals(date2)) {
+				return dateStr1; // Return the same date
+			}
+
+			// Extract day, month, and year information
+			SimpleDateFormat dayFormat = new SimpleDateFormat("d");
+			SimpleDateFormat monthFormat = new SimpleDateFormat("MMM");
+			SimpleDateFormat yearFormat = new SimpleDateFormat("yyyy");
+
+			String day1 = dayFormat.format(date1);
+			String day2 = dayFormat.format(date2);
+			String month1 = monthFormat.format(date1);
+			String month2 = monthFormat.format(date2);
+			String year1 = yearFormat.format(date1);
+			String year2 = yearFormat.format(date2);
+
+			// Check if the years are the same
+			if (year1.equals(year2)) {
+				// Check if the months are the same
+				if (month1.equals(month2)) {
+					return String.format("%s – %s %s", day1, day2, month1 + " " + year1);
+				} else {
+					return String.format("%s %s – %s %s", day1, month1, day2, month2) + " " + year1;
+				}
+			} else {
+				// Different years
+				return String.format("%s %s %s – %s %s %s", day1, month1, year1, day2, month2, year2);
+			}
+		} catch (ParseException e) {
+			e.printStackTrace(); // Handle parsing errors
+			return null; // Return null if parsing fails
 		}
 	}
 

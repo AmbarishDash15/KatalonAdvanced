@@ -19,45 +19,67 @@ import org.openqa.selenium.Keys as Keys
 import org.openqa.selenium.WebElement as WebElement
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUiBuiltInKeywords
 import com.kms.katalon.core.logging.KeywordLogger as KeywordLogger
-
-KeywordLogger logger = new KeywordLogger()
+import customUtilities.DateRangeFormatter as DateRangeFormatter
+import java.time.LocalDate as LocalDate
+import java.time.format.DateTimeFormatter as DateTimeFormatter
+import java.time.temporal.ChronoUnit as ChronoUnit
+import customUtilities.DateRangeChecker as DateRangeChecker
 
 WebUI.callTestCase(findTestCase('SF/Common/Login'), [:], FailureHandling.STOP_ON_FAILURE)
 
-WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeetoProxy') : 'Bronwyn Burbury', ('employeeName') : 'Bronwyn Burbury'], 
+WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
+
+WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeetoProxy') : 'Chris Elliott', ('employeeName') : 'Chris Elliott'], 
     FailureHandling.STOP_ON_FAILURE)
 
-WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/Homepage/Approvals Label'), 0)
+WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/tileButton_View Team Absences'), 0)
 
-if (WebUiBuiltInKeywords.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/Approval Time Off View All'), 
-    0)) {
-    WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/Approval Time Off View All'))
+WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/tileButton_View Team Absences'))
 
-    WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/All Time Off Approval Popup/All Approval Card Popup Header'), 
-        0)
+WebUI.waitForPageLoad(10)
 
-    List<WebElement> Cards = WebUI.findWebElements(findTestObject('Page_SuccessFactors Home/Homepage/All Time Off Approval Popup/Approval Popup Individual Card'), 
-        0)
+WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/panelheader_My Reporting Hierarchy'), 
+    0)
 
-    for (WebElement indCard : Cards) {
-        def cardContentID = indCard.getAttribute('id')
+WebUI.click(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_My Drirect Reports tab'))
 
-        def cardID = cardContentID.split('-cardContent')[0]
+WebUI.click(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_Half Month tab'))
 
-        logger.logInfo(cardID)
+WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/My Reporting Hierarchy - EmployeeName (var)', 
+        [('employeeName') : EmployeeName]), 0)
 
-        if (((WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Homepage/All Time Off Approval Popup/Approval Popup Card Initiator', 
-                [('cardID') : cardID])) == 'Ben Kurnof') && (WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Homepage/All Time Off Approval Popup/Approval Popup Card Details Field Value (var)', 
-                [('fieldName') : 'Period', ('cardID') : cardID])) == '3 Sept 2024 - 18 Sept 2024')) && ((WebUiBuiltInKeywords.getText(
-            findTestObject('Page_SuccessFactors Home/Homepage/All Time Off Approval Popup/Approval Popup Card Details Field Value (var)', 
-                [('fieldName') : 'Time Type', ('cardID') : cardID])) == 'Leave Without Pay') && (WebUiBuiltInKeywords.getText(findTestObject(
-                'Page_SuccessFactors Home/Homepage/All Time Off Approval Popup/Approval Popup Card Details Field Value (var)', 
-                [('fieldName') : 'Duration', ('cardID') : cardID])) == '90 hours'))) {
-            WebUI.takeFullPageScreenshot()
+WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Reporting Hierarchy_Checkbox (var)', 
+        [('employeeName') : EmployeeName]), 0)
 
-            WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/All Time Off Approval Popup/Approval Popup Card Initiator', 
-                    [('cardID') : cardID]))
-        }
-    }
+WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Reporting Hierarchy_Checkbox (var)', 
+        [('employeeName') : EmployeeName]), 0)
+
+WebUI.check(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Reporting Hierarchy_Checkbox (var)', [('employeeName') : EmployeeName]))
+
+WebUI.delay(1)
+
+WebUI.verifyElementAttributeValue(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Reporting Hierarchy_Checkbox (var)', 
+        [('employeeName') : EmployeeName]), 'aria-checked', 'true', 0)
+
+while (!(DateRangeChecker.isDateInRange(LeaveStartDate, WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_Date Range'))))) {
+    WebUI.click(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_Calendar Forward button'))
 }
+
+WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_LeaveTitle'), 
+    0)
+
+WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_LeaveTitle'), 
+    LeaveType)
+
+WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_LeaveDate'), 
+    0)
+
+WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_LeaveDate'), 
+    DateRangeFormatter.formatDateRangeTeamAbsence(LeaveStartDate, LeaveEndDate))
+
+WebUI.click(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_LeaveDate'), FailureHandling.STOP_ON_FAILURE)
+
+WebUI.takeFullPageScreenshot()
+
+WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
 

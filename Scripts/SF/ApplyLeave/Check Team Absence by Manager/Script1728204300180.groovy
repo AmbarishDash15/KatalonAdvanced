@@ -70,7 +70,7 @@ WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Team Absence
     0)
 
 WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_LeaveDate'), 
-    DateRangeFormatter.formatDateRange(LeaveStartDate, LeaveEndDate))
+    DateRangeFormatter.formatDateRangeTeamAbsence(LeaveStartDate, LeaveEndDate))
 
 WebUI.takeFullPageScreenshot()
 

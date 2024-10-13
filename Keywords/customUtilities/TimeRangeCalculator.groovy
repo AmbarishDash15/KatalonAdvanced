@@ -21,33 +21,29 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable
 
 import java.time.LocalTime;
-import java.time.Duration;
+import java.time.format.DateTimeFormatter;
 
-public class TimeDifference {
+public class TimeRangeCalculator {
 	public static void main(String[] args) {
-		if (args.length != 1) {
-			System.out.println("Usage: java TimeDifference 'HH:mm - HH:mm'");
-			return;
-		}
-
-		String timeRange = args[0];
-		String result = calculateTimeDifference(timeRange);
-		System.out.println("Time difference: " + result);
+		String timeRange = "08:00 – 16:00"; // Input time range
+		String newEndTime = calculateNewEndTime(timeRange);
+		System.out.println("New end time: " + newEndTime); // Output the new end time
 	}
 
-	public static String calculateTimeDifference(String timeRange) {
-		String[] times = timeRange.split(" – ");
-		LocalTime start = LocalTime.parse(times[0]);
-		LocalTime end = LocalTime.parse(times[1]);
+	public static String calculateNewEndTime(String timeRange) {
+		// Split the time range into start and end times
+		String[] times = timeRange.split(" – "); // Using the specific non-breaking space
+		LocalTime startTime = LocalTime.parse(times[0], DateTimeFormatter.ofPattern("HH:mm"));
+		LocalTime endTime = LocalTime.parse(times[1], DateTimeFormatter.ofPattern("HH:mm"));
 
-		Duration duration = Duration.between(start, end);
-		long totalMinutes = duration.toMinutes() - 30; // Deduct 30 minutes
+		// Calculate duration in minutes
+		long durationMinutes = java.time.Duration.between(startTime, endTime).toMinutes();
+		long halfDurationMinutes = durationMinutes / 2;
 
-		//		long hours = totalMinutes / 60;
-		//		long minutes = totalMinutes % 60;
+		// Calculate new end time
+		LocalTime newEndTime = startTime.plusMinutes(halfDurationMinutes);
 
-		//		return hours + " hours " + minutes + " minutes";
-		return String.valueOf(totalMinutes)
+		// Return the new end time as a string
+		return newEndTime.format(DateTimeFormatter.ofPattern("HH:mm"));
 	}
 }
-

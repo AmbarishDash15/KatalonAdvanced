@@ -25,8 +25,14 @@ import customUtilities.TimeConverter as TimeConverter
 import customUtilities.TimeDifference as TimeDifference
 import com.kms.katalon.core.logging.KeywordLogger as KeywordLogger
 import java.lang.Integer as Integer
+import customUtilities.DateChecker as DateChecker
+import customUtilities.TimeRangeCalculator as TimeRangeCalculator
 
 KeywordLogger logger = new KeywordLogger()
+
+if (!FullDay) {
+	LeaveEndDate = LeaveStartDate
+}
 
 String[] arrLeaveStart = LeaveStartDate.split(' ')
 
@@ -81,11 +87,34 @@ if (LeaveStartDate == LeaveEndDate) {
 
     dayType = WebUI.getAttribute(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Day Type (var)', [
                 ('date') : dateStart]), 'class')
+	
+	
 
     if (dayType == 'workingDay') {
-        leaveDeductedinMin = TimeDifference.calculateTimeDifference(WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Working Hours Text (var)', 
-                    [('date') : dateStart])))
+		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern('d MMM yyyy')
+		
+		LocalDate startDate = LocalDate.parse(LeaveStartDate.trim(), formatter)
+		if (DateChecker.checkPublicHoliday(currentCalDate.toString())) {
+			logger.logFailed('Leave Date is a Public Holiday')
+			
+			assert false
+		}
+		
+		if (!FullDay) {
+			def workingTime = WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Working Hours Text (var)',
+				[('date') : dateStart]))
+			String[] arrTime = workingTime.split(' ')
+			GlobalVariable.LeaveStartTime = arrTime[0]
+			GlobalVariable.LeaveEndTime = TimeRangeCalculator.calculateNewEndTime(workingTime)
+			leaveDeductedinMin = TimeDifference.calculateTimeDifference(arrTime[0] + " – " +GlobalVariable.LeaveEndTime)
+		}
+		else {
+			leaveDeductedinMin = TimeDifference.calculateTimeDifference(WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Working Hours Text (var)',
+				[('date') : dateStart])))
+		}
     } else {
+		
         logger.logFailed('Leave Date is a Non-Working Day')
 
         assert false
@@ -106,10 +135,12 @@ if (LeaveStartDate == LeaveEndDate) {
                 [('date') : currentCalDate]), 'class')
 
         if (dayType == 'workingDay') {
-            leaveDeductedinMinforTheDay = String.valueOf(TimeDifference.calculateTimeDifference(WebUiBuiltInKeywords.getText(findTestObject(
-                        'Page_SuccessFactors Home/Work Schedule Details Popup/Working Hours Text (var)', [('date') : currentCalDate]))))
+            if (!DateChecker.checkPublicHoliday(currentDate.toString())) {
+				leaveDeductedinMinforTheDay = String.valueOf(TimeDifference.calculateTimeDifference(WebUiBuiltInKeywords.getText(findTestObject(
+					'Page_SuccessFactors Home/Work Schedule Details Popup/Working Hours Text (var)', [('date') : currentCalDate]))))
 
-            leaveDeductedinMin = String.valueOf(Integer.valueOf(leaveDeductedinMin) + Integer.valueOf(leaveDeductedinMinforTheDay))
+				leaveDeductedinMin = String.valueOf(Integer.valueOf(leaveDeductedinMin) + Integer.valueOf(leaveDeductedinMinforTheDay))
+			}
         }
         
         if (currentDate.getDayOfWeek().getValue() == 7) {
@@ -133,9 +164,13 @@ int totminConvertedToHours = totalMins / 60
 int totminConvertedToMin = totalMins % 60
 
 if (totminConvertedToMin == 0) {
-    GlobalVariable.LeaveDeducted = (totminConvertedToHours + ' hours')
-} else {
-    GlobalVariable.LeaveDeducted = (((totminConvertedToHours + ' hours ') + totminConvertedToMin) + ' minutes')
+    GlobalVariable.LeaveDeducted = totminConvertedToHours + ' hours'
+}
+else if (totminConvertedToHours == 0) {
+	GlobalVariable.LeaveDeducted = totminConvertedToMin + ' minutes'
+}
+else {
+    GlobalVariable.LeaveDeducted = ((totminConvertedToHours + ' hours ') + totminConvertedToMin) + ' minutes'
 }
 
 logger.logInfo('Total working hours : ' + GlobalVariable.LeaveDeducted)

@@ -7,15 +7,13 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value></value>
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//span[@class=&quot;sapUiCalItemText&quot;][contains(text(),&quot;${date}&quot;)]</value>
+         <value>//span[@class=&quot;sapUiCalItemText&quot;][text()=&quot;${date}&quot;]</value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value></value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>

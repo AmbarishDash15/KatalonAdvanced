@@ -76,24 +76,22 @@ if (WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Time O
 'Pending') {
     GlobalVariable.LeaveStatus = 'Pending'
 
-    while (GlobalVariable.LeaveStatus == 'Pending') {
-        WebUI.click(findTestObject('Page_SuccessFactors Home/Time Off Page/Leave Link on Popup'))
+    WebUI.click(findTestObject('Page_SuccessFactors Home/Time Off Page/Leave Link on Popup'))
 
-        WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Time Off Page/View Absence Label'), 0)
+    WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Time Off Page/View Absence Label'), 0)
 
-        WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/Time Off Page/Value in Time Type'), LeaveType)
+    WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/Time Off Page/Value in Time Type'), LeaveType)
 
-        WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/Time Off Page/Value in Date'), DateRangeFormatter.dateRangewithDay(
-                LeaveStartDate, LeaveEndDate))
+    WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/Time Off Page/Value in Date'), DateRangeFormatter.dateRangewithDay(
+            LeaveStartDate, LeaveEndDate))
 
-        GlobalVariable.NextApprover = WebUI.getText(findTestObject('Page_SuccessFactors Home/Time Off Page/Value in To Be Approved By'))
+    GlobalVariable.NextApprover = WebUI.getText(findTestObject('Page_SuccessFactors Home/Time Off Page/Value in To Be Approved By'))
 
-        WebUI.callTestCase(findTestCase('SF/Common/Approve Leave'), [('ApproverName') : GlobalVariable.NextApprover, ('EmployeeID') : EmployeeID
-                , ('EmployeeName') : EmployeeName, ('LeaveType') : LeaveType, ('LeaveStartDate') : LeaveStartDate, ('LeaveEndDate') : LeaveEndDate], 
+    WebUI.callTestCase(findTestCase('SF/Common/Approve Leave'), [('ApproverName') : GlobalVariable.NextApprover, ('EmployeeID') : EmployeeID
+            , ('EmployeeName') : EmployeeName, ('LeaveType') : LeaveType, ('LeaveStartDate') : LeaveStartDate, ('LeaveEndDate') : LeaveEndDate], 
+        FailureHandling.STOP_ON_FAILURE)
+
+    WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeetoProxy') : EmployeeID, ('employeeName') : EmployeeName], 
             FailureHandling.STOP_ON_FAILURE)
-
-        WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeetoProxy') : EmployeeID, ('employeeName') : EmployeeName], 
-            FailureHandling.STOP_ON_FAILURE)
-    }
 }
 

@@ -6,4 +6,56 @@
    <comment></comment>
    <recordOption>OTHER</recordOption>
    <testCaseGuid>77baa929-2813-45da-bd18-7055f57db741</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>9a0b402d-77ac-441b-83bc-f6b0109e8c9b</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>ccadb591-a525-484b-837c-5beaaa194104</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>f0093cea-dc8d-4144-91ad-87c51721cca4</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>3f6bbd32-188b-49ab-a4a2-cf89aad3ddee</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'Nikki Scholes'</defaultValue>
+      <description></description>
+      <id>9a0b402d-77ac-441b-83bc-f6b0109e8c9b</id>
+      <masked>false</masked>
+      <name>EmployeeName</name>
+   </variable>
+   <variable>
+      <defaultValue>'Annual Leave'</defaultValue>
+      <description></description>
+      <id>ccadb591-a525-484b-837c-5beaaa194104</id>
+      <masked>false</masked>
+      <name>LeaveType</name>
+   </variable>
+   <variable>
+      <defaultValue>'14 Nov 2024'</defaultValue>
+      <description></description>
+      <id>f0093cea-dc8d-4144-91ad-87c51721cca4</id>
+      <masked>false</masked>
+      <name>LeaveStartDate</name>
+   </variable>
+   <variable>
+      <defaultValue>'6 Dec 2024'</defaultValue>
+      <description></description>
+      <id>3f6bbd32-188b-49ab-a4a2-cf89aad3ddee</id>
+      <masked>false</masked>
+      <name>LeaveEndDate</name>
+   </variable>
 </TestCaseEntity>

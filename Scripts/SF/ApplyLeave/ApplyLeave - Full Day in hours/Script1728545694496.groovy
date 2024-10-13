@@ -21,6 +21,8 @@ import customUtilities.TimeDifference as TimeDifference
 import customUtilities.WorkingDaysCalculator as WorkingDaysCalculator
 import customUtilities.TimeDifferenceChecker as TimeDifferenceChecker
 
+WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
+
 WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/tilebutton_Request Time Off'))
 
 WebUI.delay(2)

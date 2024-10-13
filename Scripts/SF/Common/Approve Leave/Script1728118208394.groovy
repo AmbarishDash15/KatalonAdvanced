@@ -32,43 +32,45 @@ WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/Homepage/Approval
 
 WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/Approval Card TimeOff - Home Page'), 0)
 
-try {
-	if (WebUiBuiltInKeywords.findWebElement(findTestObject('Page_SuccessFactors Home/Homepage/Approval Time Off View All'))) {
-		WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/Approval Time Off View All'))
-	
-		WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/All Time Off Approval Popup/All Approval Card Popup Header'),
-			0)
-	
-		def List<WebElement> Cards = WebUI.findWebElements(findTestObject('Page_SuccessFactors Home/Homepage/All Time Off Approval Popup/Approval Popup Individual Card'),
-			0)
-	
-		for (WebElement indCard : Cards) {
-			def cardContentID = indCard.getAttribute('id')
-	
-			def cardID = cardContentID.split('-cardContent')[0]
-	
-			logger.logInfo(cardID)
-	
-			if (((WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Homepage/All Time Off Approval Popup/Approval Popup Card Initiator',
-					[('cardID') : cardID])) == EmployeeName) && (WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Homepage/All Time Off Approval Popup/Approval Popup Card Details Field Value (var)',
-					[('fieldName') : 'Period', ('cardID') : cardID])) == (LeaveStartDate + (' - ' + LeaveEndDate)))) && ((WebUiBuiltInKeywords.getText(
-				findTestObject('Page_SuccessFactors Home/Homepage/All Time Off Approval Popup/Approval Popup Card Details Field Value (var)',
-					[('fieldName') : 'Time Type', ('cardID') : cardID])) == LeaveType) && (WebUiBuiltInKeywords.getText(findTestObject(
-					'Page_SuccessFactors Home/Homepage/All Time Off Approval Popup/Approval Popup Card Details Field Value (var)',
-					[('fieldName') : 'Duration', ('cardID') : cardID])) == GlobalVariable.LeaveDeducted))) {
-				WebUI.takeFullPageScreenshot()
-	
-				WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/All Time Off Approval Popup/Approval Popup Card Initiator',
-						[('cardID') : cardID]))
-			}
-		}
-	}
-} catch (Exception e) {
+def List<WebElement> ViewAll = WebUI.findWebElements(findTestObject('Page_SuccessFactors Home/Homepage/Approval Time Off View All'), 0)
+
+if (!ViewAll.length == null) {
+    WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/Approval Time Off View All'))
+
+    WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/All Time Off Approval Popup/All Approval Card Popup Header'), 
+        0)
+
+    def List<WebElement> Cards = WebUI.findWebElements(findTestObject('Page_SuccessFactors Home/Homepage/All Time Off Approval Popup/Approval Popup Individual Card'), 
+        0)
+
+    for (WebElement indCard : Cards) {
+        def cardContentID = indCard.getAttribute('id')
+
+        def cardID = cardContentID.split('-cardContent')[0]
+
+        logger.logInfo(cardID)
+
+        if (((WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Homepage/All Time Off Approval Popup/Approval Popup Card Initiator', 
+                [('cardID') : cardID])) == EmployeeName) && (WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Homepage/All Time Off Approval Popup/Approval Popup Card Details Field Value (var)', 
+                [('fieldName') : 'Period', ('cardID') : cardID])) == (LeaveStartDate + (' - ' + LeaveEndDate)))) && 
+        ((WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Homepage/All Time Off Approval Popup/Approval Popup Card Details Field Value (var)', 
+                [('fieldName') : 'Time Type', ('cardID') : cardID])) == LeaveType) && (WebUiBuiltInKeywords.getText(
+            findTestObject('Page_SuccessFactors Home/Homepage/All Time Off Approval Popup/Approval Popup Card Details Field Value (var)', 
+                [('fieldName') : 'Duration', ('cardID') : cardID])) == GlobalVariable.LeaveDeducted))) {
+            WebUI.takeFullPageScreenshot()
+
+            WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/All Time Off Approval Popup/Approval Popup Card Initiator', 
+                    [('cardID') : cardID]))
+        }
+    }
+}
+
+else {
     WebUI.takeFullPageScreenshot()
 
     WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/Approval Card TimeOff - Home Page'))
-}
 
+}
 /*
 WebUI.verifyElementAttributeValue(findTestObject('Page_SuccessFactors Home/Homepage/Approval Card Initiator'), 'title', 
     EmployeeName, 0)
@@ -130,9 +132,9 @@ WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/WorkFlowDeta
 
 WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/WorkFlowDetails/Approval Request FieldWithOutQuestionMark Value (var)', 
         [('fieldName') : 'Balance as of ' + customUtilities.DateConverter.convertDateFormat(LeaveEndDate)]), TimeSubtractor.subtractTime(
-        GlobalVariable.LeaveBalance, GlobalVariable.LeaveDeducted))
+        GlobalVariable.EndDateLeaveBalance , GlobalVariable.LeaveDeducted))
 
-GlobalVariable.RemainingLeaveBalance = TimeSubtractor.subtractTime(GlobalVariable.LeaveBalance, GlobalVariable.LeaveDeducted)
+GlobalVariable.RemainingLeaveBalance = TimeSubtractor.subtractTime(GlobalVariable.EndDateLeaveBalance, GlobalVariable.LeaveDeducted)
 
 WebUI.takeFullPageScreenshot()
 

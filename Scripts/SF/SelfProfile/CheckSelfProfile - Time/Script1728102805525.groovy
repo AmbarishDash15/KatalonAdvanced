@@ -20,6 +20,7 @@ import customUtilities.DateChecker as DateChecker
 import customUtilities.CalendarNavigator as CalendarNavigator
 import customUtilities.MonthConverter as MonthConverter
 
+
 WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/tilebutton_View My Profile'))
@@ -50,16 +51,8 @@ if (!(DateChecker.isTodayOrPast(LeaveStartDate))) {
         WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Next Month Button'))
     }
     
-    /*
-    def MonthForwader = CalendarNavigator.monthsToNext(LeaveStartDate)
 
-    for (def index : (0..MonthForwader)) {
-        WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Next Month Button'))
-    }
-    */
-    selectedMonth = WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Month Value'))
-
-    if (selectedMonth == MonthConverter.getFullMonthName(paramMonth)) {
+    if (fullMonthName == WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Month Value'))) {
         WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Date Icon (var)', [('date') : paramDate]))
     }
     
@@ -85,9 +78,56 @@ WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/T
 def leaveBalance = WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - Leave Balance (var)', 
         [('leaveType') : LeaveType]))
 
-GlobalVariable.LeaveBalance = leaveBalance
+def leaveBalanceEndDate = leaveBalance
 
 WebUI.takeFullPageScreenshot()
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
+if (LeaveStartDate != LeaveEndDate) {
+    WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/CalendarIconAfterDateChange'))
+
+    WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Calendar'), 0)
+
+    String[] partsEnd = LeaveEndDate.split(' ')
+
+    def paramEndDate = partsEnd[0]
+
+    def paramEndMonth = partsEnd[1]
+
+    def paramEndYear = partsEnd[2]
+
+    def fullEndMonthName = MonthConverter.getFullMonthName(paramEndMonth)
+
+    while (!((fullEndMonthName == WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Month Value'))) & 
+    (paramEndYear == WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Year Value'))))) {
+        WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Next Month Button'))
+    }
+
+    if (fullEndMonthName == WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Month Value'))) {
+        WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Date Icon (var)', [('date') : paramEndDate]))
+    }
+    
+    WebUI.verifyElementAttributeValue(findTestObject('Page_SuccessFactors Home/My Profile/CalendarIconAfterDateChange'), 
+        'title', 'As of ' + LeaveEndDate, 0)
+
+    WebUI.takeFullPageScreenshot()
+	
+	WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/SectionTabName (var)', [('tabName') : 'Time']))
+	
+	
+	WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - title'), 0)
+	
+	WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - title'), 0)
+	
+	WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - Leave Type (var)', [('leaveType') : LeaveType]),
+		0)
+	
+	leaveBalanceEndDate = WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - Leave Balance (var)',
+			[('leaveType') : LeaveType]))
+}
+
+GlobalVariable.LeaveBalance = leaveBalance
+GlobalVariable.EndDateLeaveBalance = leaveBalanceEndDate
+
+
+
 
