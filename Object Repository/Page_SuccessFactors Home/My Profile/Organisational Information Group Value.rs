@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>Leave Link on Popup</name>
+   <name>Organisational Information Group Value</name>
    <tag></tag>
-   <elementGuidId>4320fa38-82e6-4d79-ad6e-de2e44d3a3bc</elementGuidId>
+   <elementGuidId>885475fa-000a-44e6-bbd6-66290a602e3c</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
+         <value></value>
       </entry>
       <entry>
-         <key>CSS</key>
-         <value>a[id*='selectedDayAbsences']</value>
+         <key>XPATH</key>
+         <value>//table[@summary='Organisation Information']//span[text()='Group']/ancestor::tr/td[2]/span</value>
       </entry>
    </selectorCollection>
-   <selectorMethod>CSS</selectorMethod>
+   <selectorMethod>XPATH</selectorMethod>
    <smartLocatorEnabled>false</smartLocatorEnabled>
    <useRalativeImagePath>false</useRalativeImagePath>
 </WebElementEntity>

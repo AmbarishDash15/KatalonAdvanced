@@ -33,12 +33,6 @@
       <value>LeaveEndDate</value>
       <variableId>8ab85a75-1df1-456e-a0ea-2a27d5a99267</variableId>
    </variableLinks>
-   <variableLinks>
-      <testDataLinkId>1f199eda-3a84-4d48-a570-caa790add905</testDataLinkId>
-      <type>DATA_COLUMN</type>
-      <value>FullDay</value>
-      <variableId>bcfb7833-fa93-498e-9b4d-4a831e4226db</variableId>
-   </variableLinks>
    <variable>
       <defaultValue>'Sick Leave'</defaultValue>
       <description></description>
@@ -59,12 +53,5 @@
       <id>8ab85a75-1df1-456e-a0ea-2a27d5a99267</id>
       <masked>false</masked>
       <name>LeaveEndDate</name>
-   </variable>
-   <variable>
-      <defaultValue>true</defaultValue>
-      <description></description>
-      <id>bcfb7833-fa93-498e-9b4d-4a831e4226db</id>
-      <masked>false</masked>
-      <name>FullDay</name>
    </variable>
 </TestCaseEntity>

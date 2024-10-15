@@ -15,7 +15,7 @@
       <guid>96ccef85-9ce4-44a3-99ca-80543e465875</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/SF/Leave - E2E/ApplySickLeave</testCaseId>
+      <testCaseId>Test Cases/SF/Leave - E2E/Apply Leave - Calculated in Hours For Future Date</testCaseId>
       <testDataLink>
          <combinationType>ONE</combinationType>
          <id>995b0f4c-1548-4636-b33b-04508de71426</id>
@@ -67,6 +67,12 @@
          <type>DATA_COLUMN</type>
          <value>FullDay</value>
          <variableId>e1618aff-d1b6-4d92-bb6c-d53f21383c8c</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>995b0f4c-1548-4636-b33b-04508de71426</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>Initiator</value>
+         <variableId>85e0777d-9299-4227-a24f-7c236700c3ed</variableId>
       </variableLink>
    </testCaseLink>
 </TestSuiteEntity>

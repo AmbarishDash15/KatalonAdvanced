@@ -38,7 +38,7 @@
       <name>EmployeeName</name>
    </variable>
    <variable>
-      <defaultValue>'Annual Leave'</defaultValue>
+      <defaultValue>'Workers Compensation Leave Other Employment'</defaultValue>
       <description></description>
       <id>ccadb591-a525-484b-837c-5beaaa194104</id>
       <masked>false</masked>

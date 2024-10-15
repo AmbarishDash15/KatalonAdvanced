@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>ApplySickLeave</name>
+   <name>Apply Leave - Calculated in Hours For Future Date</name>
    <tag></tag>
    <comment></comment>
    <recordOption>OTHER</recordOption>
@@ -32,6 +32,12 @@
       <type>DEFAULT</type>
       <value></value>
       <variableId>92bde7f5-20a5-4dd0-aa3f-7e8b5f5ff101</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>85e0777d-9299-4227-a24f-7c236700c3ed</variableId>
    </variableLinks>
    <variableLinks>
       <testDataLinkId>49438155-21c5-4308-bbb9-511af2177843</testDataLinkId>
@@ -77,6 +83,13 @@
       <id>92bde7f5-20a5-4dd0-aa3f-7e8b5f5ff101</id>
       <masked>false</masked>
       <name>WorkSchedule</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>85e0777d-9299-4227-a24f-7c236700c3ed</id>
+      <masked>false</masked>
+      <name>Initiator</name>
    </variable>
    <variable>
       <defaultValue>''</defaultValue>

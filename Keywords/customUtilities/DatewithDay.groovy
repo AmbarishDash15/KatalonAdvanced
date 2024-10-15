@@ -29,11 +29,11 @@ public class DatewithDay {
 
 	public static String formatDateRange(String dateStr1, String dateStr2) {
 		// Define the input date format
-        SimpleDateFormat inputFormat = new SimpleDateFormat("d MMM yyyy");
-        // Define the output date format for different years
-        SimpleDateFormat outputFormatFull = new SimpleDateFormat("EEE d MMM yyyy");
-        // Define the output date format for the same year
-        SimpleDateFormat outputFormat = new SimpleDateFormat("EEE d MMM");
+		SimpleDateFormat inputFormat = new SimpleDateFormat("d MMM yyyy");
+		// Define the output date format for different years
+		SimpleDateFormat outputFormatFull = new SimpleDateFormat("EEE d MMM yyyy");
+		// Define the output date format for the same year
+		SimpleDateFormat outputFormat = new SimpleDateFormat("EEE d MMM");
 
 		try {
 			// Parse the input date strings to Date objects
@@ -43,7 +43,7 @@ public class DatewithDay {
 			// Format the dates to the desired output format
 			String formattedDate1 = outputFormat.format(date1);
 			String formattedDate2 = outputFormat.format(date2);
-			
+
 			// Get the years using Calendar
 			Calendar cal1 = Calendar.getInstance();
 			cal1.setTime(date1);

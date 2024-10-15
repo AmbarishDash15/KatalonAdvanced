@@ -29,8 +29,10 @@ WebUI.callTestCase(findTestCase('SF/SelfProfile/Get Working Hours Between Dates'
 WebUI.callTestCase(findTestCase('SF/SelfProfile/CheckSelfProfile - Time'), [('EmployeeName') : EmployeeName, ('EmployeeID') : EmployeeID
         , ('LeaveStartDate') : LeaveStartDate, ('LeaveType') : LeaveType, ('LeaveEndDate') : LeaveEndDate], FailureHandling.STOP_ON_FAILURE)
 
-WebUI.callTestCase(findTestCase('SF/ApplyLeave/ApplyLeave - Full Day in hours'), [('LeaveType') : LeaveType, ('LeaveStartDate') : LeaveStartDate
-        , ('LeaveEndDate') : LeaveEndDate, ('FullDay') : true], FailureHandling.STOP_ON_FAILURE)
+if (Initiator == 'Employee') {
+    WebUI.callTestCase(findTestCase('SF/ApplyLeave/ApplyLeave - Full Day in hours'), [('LeaveType') : LeaveType, ('LeaveStartDate') : LeaveStartDate
+            , ('LeaveEndDate') : LeaveEndDate, ('FullDay') : true], FailureHandling.STOP_ON_FAILURE)
+}
 
 while (GlobalVariable.LeaveStatus != 'Approved') {
     WebUI.callTestCase(findTestCase('SF/Approval/Approve Leave by gettting Leave Status and Approver'), [('LeaveType') : LeaveType
@@ -44,4 +46,10 @@ WebUI.callTestCase(findTestCase('SF/ApplyLeave/Check Team Absence by Manager'), 
 WebUI.callTestCase(findTestCase('SF/ApplyLeave/Verify Approved Leave on Self Profile'), [('EmployeeName') : EmployeeName
         , ('EmployeeID') : EmployeeID, ('LeaveStartDate') : LeaveStartDate, ('LeaveType') : LeaveType, ('LeaveEndDate') : LeaveEndDate], 
     FailureHandling.STOP_ON_FAILURE)
+
+WebUI.callTestCase(findTestCase('SF/Payslip/Generate Pay Slip'), [('LeaveStartDate') : LeaveStartDate, ('LeaveEndDate') : LeaveEndDate
+        , ('EmployeeID') : EmployeeID], FailureHandling.STOP_ON_FAILURE)
+
+WebUI.callTestCase(findTestCase('SF/Payslip/Verify Payslip Data'), [('EmployeeID') : EmployeeID, ('EmployeeName') : EmployeeName
+        , ('LeaveType') : LeaveType], FailureHandling.STOP_ON_FAILURE)
 

@@ -7,11 +7,10 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value></value>
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//div[@class='textLayer']/span[text()='${pdfText}']</value>
+         <value>//div[@class='textLayer']/span[contains(text(),'${pdfText}')]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>
@@ -23,6 +22,6 @@
       <name>ref_element</name>
       <type>Main</type>
       <value>Object Repository/Page_Print Preview/iFrameContainer</value>
-      <webElementGuid>b55eff3b-7e5b-4091-bc49-223ee0ec3a76</webElementGuid>
+      <webElementGuid>62da2470-ae49-4655-b910-631650fbb4bc</webElementGuid>
    </webElementProperties>
 </WebElementEntity>

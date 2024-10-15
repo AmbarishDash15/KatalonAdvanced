@@ -64,4 +64,19 @@
       <initValue>''</initValue>
       <name>LeaveEndTime</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>EmployeeFirstName</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>LeaveArray</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>EmployeeGroup</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

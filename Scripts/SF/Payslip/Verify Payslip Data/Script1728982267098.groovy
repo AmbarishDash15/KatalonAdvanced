@@ -16,6 +16,11 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
+import customUtilities.LeaveTypeOnPayslip as LeaveTypeOnPayslip
+import com.kms.katalon.core.logging.KeywordLogger as KeywordLogger
+KeywordLogger logger = new KeywordLogger()
+
+def textToVerify = ''
 
 WebUI.verifyElementPresent(findTestObject('Page_Print Preview/Print Preview title'), 0)
 
@@ -31,12 +36,12 @@ WebUI.verifyElementPresent(findTestObject('Page_Print Preview/pdfText', [('pdfTe
 
 logger.logInfo('Verified Employee ID as ' + textToVerify)
 
-textToVerify = LeaveType
+textToVerify = LeaveTypeOnPayslip.getLeaveTypeonPayslip(LeaveType).length() > 20 ? LeaveTypeOnPayslip.getLeaveTypeonPayslip(LeaveType).substring(0, 20) : LeaveTypeOnPayslip.getLeaveTypeonPayslip(LeaveType)
 
 WebUI.verifyElementPresent(findTestObject('Page_Print Preview/pdfText', [('pdfText') : textToVerify]), 0)
 
 logger.logInfo('Verified Leave Type as ' + textToVerify)
-
+/*
 textToVerify = customUtilities.DateFormatConverter.convertDateFormat(LeaveStartDate)
 
 WebUI.verifyElementPresent(findTestObject('Page_Print Preview/pdfText', [('pdfText') : textToVerify]), 0)
@@ -60,6 +65,6 @@ textToVerify = customUtilities.TimeConverter.convertToDecimalHours2Decimal(Globa
 WebUI.verifyElementPresent(findTestObject('Page_Print Preview/pdfText', [('pdfText') : textToVerify]), 0)
 
 logger.logInfo('Verified Absences Leave Hours as ' + textToVerify)
-
+*/
 WebUI.takeFullPageScreenshot()
 

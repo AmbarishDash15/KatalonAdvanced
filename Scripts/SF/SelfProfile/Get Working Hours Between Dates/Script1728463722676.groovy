@@ -27,11 +27,12 @@ import com.kms.katalon.core.logging.KeywordLogger as KeywordLogger
 import java.lang.Integer as Integer
 import customUtilities.DateChecker as DateChecker
 import customUtilities.TimeRangeCalculator as TimeRangeCalculator
+import customUtilities.PublicHolidays as PublicHolidays
 
 KeywordLogger logger = new KeywordLogger()
 
-if (!FullDay) {
-	LeaveEndDate = LeaveStartDate
+if (!(FullDay)) {
+    LeaveEndDate = LeaveStartDate
 }
 
 String[] arrLeaveStart = LeaveStartDate.split(' ')
@@ -48,13 +49,23 @@ def leaveDeductedinMinforTheDay = '0'
 
 def currentCalDate = '0'
 
+def leaveArray = []
+
 WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/tilebutton_View My Profile'))
 
 WebUI.waitForPageLoad(0)
 
+WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/My Profile/Basic Profile First Name Value'), 0)
+
+GlobalVariable.EmployeeFirstName = WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Basic Profile First Name Value'))
+
 WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/SectionTabName (var)', [('tabName') : 'Employment Information']))
+
+WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/My Profile/Organisational Information Group Value'), 0)
+
+GlobalVariable.EmployeeGroup = (WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Organisational Information Group Value'))).split(" \\(")[0]
 
 if (WebUiBuiltInKeywords.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Job Information - Section Show More button'), 
     0)) {
@@ -87,34 +98,34 @@ if (LeaveStartDate == LeaveEndDate) {
 
     dayType = WebUI.getAttribute(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Day Type (var)', [
                 ('date') : dateStart]), 'class')
-	
-	
 
     if (dayType == 'workingDay') {
-		
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern('d MMM yyyy')
-		
-		LocalDate startDate = LocalDate.parse(LeaveStartDate.trim(), formatter)
-		if (DateChecker.checkPublicHoliday(currentCalDate.toString())) {
-			logger.logFailed('Leave Date is a Public Holiday')
-			
-			assert false
-		}
-		
-		if (!FullDay) {
-			def workingTime = WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Working Hours Text (var)',
-				[('date') : dateStart]))
-			String[] arrTime = workingTime.split(' ')
-			GlobalVariable.LeaveStartTime = arrTime[0]
-			GlobalVariable.LeaveEndTime = TimeRangeCalculator.calculateNewEndTime(workingTime)
-			leaveDeductedinMin = TimeDifference.calculateTimeDifference(arrTime[0] + " – " +GlobalVariable.LeaveEndTime)
-		}
-		else {
-			leaveDeductedinMin = TimeDifference.calculateTimeDifference(WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Working Hours Text (var)',
-				[('date') : dateStart])))
-		}
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern('d MMM yyyy')
+
+        LocalDate startDate = LocalDate.parse(LeaveStartDate.trim(), formatter)
+
+        if (DateChecker.checkPublicHoliday(currentCalDate.toString())) {
+            logger.logFailed('Leave Date is a Public Holiday')
+
+            assert false
+        }
+        
+        if (!(FullDay)) {
+            def workingTime = WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Working Hours Text (var)', 
+                    [('date') : dateStart]))
+
+            String[] arrTime = workingTime.split(' ')
+
+            GlobalVariable.LeaveStartTime = (arrTime[0])
+
+            GlobalVariable.LeaveEndTime = TimeRangeCalculator.calculateNewEndTime(workingTime)
+
+            leaveDeductedinMin = TimeDifference.calculateTimeDifference(((arrTime[0]) + ' – ') + GlobalVariable.LeaveEndTime)
+        } else {
+            leaveDeductedinMin = TimeDifference.calculateTimeDifference(WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Working Hours Text (var)', 
+                        [('date') : dateStart])))
+        }
     } else {
-		
         logger.logFailed('Leave Date is a Non-Working Day')
 
         assert false
@@ -135,12 +146,15 @@ if (LeaveStartDate == LeaveEndDate) {
                 [('date') : currentCalDate]), 'class')
 
         if (dayType == 'workingDay') {
-            if (!DateChecker.checkPublicHoliday(currentDate.toString())) {
-				leaveDeductedinMinforTheDay = String.valueOf(TimeDifference.calculateTimeDifference(WebUiBuiltInKeywords.getText(findTestObject(
-					'Page_SuccessFactors Home/Work Schedule Details Popup/Working Hours Text (var)', [('date') : currentCalDate]))))
+            if (!(PublicHolidays.checkPublicHoliday(currentDate.toString()))) {
+                leaveDeductedinMinforTheDay = String.valueOf(TimeDifference.calculateTimeDifference(WebUiBuiltInKeywords.getText(
+                            findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Working Hours Text (var)', 
+                                [('date') : currentCalDate]))))
 
-				leaveDeductedinMin = String.valueOf(Integer.valueOf(leaveDeductedinMin) + Integer.valueOf(leaveDeductedinMinforTheDay))
-			}
+                leaveDeductedinMin = String.valueOf(Integer.valueOf(leaveDeductedinMin) + Integer.valueOf(leaveDeductedinMinforTheDay))
+
+                leaveArray << [currentDate.toString(), leaveDeductedinMinforTheDay]
+            }
         }
         
         if (currentDate.getDayOfWeek().getValue() == 7) {
@@ -157,6 +171,8 @@ if (LeaveStartDate == LeaveEndDate) {
 
 GlobalVariable.workMinutes = leaveDeductedinMin
 
+GlobalVariable.LeaveArray = leaveArray
+
 def totalMins = Integer.valueOf(leaveDeductedinMin)
 
 int totminConvertedToHours = totalMins / 60
@@ -164,13 +180,11 @@ int totminConvertedToHours = totalMins / 60
 int totminConvertedToMin = totalMins % 60
 
 if (totminConvertedToMin == 0) {
-    GlobalVariable.LeaveDeducted = totminConvertedToHours + ' hours'
-}
-else if (totminConvertedToHours == 0) {
-	GlobalVariable.LeaveDeducted = totminConvertedToMin + ' minutes'
-}
-else {
-    GlobalVariable.LeaveDeducted = ((totminConvertedToHours + ' hours ') + totminConvertedToMin) + ' minutes'
+    GlobalVariable.LeaveDeducted = (totminConvertedToHours + ' hours')
+} else if (totminConvertedToHours == 0) {
+    GlobalVariable.LeaveDeducted = (totminConvertedToMin + ' minutes')
+} else {
+    GlobalVariable.LeaveDeducted = (((totminConvertedToHours + ' hours ') + totminConvertedToMin) + ' minutes')
 }
 
 logger.logInfo('Total working hours : ' + GlobalVariable.LeaveDeducted)

@@ -24,12 +24,6 @@
       <value></value>
       <variableId>66ebb4fd-f75c-427a-94d5-feb9abf5a43e</variableId>
    </variableLinks>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>9303c7c5-908e-4a29-bc22-15b59e2b4b1d</variableId>
-   </variableLinks>
    <variable>
       <defaultValue>'14 Nov 2024'</defaultValue>
       <description></description>
@@ -50,12 +44,5 @@
       <id>66ebb4fd-f75c-427a-94d5-feb9abf5a43e</id>
       <masked>false</masked>
       <name>EmployeeID</name>
-   </variable>
-   <variable>
-      <defaultValue>'Annual Leave'</defaultValue>
-      <description></description>
-      <id>9303c7c5-908e-4a29-bc22-15b59e2b4b1d</id>
-      <masked>false</masked>
-      <name>LeaveType</name>
    </variable>
 </TestCaseEntity>

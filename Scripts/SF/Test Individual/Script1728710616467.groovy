@@ -24,62 +24,11 @@ import java.time.LocalDate as LocalDate
 import java.time.format.DateTimeFormatter as DateTimeFormatter
 import java.time.temporal.ChronoUnit as ChronoUnit
 import customUtilities.DateRangeChecker as DateRangeChecker
+import customUtilities.LeaveTypeOnPayslip as LeaveTypeOnPayslip
+import com.kms.katalon.core.logging.KeywordLogger as KeywordLogger
+KeywordLogger logger = new KeywordLogger()
 
-WebUI.callTestCase(findTestCase('SF/Common/Login'), [:], FailureHandling.STOP_ON_FAILURE)
+def textToVerify = ''
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
-
-WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeetoProxy') : 'Chris Elliott', ('employeeName') : 'Chris Elliott'], 
-    FailureHandling.STOP_ON_FAILURE)
-
-WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/tileButton_View Team Absences'), 0)
-
-WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/tileButton_View Team Absences'))
-
-WebUI.waitForPageLoad(10)
-
-WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/panelheader_My Reporting Hierarchy'), 
-    0)
-
-WebUI.click(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_My Drirect Reports tab'))
-
-WebUI.click(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_Half Month tab'))
-
-WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/My Reporting Hierarchy - EmployeeName (var)', 
-        [('employeeName') : EmployeeName]), 0)
-
-WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Reporting Hierarchy_Checkbox (var)', 
-        [('employeeName') : EmployeeName]), 0)
-
-WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Reporting Hierarchy_Checkbox (var)', 
-        [('employeeName') : EmployeeName]), 0)
-
-WebUI.check(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Reporting Hierarchy_Checkbox (var)', [('employeeName') : EmployeeName]))
-
-WebUI.delay(1)
-
-WebUI.verifyElementAttributeValue(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Reporting Hierarchy_Checkbox (var)', 
-        [('employeeName') : EmployeeName]), 'aria-checked', 'true', 0)
-
-while (!(DateRangeChecker.isDateInRange(LeaveStartDate, WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_Date Range'))))) {
-    WebUI.click(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_Calendar Forward button'))
-}
-
-WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_LeaveTitle'), 
-    0)
-
-WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_LeaveTitle'), 
-    LeaveType)
-
-WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_LeaveDate'), 
-    0)
-
-WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_LeaveDate'), 
-    DateRangeFormatter.formatDateRangeTeamAbsence(LeaveStartDate, LeaveEndDate))
-
-WebUI.click(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_LeaveDate'), FailureHandling.STOP_ON_FAILURE)
-
-WebUI.takeFullPageScreenshot()
-
-WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
-
+textToVerify = LeaveTypeOnPayslip.getLeaveTypeonPayslip(LeaveType).length() > 20 ? LeaveTypeOnPayslip.getLeaveTypeonPayslip(LeaveType).substring(0, 20) : LeaveTypeOnPayslip.getLeaveTypeonPayslip(LeaveType)
+logger.logInfo('Verified Leave Type as ' + textToVerify)
