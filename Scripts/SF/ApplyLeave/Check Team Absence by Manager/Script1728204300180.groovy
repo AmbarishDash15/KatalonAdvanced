@@ -72,6 +72,8 @@ WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Team Absence
 WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_LeaveDate'), 
     DateRangeFormatter.formatDateRangeTeamAbsence(LeaveStartDate, LeaveEndDate))
 
+WebUI.click(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_LeaveDate'), FailureHandling.STOP_ON_FAILURE)
+
 WebUI.takeFullPageScreenshot()
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
