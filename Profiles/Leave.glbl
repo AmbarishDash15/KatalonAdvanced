@@ -79,4 +79,9 @@
       <initValue>''</initValue>
       <name>EmployeeGroup</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'https://and0ewpth.accounts.cloud.sap/saml2/idp/sso?sp=https://www.successfactors.com/snowyhydroT1&amp;idp=https://and0ewpth.accounts.ondemand.com'</initValue>
+      <name>URL</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

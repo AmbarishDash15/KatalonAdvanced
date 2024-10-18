@@ -25,7 +25,7 @@ public class GetNameFromDesignation {
 		// Example usage
 		String designation = "HRBP"; // Adjust this to test different dates
 	}
-	
+
 	public static String getHRBPName(String groupName) {
 		String nameHRBP = ''
 		switch (groupName){

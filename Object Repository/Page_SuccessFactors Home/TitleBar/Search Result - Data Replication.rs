@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>ProxyPopupSearchResult</name>
+   <name>Search Result - Data Replication</name>
    <tag></tag>
-   <elementGuidId>f91e390c-3a04-4fe6-9eea-1b12e121baf7</elementGuidId>
+   <elementGuidId>9c825512-2c1e-4b34-b60f-fb7edb3a9d16</elementGuidId>
    <selectorCollection>
       <entry>
+         <key>XPATH</key>
+         <value>\\div[@class='text fullWidth']\\b[text()='Data Replication Monitor']</value>
+      </entry>
+      <entry>
          <key>BASIC</key>
+         <value></value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>ui5-li-suggestion-item-sf-header</value>
+         <value></value>
       </entry>
    </selectorCollection>
-   <selectorMethod>CSS</selectorMethod>
+   <selectorMethod>XPATH</selectorMethod>
    <smartLocatorEnabled>false</smartLocatorEnabled>
    <useRalativeImagePath>false</useRalativeImagePath>
    <webElementProperties>
@@ -21,8 +26,8 @@
       <matchCondition>equals</matchCondition>
       <name>ref_element</name>
       <type>Main</type>
-      <value>Object Repository/Page_SuccessFactors Home/Homepage/ProxyResult_ShadowRoot_MainParent</value>
-      <webElementGuid>9810e7f7-27a1-4d53-b732-0c4609a40967</webElementGuid>
+      <value>Object Repository/Page_SuccessFactors Home/TitleBar/HomeScreen_ShadowRoot_Parent_SearchResult</value>
+      <webElementGuid>997cfb60-36d8-4a02-910a-1ad372faebf7</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -30,6 +35,6 @@
       <name>ref_element_is_shadow_root</name>
       <type>Main</type>
       <value>true</value>
-      <webElementGuid>f4da9e95-ee3d-4e4b-8847-a5ef71e334a8</webElementGuid>
+      <webElementGuid>160e6e56-3b17-46d2-8501-a10015f15fbf</webElementGuid>
    </webElementProperties>
 </WebElementEntity>

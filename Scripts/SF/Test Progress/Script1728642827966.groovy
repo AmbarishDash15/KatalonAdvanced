@@ -19,20 +19,9 @@ import org.openqa.selenium.Keys as Keys
 
 WebUI.callTestCase(findTestCase('SF/Common/Login'), [:], FailureHandling.STOP_ON_FAILURE)
 
-WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeetoProxy') : EmployeeID, ('employeeName') : EmployeeName], 
+WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeetoProxy') : 'Tracey Mears', ('employeeName') : 'Tracey Mears'], 
     FailureHandling.STOP_ON_FAILURE)
 
-WebUI.callTestCase(findTestCase('SF/SelfProfile/Get Working Hours Between Dates'), [('WorkSchedule') : WorkSchedule, ('LeaveStartDate') : LeaveStartDate
-        , ('LeaveEndDate') : LeaveEndDate, ('EmployeeID') : EmployeeID, ('EmployeeName') : EmployeeName], FailureHandling.STOP_ON_FAILURE)
-
-WebUI.callTestCase(findTestCase('SF/SelfProfile/CheckSelfProfile - Time'), [('EmployeeName') : EmployeeName, ('EmployeeID') : EmployeeID
-        , ('LeaveStartDate') : LeaveStartDate, ('LeaveType') : LeaveType], FailureHandling.STOP_ON_FAILURE)
-
-WebUI.callTestCase(findTestCase('SF/ApplyLeave/ApplyLeave - Full Day in hours'), [('LeaveType') : LeaveType, ('LeaveStartDate') : LeaveStartDate
-        , ('LeaveEndDate') : LeaveEndDate, ('LeaveBalance') : '', ('FullDay') : true, ('WorkingHours') : '', ('StartTime') : ''
-        , ('EndTime') : '', ('NumberOfLeaveDays') : ''], FailureHandling.STOP_ON_FAILURE)
-
-WebUI.callTestCase(findTestCase('SF/Approval/Approve Leave by gettting Leave Status and Approver'), [('LeaveType') : LeaveType
-        , ('LeaveStartDate') : LeaveStartDate, ('LeaveEndDate') : LeaveEndDate, ('EmployeeID') : EmployeeID, ('EmployeeName') : EmployeeName
-        , ('ApproverName') : GlobalVariable.EmployeeManager], FailureHandling.STOP_ON_FAILURE)
+WebUI.callTestCase(findTestCase('SF/Payslip/Check Data Replication'), [('EmployeeName') : EmployeeName, ('EmployeeID') : EmployeeID], 
+    FailureHandling.STOP_ON_FAILURE)
 

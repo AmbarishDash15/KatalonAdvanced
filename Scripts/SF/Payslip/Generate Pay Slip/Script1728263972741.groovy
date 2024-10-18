@@ -21,10 +21,7 @@ import customUtilities.DateRangeChecker as DateRangeChecker
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUiBuiltInKeywords
 import customUtilities.DateFormatConverter as DateFormatConverter
 import customUtilities.TimeConverter as TimeConverter
-
 import customUtilities.GetNameFromDesignation as GetNameFromDesignation
-
-
 
 def textToVerify = ''
 
@@ -34,6 +31,11 @@ WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
 
 WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeetoProxy') : payrollAdmin, ('employeeName') : payrollAdmin], 
     FailureHandling.STOP_ON_FAILURE)
+
+WebUI.callTestCase(findTestCase('SF/Payslip/Check Data Replication'), [('EmployeeName') : EmployeeName, ('EmployeeID') : EmployeeID], 
+    FailureHandling.STOP_ON_FAILURE)
+
+WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/tileButton_Payroll'))
 

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Check Data Replication</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>95d90c8f-6a91-48b5-b9e1-489a9eed4103</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>df97e8eb-434f-468f-9b32-561658925328</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>3ef88ce4-37ca-4389-b16e-35e78c113e9b</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>'Nikki Scholes'</defaultValue>
+      <description></description>
+      <id>df97e8eb-434f-468f-9b32-561658925328</id>
+      <masked>false</masked>
+      <name>EmployeeName</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>3ef88ce4-37ca-4389-b16e-35e78c113e9b</id>
+      <masked>false</masked>
+      <name>EmployeeID</name>
+   </variable>
+</TestCaseEntity>

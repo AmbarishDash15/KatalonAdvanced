@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>ProxyPopupSearchResult</name>
+   <name>Search Input</name>
    <tag></tag>
-   <elementGuidId>f91e390c-3a04-4fe6-9eea-1b12e121baf7</elementGuidId>
+   <elementGuidId>9427000e-92e5-4c5f-b421-b24b56ea3be4</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
+         <value></value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>ui5-li-suggestion-item-sf-header</value>
+         <value>div > div > input.ui5-input-inner</value>
       </entry>
    </selectorCollection>
    <selectorMethod>CSS</selectorMethod>
@@ -21,8 +22,8 @@
       <matchCondition>equals</matchCondition>
       <name>ref_element</name>
       <type>Main</type>
-      <value>Object Repository/Page_SuccessFactors Home/Homepage/ProxyResult_ShadowRoot_MainParent</value>
-      <webElementGuid>9810e7f7-27a1-4d53-b732-0c4609a40967</webElementGuid>
+      <value>Object Repository/Page_SuccessFactors Home/TitleBar/Homescreen_ShadowRoot_Parent_Searchbar</value>
+      <webElementGuid>c2bfed4c-4a8e-46be-b6b9-d100efbef772</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -30,6 +31,6 @@
       <name>ref_element_is_shadow_root</name>
       <type>Main</type>
       <value>true</value>
-      <webElementGuid>f4da9e95-ee3d-4e4b-8847-a5ef71e334a8</webElementGuid>
+      <webElementGuid>efed3b8f-93bb-402f-8de6-d8edf7e7178e</webElementGuid>
    </webElementProperties>
 </WebElementEntity>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Apply Leave by HRBP</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>b72f097d-f85c-4694-b51b-b75f8861b646</testCaseGuid>
+</TestCaseEntity>

@@ -33,7 +33,7 @@ WebUI.setText(findTestObject('Page_SuccessFactors Home/Homepage/input_UserName')
 
 WebUI.delay(1)
 
-WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/ProxyPopupSearchResult'), 0)
+WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/ProxyPopupSearchResult'), 0)
 
 WebUI.verifyElementAttributeValue(findTestObject('Page_SuccessFactors Home/Homepage/ProxyPopupSearchResult'), 'title', employeeName, 
     0)
