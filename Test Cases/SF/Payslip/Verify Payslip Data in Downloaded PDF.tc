@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Verify Payslip Data in Downloaded PDF</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>f1661122-b322-4f77-9d47-6ef73b36ca79</testCaseGuid>
+</TestCaseEntity>

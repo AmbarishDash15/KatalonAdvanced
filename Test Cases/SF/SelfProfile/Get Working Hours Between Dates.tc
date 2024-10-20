@@ -82,6 +82,6 @@
       <description></description>
       <id>f23c2711-ce0b-491a-aaa2-2e1848579d73</id>
       <masked>false</masked>
-      <name>FullDay</name>
+      <name>FullDayOrHalfDay</name>
    </variable>
 </TestCaseEntity>

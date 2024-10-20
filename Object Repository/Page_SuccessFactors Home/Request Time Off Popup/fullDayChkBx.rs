@@ -6,12 +6,15 @@
    <elementGuidId>9e9078f4-960f-4663-8fb8-28c847f45dc7</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>BASIC</key>
+         <key>XPATH</key>
          <value></value>
       </entry>
       <entry>
+         <key>BASIC</key>
+      </entry>
+      <entry>
          <key>CSS</key>
-         <value>input#__box2-CB</value>
+         <value>div[data-help-id=&quot;tlmFullDay&quot;]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>CSS</selectorMethod>

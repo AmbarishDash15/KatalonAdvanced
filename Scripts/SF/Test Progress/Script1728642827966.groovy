@@ -19,9 +19,8 @@ import org.openqa.selenium.Keys as Keys
 
 WebUI.callTestCase(findTestCase('SF/Common/Login'), [:], FailureHandling.STOP_ON_FAILURE)
 
-WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeetoProxy') : 'Tracey Mears', ('employeeName') : 'Tracey Mears'], 
-    FailureHandling.STOP_ON_FAILURE)
+WebUI.callTestCase(findTestCase('SF/Payslip/Generate Pay Slip'), [('LeaveStartDate') : LeaveStartDate, ('LeaveEndDate') : LeaveEndDate
+        , ('EmployeeID') : EmployeeID, ('EmployeeName') : EmployeeName], FailureHandling.STOP_ON_FAILURE)
 
-WebUI.callTestCase(findTestCase('SF/Payslip/Check Data Replication'), [('EmployeeName') : EmployeeName, ('EmployeeID') : EmployeeID], 
-    FailureHandling.STOP_ON_FAILURE)
+WebUI.callTestCase(findTestCase('SF/Payslip/Verify Payslip'), [:], FailureHandling.STOP_ON_FAILURE)
 

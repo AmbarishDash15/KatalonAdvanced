@@ -10,7 +10,7 @@
       </entry>
       <entry>
          <key>CSS</key>
-         <value>ui5-dialog-sf-header[data-ui5-stable=&quot;proxy-dialog&quot;] > div.content > xweb-shellbar-search-input.searchInput</value>
+         <value>xweb-shellbar-search-input</value>
       </entry>
    </selectorCollection>
    <selectorMethod>CSS</selectorMethod>
@@ -22,7 +22,7 @@
       <name>ref_element</name>
       <type>Main</type>
       <value>Object Repository/Page_SuccessFactors Home/Homepage/ProxyPopup_ParentMain_SelectTargetUser</value>
-      <webElementGuid>3166c4ba-1dd5-4336-9700-60634ce39504</webElementGuid>
+      <webElementGuid>e16d124b-cd6f-41c7-b9c5-0038aa0674a1</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -30,6 +30,6 @@
       <name>ref_element_is_shadow_root</name>
       <type>Main</type>
       <value>true</value>
-      <webElementGuid>e52d852b-45f6-4afc-8279-8e416f77c42c</webElementGuid>
+      <webElementGuid>8cd43cd8-4f3d-4f2f-a613-4780aa5c626c</webElementGuid>
    </webElementProperties>
 </WebElementEntity>

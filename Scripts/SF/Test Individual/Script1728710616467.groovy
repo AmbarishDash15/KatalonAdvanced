@@ -16,7 +16,9 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
-import org.openqa.selenium.WebElement as WebElement
+import org.openqa.selenium.WebElement
+
+import com.kms.katalon.core.webui.driver.DriverFactory
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUiBuiltInKeywords
 import com.kms.katalon.core.logging.KeywordLogger as KeywordLogger
 import customUtilities.DateRangeFormatter as DateRangeFormatter
@@ -25,10 +27,10 @@ import java.time.format.DateTimeFormatter as DateTimeFormatter
 import java.time.temporal.ChronoUnit as ChronoUnit
 import customUtilities.DateRangeChecker as DateRangeChecker
 import customUtilities.LeaveTypeOnPayslip as LeaveTypeOnPayslip
-import com.kms.katalon.core.logging.KeywordLogger as KeywordLogger
 KeywordLogger logger = new KeywordLogger()
 
-def textToVerify = ''
 
-textToVerify = LeaveTypeOnPayslip.getLeaveTypeonPayslip(LeaveType).length() > 20 ? LeaveTypeOnPayslip.getLeaveTypeonPayslip(LeaveType).substring(0, 20) : LeaveTypeOnPayslip.getLeaveTypeonPayslip(LeaveType)
-logger.logInfo('Verified Leave Type as ' + textToVerify)
+WebUI.openBrowser('')
+logger.logInfo(DriverFactory.getExecutedBrowser().getName())
+
+

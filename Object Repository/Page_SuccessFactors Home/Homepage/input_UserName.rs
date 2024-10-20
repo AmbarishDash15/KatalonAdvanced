@@ -10,7 +10,7 @@
       </entry>
       <entry>
          <key>CSS</key>
-         <value>.ui5-input-root.ui5-input-focusable-element > .ui5-input-content > input</value>
+         <value>div.ui5-input-content > input</value>
       </entry>
    </selectorCollection>
    <selectorMethod>CSS</selectorMethod>
@@ -22,7 +22,7 @@
       <name>ref_element</name>
       <type>Main</type>
       <value>Object Repository/Page_SuccessFactors Home/Homepage/ProxyPopup_Parent1_UserName</value>
-      <webElementGuid>0cdbeffb-d62a-4831-b358-f0a7d8f0d432</webElementGuid>
+      <webElementGuid>4be5dd50-f549-4ed1-b843-dcc91d873b0c</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -30,6 +30,6 @@
       <name>ref_element_is_shadow_root</name>
       <type>Main</type>
       <value>true</value>
-      <webElementGuid>1d758bbc-41df-44af-bf34-2c9a7a2a6d54</webElementGuid>
+      <webElementGuid>b417c59f-c9a7-493a-9abc-858671716635</webElementGuid>
    </webElementProperties>
 </WebElementEntity>

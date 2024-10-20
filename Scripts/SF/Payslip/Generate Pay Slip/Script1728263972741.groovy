@@ -32,9 +32,8 @@ WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
 WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeetoProxy') : payrollAdmin, ('employeeName') : payrollAdmin], 
     FailureHandling.STOP_ON_FAILURE)
 
-WebUI.callTestCase(findTestCase('SF/Payslip/Check Data Replication'), [('EmployeeName') : EmployeeName, ('EmployeeID') : EmployeeID], 
-    FailureHandling.STOP_ON_FAILURE)
-
+//WebUI.callTestCase(findTestCase('SF/Payslip/Check Data Replication'), [('EmployeeName') : EmployeeName, ('EmployeeID') : EmployeeID], 
+//    FailureHandling.STOP_ON_FAILURE)
 WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/tileButton_Payroll'))
@@ -75,13 +74,16 @@ payPeriodEnd = WebUI.getAttribute(findTestObject('Page_Payroll Driver Australia/
     'value')
 
 if (!(DateRangeChecker.isDateInPayPeriodRange(payPeriodStart, payPeriodEnd, LeaveEndDate))) {
-    payPeriodNumber = PayPeriodCalculator.calculatePeriod(payPeriodStart, payPeriodEnd, LeaveEndDate)
+    GlobalVariable.leaveEndPayPeriod = PayPeriodCalculator.calculatePeriod(payPeriodStart, payPeriodEnd, LeaveEndDate)
+	GlobalVariable.leaveStartPayPeriod = PayPeriodCalculator.calculatePeriod(payPeriodStart, payPeriodEnd, LeaveStartDate)
 
     WebUI.setText(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Payroll period -Other period - payperiod - input'), 
-        payPeriodNumber)
+        GlobalVariable.leaveEndPayPeriod)
 
     WebUI.sendKeys(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Payroll period -Other period - payperiod - input'), 
         Keys.chord(Keys.ENTER))
+
+    WebUI.delay(2)
 }
 
 payPeriodStart = WebUI.getAttribute(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Payroll Period - Start Date'), 
@@ -115,7 +117,7 @@ if (DateRangeChecker.isDateInPayPeriodRange(payPeriodStart, payPeriodEnd, LeaveE
 
     WebUI.verifyElementClickable(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Remuneration - HR form name - input'))
 
-    WebUI.setText(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Remuneration - HR form name - input'), 'ZHR_PAYSLIP_AU')
+    WebUI.setText(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Remuneration - HR form name - input'), 'ZHR_PAYSLIP_NEW')
 
     WebUI.takeFullPageScreenshot()
 

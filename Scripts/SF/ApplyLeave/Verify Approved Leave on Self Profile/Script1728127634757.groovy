@@ -93,58 +93,55 @@ WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/My Profile/Upco
 
 WebUI.takeFullPageScreenshot()
 
-if (!(DateChecker.isTodayOrPast(LeaveEndDate))) {
-    WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/CalendarIconAfterDateChange'))
-
-    WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Calendar'), 0)
-
-    String[] parts = LeaveEndDate.split(' ')
-
-    def paramDate = parts[0]
-
-    def paramMonth = parts[1]
-
-    def paramYear = parts[2]
-
-    def fullMonthName = MonthConverter.getFullMonthName(paramMonth)
-
-    while (!((fullMonthName == WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Month Value'))) & 
-    (paramYear == WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Year Value'))))) {
-        WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Next Month Button'))
-    }
-    
-    /*
-    def MonthForwader = CalendarNavigator.monthsToNext(LeaveStartDate)
-
-    for (def index : (0..MonthForwader)) {
-        WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Next Month Button'))
-    }
-    */
-    selectedMonth = WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Month Value'))
-
-    if (selectedMonth == MonthConverter.getFullMonthName(paramMonth)) {
-        WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Date Icon (var)', [('date') : paramDate]))
-    }
-    
-    WebUI.verifyElementAttributeValue(findTestObject('Page_SuccessFactors Home/My Profile/CalendarIconAfterDateChange'), 
-        'title', 'As of ' + LeaveEndDate, 0)
-
-    WebUI.takeFullPageScreenshot()
+if (GlobalVariable.leaveBalanceCheckRequired == 'Yes') {
+	if (!(DateChecker.isTodayOrPast(LeaveEndDate))) {
+		WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/CalendarIconAfterDateChange'))
+	
+		WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Calendar'), 0)
+	
+		String[] parts = LeaveEndDate.split(' ')
+	
+		def paramDate = parts[0]
+	
+		def paramMonth = parts[1]
+	
+		def paramYear = parts[2]
+	
+		def fullMonthName = MonthConverter.getFullMonthName(paramMonth)
+	
+		while (!((fullMonthName == WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Month Value'))) &
+		(paramYear == WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Year Value'))))) {
+			WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Next Month Button'))
+		}
+		
+		selectedMonth = WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Month Value'))
+	
+		if (selectedMonth == MonthConverter.getFullMonthName(paramMonth)) {
+			WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Date Icon (var)', [('date') : paramDate]))
+		}
+		
+		WebUI.verifyElementAttributeValue(findTestObject('Page_SuccessFactors Home/My Profile/CalendarIconAfterDateChange'),
+			'title', 'As of ' + LeaveEndDate, 0)
+	
+		WebUI.takeFullPageScreenshot()
+	}
+	
+	WebUI.delay(2)
+	
+	WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - title'), 0)
+	
+	WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - Leave Type (var)', [('leaveType') : LeaveType]),
+		0)
+	
+	def leaveBalance = WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - Leave Balance (var)',
+			[('leaveType') : LeaveType]))
+	
+	WebUI.verifyMatch(leaveBalance, GlobalVariable.RemainingLeaveBalance, true)
+	
+	WebUI.takeFullPageScreenshot()
+	
 }
 
-WebUI.delay(2)
-
-WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - title'), 0)
-
-WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - Leave Type (var)', [('leaveType') : LeaveType]), 
-    0)
-
-def leaveBalance = WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - Leave Balance (var)', 
-        [('leaveType') : LeaveType]))
-
-WebUI.verifyMatch(leaveBalance, GlobalVariable.RemainingLeaveBalance, true)
-
-WebUI.takeFullPageScreenshot()
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
 

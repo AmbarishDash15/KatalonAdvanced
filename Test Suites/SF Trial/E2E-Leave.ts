@@ -15,7 +15,7 @@
       <guid>96ccef85-9ce4-44a3-99ca-80543e465875</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/SF/Leave - E2E/Apply Leave - Calculated in Hours For Future Date</testCaseId>
+      <testCaseId>Test Cases/SF/Leave - E2E/Apply Leave - For Current and Future Date</testCaseId>
       <testDataLink>
          <combinationType>ONE</combinationType>
          <id>995b0f4c-1548-4636-b33b-04508de71426</id>

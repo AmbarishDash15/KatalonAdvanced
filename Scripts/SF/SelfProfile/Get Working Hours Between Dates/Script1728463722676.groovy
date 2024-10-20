@@ -31,7 +31,7 @@ import customUtilities.PublicHolidays as PublicHolidays
 
 KeywordLogger logger = new KeywordLogger()
 
-if (!(FullDay)) {
+if (FullDayOrHalfDay == 'HalfDay') {
     LeaveEndDate = LeaveStartDate
 }
 
@@ -44,6 +44,8 @@ def dateStart = arrLeaveStart[0]
 def dateEnd = arrLeaveEnd[0]
 
 def leaveDeductedinMin = '0'
+
+def leaveDeductedinDays = '0'
 
 def leaveDeductedinMinforTheDay = '0'
 
@@ -61,11 +63,14 @@ WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/My Profile/Basic 
 
 GlobalVariable.EmployeeFirstName = WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Basic Profile First Name Value'))
 
+GlobalVariable.EmployeeLastName = WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Basic Profile Last Name Value'))
+
 WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/SectionTabName (var)', [('tabName') : 'Employment Information']))
 
 WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/My Profile/Organisational Information Group Value'), 0)
 
-GlobalVariable.EmployeeGroup = (WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Organisational Information Group Value'))).split(" \\(")[0]
+GlobalVariable.EmployeeGroup = (WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Organisational Information Group Value')).split(
+    ' \\(')[0])
 
 if (WebUiBuiltInKeywords.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Job Information - Section Show More button'), 
     0)) {
@@ -110,7 +115,7 @@ if (LeaveStartDate == LeaveEndDate) {
             assert false
         }
         
-        if (!(FullDay)) {
+        if (FullDayOrHalfDay == 'HalfDay') {
             def workingTime = WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Working Hours Text (var)', 
                     [('date') : dateStart]))
 
@@ -122,8 +127,12 @@ if (LeaveStartDate == LeaveEndDate) {
 
             leaveDeductedinMin = TimeDifference.calculateTimeDifference(((arrTime[0]) + ' – ') + GlobalVariable.LeaveEndTime)
         } else {
-            leaveDeductedinMin = TimeDifference.calculateTimeDifference(WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Working Hours Text (var)', 
-                        [('date') : dateStart])))
+            if (GlobalVariable.leaveUnit == 'HOURS') {
+                leaveDeductedinMin = TimeDifference.calculateTimeDifference(WebUiBuiltInKeywords.getText(findTestObject(
+                            'Page_SuccessFactors Home/Work Schedule Details Popup/Working Hours Text (var)', [('date') : dateStart])))
+            } else {
+                leaveDeductedinDays = String.valueOf(Integer.valueOf(leaveDeductedinDays) + 1)
+            }
         }
     } else {
         logger.logFailed('Leave Date is a Non-Working Day')
@@ -151,9 +160,15 @@ if (LeaveStartDate == LeaveEndDate) {
                             findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Working Hours Text (var)', 
                                 [('date') : currentCalDate]))))
 
-                leaveDeductedinMin = String.valueOf(Integer.valueOf(leaveDeductedinMin) + Integer.valueOf(leaveDeductedinMinforTheDay))
+                if (GlobalVariable.leaveUnit == 'HOURS') {
+                    leaveDeductedinMin = String.valueOf(Integer.valueOf(leaveDeductedinMin) + Integer.valueOf(leaveDeductedinMinforTheDay))
 
-                leaveArray << [currentDate.toString(), leaveDeductedinMinforTheDay]
+                    leaveArray << [currentDate.toString(), leaveDeductedinMinforTheDay]
+                } else {
+                    leaveDeductedinDays = String.valueOf(Integer.valueOf(leaveDeductedinDays) + 1)
+
+                    leaveArray << [currentDate.toString(), '1']
+                }
             }
         }
         
@@ -171,20 +186,40 @@ if (LeaveStartDate == LeaveEndDate) {
 
 GlobalVariable.workMinutes = leaveDeductedinMin
 
+GlobalVariable.workDays = leaveDeductedinDays
+
 GlobalVariable.LeaveArray = leaveArray
 
 def totalMins = Integer.valueOf(leaveDeductedinMin)
 
-int totminConvertedToHours = totalMins / 60
+if (totalMins != 0) {
+    int totminConvertedToHours = totalMins / 60
 
-int totminConvertedToMin = totalMins % 60
+    int totminConvertedToMin = totalMins % 60
 
-if (totminConvertedToMin == 0) {
-    GlobalVariable.LeaveDeducted = (totminConvertedToHours + ' hours')
-} else if (totminConvertedToHours == 0) {
-    GlobalVariable.LeaveDeducted = (totminConvertedToMin + ' minutes')
-} else {
-    GlobalVariable.LeaveDeducted = (((totminConvertedToHours + ' hours ') + totminConvertedToMin) + ' minutes')
+    if (totminConvertedToMin == 0) {
+        if (totminConvertedToHours == 1) {
+            GlobalVariable.LeaveDeducted = (totminConvertedToHours + ' hour')
+        } else {
+            GlobalVariable.LeaveDeducted = (totminConvertedToHours + ' hours')
+        }
+    } else if (totminConvertedToHours == 0) {
+        GlobalVariable.LeaveDeducted = (totminConvertedToMin + ' minutes')
+    } else {
+        if (totminConvertedToHours == 1) {
+            GlobalVariable.LeaveDeducted = (((totminConvertedToHours + ' hour ') + totminConvertedToMin) + ' minutes')
+        } else {
+            GlobalVariable.LeaveDeducted = (((totminConvertedToHours + ' hours ') + totminConvertedToMin) + ' minutes')
+        }
+    }
+}
+
+if (leaveDeductedinDays != '0') {
+    if (Integer.valueOf(leaveDeductedinDays) == 1) {
+        GlobalVariable.LeaveDeducted = (leaveDeductedinDays + ' day')
+    } else {
+        GlobalVariable.LeaveDeducted = (leaveDeductedinDays + ' days')
+    }
 }
 
 logger.logInfo('Total working hours : ' + GlobalVariable.LeaveDeducted)

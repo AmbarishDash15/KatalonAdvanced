@@ -27,54 +27,53 @@ import java.util.Locale;
 
 public class PayPeriodCalculator {
 
-    public static String calculatePeriod(String startDateStr, String endDateStr, String targetDateStr) {
-        SimpleDateFormat format1 = new SimpleDateFormat("dd.MM.yyyy");
-        SimpleDateFormat format2 = new SimpleDateFormat("d MMM yyyy", Locale.ENGLISH);
+	public static String calculatePeriod(String startDateStr, String endDateStr, String targetDateStr) {
+		SimpleDateFormat format1 = new SimpleDateFormat("dd.MM.yyyy");
+		SimpleDateFormat format2 = new SimpleDateFormat("d MMM yyyy", Locale.ENGLISH);
 
-        try {
-            // Parse the start and end dates
-            Date startDate = format1.parse(startDateStr);
-            Date endDate = format1.parse(endDateStr);
-            Date targetDate = format2.parse(targetDateStr);
+		try {
+			// Parse the start and end dates
+			Date startDate = format1.parse(startDateStr);
+			Date endDate = format1.parse(endDateStr);
+			Date targetDate = format2.parse(targetDateStr);
 
-            // Ensure the end date is after the start date
-            if (endDate.before(startDate)) {
-                throw new IllegalArgumentException("End date must be after the start date.");
-            }
+			// Ensure the end date is after the start date
+			if (endDate.before(startDate)) {
+				throw new IllegalArgumentException("End date must be after the start date.");
+			}
 
-            // Calculate the desired period in days
-            long desiredPeriod = (endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24); // in days
-            if (desiredPeriod <= 0) {
-                throw new IllegalArgumentException("The desired period must be greater than zero.");
-            }
+			// Calculate the length of the period in days
+			long periodLength = (endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24) + 1; // +1 to include the end date
+			if (periodLength <= 0) {
+				throw new IllegalArgumentException("The desired period must be greater than zero.");
+			}
 
-            // Calculate the number of days from the start date to the target date
-            long totalDays = (targetDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24); // in days
-            if (totalDays < 0) {
-                return "0"; // The target date is before the start date
-            }
+			// Calculate the number of days from the start date to the target date
+			long totalDays = (targetDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24); // in days
+			if (totalDays < 0) {
+				return "0"; // The target date is before the start date
+			}
 
-            // Determine which period the target date falls into
-            long periodNumber = totalDays / desiredPeriod;
+			// Calculate the period number
+			long periodNumber = (totalDays / periodLength) + 1; // +1 to start period number from 1
 
-            return String.valueOf(periodNumber); // Return period number starting from 1
+			return String.valueOf(periodNumber);
+		} catch (ParseException e) {
+			e.printStackTrace();
+			return "Error in date format.";
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+			return e.getMessage();
+		}
+	}
 
-        } catch (ParseException e) {
-            e.printStackTrace();
-            return "Error in date format.";
-        } catch (IllegalArgumentException e) {
-            e.printStackTrace();
-            return e.getMessage();
-        }
-    }
+	public static void main(String[] args) {
+		// Example usage
+		String startDate = "22.06.2024"; // Start of first period
+		String endDate = "05.07.2024";   // End of first period
+		String targetDate = "17 Jan 2025"; // Date to check
 
-    public static void main(String[] args) {
-        // Example usage
-        String startDate = "22.06.2024"; // Start of first period
-        String endDate = "05.07.2024";   // End of first period
-        String targetDate = "17 Jan 2025"; // Date to check
-
-        String periodNumber = calculatePeriod(startDate, endDate, targetDate);
-        System.out.println("The date falls into period number: " + periodNumber);
-    }
+		String periodNumber = calculatePeriod(startDate, endDate, targetDate);
+		System.out.println("The date falls into period number: " + periodNumber);
+	}
 }

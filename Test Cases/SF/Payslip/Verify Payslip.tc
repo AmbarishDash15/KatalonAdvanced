@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Verify Payslip</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>d13cdd37-370c-49fe-b732-938617f722bf</testCaseGuid>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>1205b254-75fe-4a17-9208-8001e9e02cdf</variableId>
+   </variableLinks>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>1205b254-75fe-4a17-9208-8001e9e02cdf</id>
+      <masked>false</masked>
+      <name>EmployeeID</name>
+   </variable>
+</TestCaseEntity>

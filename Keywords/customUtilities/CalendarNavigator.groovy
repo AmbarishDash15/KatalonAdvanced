@@ -36,14 +36,14 @@ public class CalendarNavigator {
 		try {
 			// Parse the input date string to a LocalDate
 			LocalDate targetDate = LocalDate.parse(dateString, formatter);
-			
+
 			// Get the current date
 			ZonedDateTime nowInAEST = ZonedDateTime.now(ZoneId.of("Australia/Sydney"));
 			LocalDate currentDate = nowInAEST.toLocalDate();
 
 			// Get the first day of the current month
 			LocalDate firstDayOfCurrentMonth = currentDate.withDayOfMonth(1);
-			
+
 			// Count how many months to click the next button
 			int monthsToClick = 0;
 
@@ -65,8 +65,6 @@ public class CalendarNavigator {
 		// Example usage
 		String dateString = "15 Nov 2024"; // Adjust this to test different dates
 		int result = monthsToNext(dateString);
-		
-		
 	}
 }
 

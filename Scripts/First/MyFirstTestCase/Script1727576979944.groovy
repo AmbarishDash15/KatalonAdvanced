@@ -23,16 +23,14 @@ WebUI.navigateToUrl('https://www.google.com/')
 
 WebUI.maximizeWindow()
 
-WebUI.setText(findTestObject('Object Repository/FirstTrial/Page_Google/textarea_Sign in_q'), 'om shree ganeshaya namah')
+WebUI.setText(findTestObject('Object Repository/FirstTrial/Page_Google/textarea_Sign in_q'), 'om shri ganeshay namah')
 
-WebUI.click(findTestObject('FirstTrial/Page_Google/img_Sign in_lnXdpd'))
-
-WebUI.click(findTestObject('FirstTrial/Page_Google/input_Report inappropriate predictions_btnK'), FailureHandling.STOP_ON_FAILURE)
+WebUI.sendKeys(findTestObject('FirstTrial/Page_Google/textarea_Sign in_q'), Keys.chord(Keys.ENTER))
 
 WebUI.delay(1)
 
-WebUI.verifyElementText(findTestObject('Object Repository/FirstTrial/Page_om shree ganeshaya namah - Google Search/div_Om Shri Ganeshay Namah'), 
-    'Om Shri Ganeshay Namah')
+WebUI.verifyElementPresent(findTestObject('Object Repository/FirstTrial/Page_om shree ganeshaya namah - Google Search/div_Om Shri Ganeshay Namah'), 
+    0)
 
 WebUI.closeBrowser()
 

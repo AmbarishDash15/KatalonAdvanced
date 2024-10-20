@@ -6,15 +6,15 @@
    <elementGuidId>f0bf49b2-80b8-4c88-81f3-ad1a4510b240</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>(.//*[normalize-space(text()) and normalize-space(.)='Sign in'])[1]/following::img[1]</value>
-      </entry>
-      <entry>
          <key>CSS</key>
          <value>img.lnXdpd</value>
       </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>(.//*[normalize-space(text()) and normalize-space(.)='Sign in'])[1]/following::img[1]</value>
+      </entry>
    </selectorCollection>
-   <selectorMethod>CSS</selectorMethod>
+   <selectorMethod>XPATH</selectorMethod>
    <smartLocatorCollection>
       <entry>
          <key>SMART_LOCATOR</key>
