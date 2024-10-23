@@ -65,7 +65,7 @@
       <variableLink>
          <testDataLinkId>995b0f4c-1548-4636-b33b-04508de71426</testDataLinkId>
          <type>DATA_COLUMN</type>
-         <value>FullDay</value>
+         <value>FullDayOrHalfDay</value>
          <variableId>e1618aff-d1b6-4d92-bb6c-d53f21383c8c</variableId>
       </variableLink>
       <variableLink>
@@ -73,6 +73,12 @@
          <type>DATA_COLUMN</type>
          <value>Initiator</value>
          <variableId>85e0777d-9299-4227-a24f-7c236700c3ed</variableId>
+      </variableLink>
+      <variableLink>
+         <testDataLinkId>995b0f4c-1548-4636-b33b-04508de71426</testDataLinkId>
+         <type>DATA_COLUMN</type>
+         <value>LeaveReason</value>
+         <variableId>bac90154-0783-42cd-8272-6a6d797212b2</variableId>
       </variableLink>
    </testCaseLink>
 </TestSuiteEntity>

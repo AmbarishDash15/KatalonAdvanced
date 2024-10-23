@@ -16,9 +16,8 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
-import org.openqa.selenium.WebElement
-
-import com.kms.katalon.core.webui.driver.DriverFactory
+import org.openqa.selenium.WebElement as WebElement
+import com.kms.katalon.core.webui.driver.DriverFactory as DriverFactory
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUiBuiltInKeywords
 import com.kms.katalon.core.logging.KeywordLogger as KeywordLogger
 import customUtilities.DateRangeFormatter as DateRangeFormatter
@@ -27,10 +26,7 @@ import java.time.format.DateTimeFormatter as DateTimeFormatter
 import java.time.temporal.ChronoUnit as ChronoUnit
 import customUtilities.DateRangeChecker as DateRangeChecker
 import customUtilities.LeaveTypeOnPayslip as LeaveTypeOnPayslip
-KeywordLogger logger = new KeywordLogger()
+import customUtilities.ManageDownloads as ManageDownloads
 
-
-WebUI.openBrowser('')
-logger.logInfo(DriverFactory.getExecutedBrowser().getName())
-
+ManageDownloads.manageFolder()
 

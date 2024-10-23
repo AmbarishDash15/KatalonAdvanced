@@ -23,10 +23,6 @@ KeywordLogger logger = new KeywordLogger()
 
 def textToVerify = ''
 
-WebUI.click(findTestObject('Page_Print Preview/Last Document button'))
-
-WebUI.delay(2)
-
 WebUI.verifyElementPresent(findTestObject('Page_Print Preview/pdfElement'), 0)
 
 textToVerify = EmployeeID
@@ -35,7 +31,7 @@ WebUI.verifyElementPresent(findTestObject('Page_Print Preview/pdfText', [('pdfTe
 
 logger.logInfo('Verified Employee ID as ' + textToVerify)
 
-textToVerify = GlobalVariable.EmployeeFirstName + " " + GlobalVariable.EmployeeLastName
+textToVerify = ((GlobalVariable.EmployeeFirstName + ' ') + GlobalVariable.EmployeeLastName)
 
 WebUI.verifyElementPresent(findTestObject('Page_Print Preview/pdfText', [('pdfText') : textToVerify]), 0)
 

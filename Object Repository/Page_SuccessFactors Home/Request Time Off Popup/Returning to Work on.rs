@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>Previous Document Button</name>
+   <name>Returning to Work on</name>
    <tag></tag>
-   <elementGuidId>8d118600-245c-496f-b8a3-4a2cd854dee2</elementGuidId>
+   <elementGuidId>24d87f24-3a65-4b1c-8097-c6a19237f767</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
+         <value></value>
       </entry>
       <entry>
          <key>CSS</key>
-         <value>div[class=&quot;lsToolbar lsToolbar--standards-overflow  lsToolbar--standards lsToobar--design-transparent lsToolbar--design-default&quot;] > div[class=&quot;lsToolbar--standards-leftItems&quot;] > span > div[title*=&quot;Previous Document&quot;]</value>
+         <value>#__input5-inner</value>
       </entry>
    </selectorCollection>
    <selectorMethod>CSS</selectorMethod>

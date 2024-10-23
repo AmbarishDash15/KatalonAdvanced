@@ -134,4 +134,14 @@
       <initValue>''</initValue>
       <name>EmployeeLastName</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'C://Users//Public//Temp'</initValue>
+      <name>DownloadPath</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>destinationFilePath</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

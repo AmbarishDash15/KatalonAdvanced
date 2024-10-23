@@ -41,7 +41,7 @@ WebUI.setText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/ti
 WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/timeTypeOption (var)', [('timeType') : LeaveType]), 
     FailureHandling.STOP_ON_FAILURE)
 
-WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/availableBalance'), 10)
+WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/Returning to Work on'), 10)
 
 if (LeaveType == 'Compassionate Leave') {
     WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/compassionateLeaveReason'), 0)
@@ -78,7 +78,7 @@ if (LeaveType == 'Compassionate Leave') {
 
 WebUI.setText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/leaveStartDate'), LeaveStartDate)
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/availableBalance'))
+WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/Returning to Work on'))
 
 if (FullDayOrHalfDay == 'FullDay') {
     WebUI.setText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/leaveEndDate'), LeaveEndDate)
@@ -93,10 +93,14 @@ if (FullDayOrHalfDay == 'FullDay') {
     }
 }
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/availableBalance'))
+if (GlobalVariable.leaveBalanceCheckRequired == 'Yes') {
+	WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/availableBalance'))
+	
+	WebUI.verifyElementAttributeValue(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/availableBalance'), 'value',
+		GlobalVariable.LeaveBalance, 0)
+}
 
-WebUI.verifyElementAttributeValue(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/availableBalance'), 'value', 
-    GlobalVariable.LeaveBalance, 0)
+
 
 valueOnApp = WebUI.getAttribute(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/leavesToBeDeducted'), 'value')
 

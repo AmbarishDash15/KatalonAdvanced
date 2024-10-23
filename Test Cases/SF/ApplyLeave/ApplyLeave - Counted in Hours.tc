@@ -43,18 +43,6 @@
       <testDataLinkId></testDataLinkId>
       <type>DEFAULT</type>
       <value></value>
-      <variableId>9b8ff8f0-b1c3-41c9-9b3e-6c8a8b40ec57</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
-      <variableId>57dae1f8-2c95-4643-9e1f-ba266eef82a3</variableId>
-   </variableLinks>
-   <variableLinks>
-      <testDataLinkId></testDataLinkId>
-      <type>DEFAULT</type>
-      <value></value>
       <variableId>ae3fb2f4-0370-4000-9d2e-98031462dfd9</variableId>
    </variableLinks>
    <variable>
@@ -84,20 +72,6 @@
       <id>6c20d65c-231a-4a48-8a8d-5e3bbf622c3a</id>
       <masked>false</masked>
       <name>FullDayOrHalfDay</name>
-   </variable>
-   <variable>
-      <defaultValue>''</defaultValue>
-      <description></description>
-      <id>9b8ff8f0-b1c3-41c9-9b3e-6c8a8b40ec57</id>
-      <masked>false</masked>
-      <name>StartTime</name>
-   </variable>
-   <variable>
-      <defaultValue>''</defaultValue>
-      <description></description>
-      <id>57dae1f8-2c95-4643-9e1f-ba266eef82a3</id>
-      <masked>false</masked>
-      <name>EndTime</name>
    </variable>
    <variable>
       <defaultValue>''</defaultValue>

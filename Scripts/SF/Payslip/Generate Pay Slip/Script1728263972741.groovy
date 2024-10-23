@@ -75,7 +75,8 @@ payPeriodEnd = WebUI.getAttribute(findTestObject('Page_Payroll Driver Australia/
 
 if (!(DateRangeChecker.isDateInPayPeriodRange(payPeriodStart, payPeriodEnd, LeaveEndDate))) {
     GlobalVariable.leaveEndPayPeriod = PayPeriodCalculator.calculatePeriod(payPeriodStart, payPeriodEnd, LeaveEndDate)
-	GlobalVariable.leaveStartPayPeriod = PayPeriodCalculator.calculatePeriod(payPeriodStart, payPeriodEnd, LeaveStartDate)
+
+    GlobalVariable.leaveStartPayPeriod = PayPeriodCalculator.calculatePeriod(payPeriodStart, payPeriodEnd, LeaveStartDate)
 
     WebUI.setText(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Payroll period -Other period - payperiod - input'), 
         GlobalVariable.leaveEndPayPeriod)
@@ -119,6 +120,9 @@ if (DateRangeChecker.isDateInPayPeriodRange(payPeriodStart, payPeriodEnd, LeaveE
 
     WebUI.setText(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Remuneration - HR form name - input'), 'ZHR_PAYSLIP_NEW')
 
+    WebUI.scrollToElement(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Payroll Area Time Period - input'), 
+        0)
+
     WebUI.takeFullPageScreenshot()
 
     WebUI.verifyElementPresent(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Payroll Execute Button'), 0)
@@ -126,7 +130,5 @@ if (DateRangeChecker.isDateInPayPeriodRange(payPeriodStart, payPeriodEnd, LeaveE
     WebUI.click(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Payroll Execute Button'))
 
     WebUI.delay(2)
-
-    WebUI.verifyElementPresent(findTestObject('Page_Print Preview/Print Preview title'), 0)
 }
 

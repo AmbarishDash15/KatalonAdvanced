@@ -6,12 +6,11 @@
    <elementGuidId>2ab9a77c-62b1-4764-bc45-39382dbbc151</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>CSS</key>
-         <value>div[class=&quot;lsToolbar lsToolbar--standards-overflow  lsToolbar--standards lsToobar--design-transparent lsToolbar--design-default&quot;] > div[class=&quot;lsToolbar--standards-leftItems&quot;] > span > div[title*=&quot;Last&quot;]</value>
+         <key>BASIC</key>
       </entry>
       <entry>
-         <key>BASIC</key>
-         <value></value>
+         <key>CSS</key>
+         <value>div[class=&quot;lsToolbar lsToolbar--standards-overflow  lsToolbar--standards lsToobar--design-transparent lsToolbar--design-default&quot;] > div[class=&quot;lsToolbar--standards-leftItems&quot;] > span > div[title*=&quot;Last Document&quot;]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>CSS</selectorMethod>
