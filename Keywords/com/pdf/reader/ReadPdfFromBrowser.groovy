@@ -47,21 +47,22 @@ public class ReadPdfFromBrowser {
 		connection.setRequestMethod("GET");
 		connection.setRequestProperty("User-Agent", "Mozilla/5.0");
 		int responseCode = connection.getResponseCode();
-		if (responseCode == HttpURLConnection.HTTP_OK) { // 200
+		if (responseCode == HttpURLConnection.HTTP_OK) {
+			// 200
 			def inputStream = connection.getInputStream()
 			def bufferedInputStream = new BufferedInputStream(inputStream)
 			// Process the input stream as needed
 			System.out.println("Successfully opened URL.");
 			pdDoc = PDDocument.load(bufferedInputStream);
 			pdDoc.getClass();
-	
+
 			if (!pdDoc.isEncrypted()) {
-	
+
 				PDFTextStripperByArea stripper = new PDFTextStripperByArea();
 				stripper.setSortByPosition(true);
-	
+
 				PDFTextStripper tStripper = new PDFTextStripper();
-	
+
 				pdfFileInText = tStripper.getText(pdDoc);
 			}
 			driver.close();
@@ -69,7 +70,5 @@ public class ReadPdfFromBrowser {
 		} else {
 			System.out.println("Error: " + responseCode);
 		}
-
-		
 	}
 }

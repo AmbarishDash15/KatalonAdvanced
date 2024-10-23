@@ -38,12 +38,26 @@ WebUI.click(findTestObject('Page_Print Preview/Last Document button'))
 
 renderedPaySlip = Integer.valueOf(GlobalVariable.leaveEndPayPeriod)
 
+def previousURL = ''
+def pdfUrl = ''
+
 while (renderedPaySlip >= Integer.valueOf(GlobalVariable.leaveStartPayPeriod)) {
     WebUI.takeFullPageScreenshot()
 
     def windowIndex = WebUI.getWindowIndex()
 
-    def pdfUrl = WebUI.getAttribute(findTestObject('Page_Print Preview/iFrameContainer'), 'src')
+    pdfUrl = WebUI.getAttribute(findTestObject('Page_Print Preview/iFrameContainer'), 'src')
+	
+	if (renderedPaySlip == Integer.valueOf(GlobalVariable.leaveEndPayPeriod)) {
+		previousURL = pdfUrl
+	}
+	else {
+		while(WebUI.getAttribute(findTestObject('Page_Print Preview/iFrameContainer'), 'src') == previousURL) {
+			WebUI.delay(1)
+		}
+		pdfUrl = WebUI.getAttribute(findTestObject('Page_Print Preview/iFrameContainer'), 'src')
+		previousURL = pdfUrl
+	}
 
     destinationFile = (((((GlobalVariable.DownloadPath + '//') + EmployeeID) + '_') + renderedPaySlip) + 
     '.pdf')
@@ -94,22 +108,22 @@ while (renderedPaySlip >= Integer.valueOf(GlobalVariable.leaveStartPayPeriod)) {
     
     connection.disconnect()
 	logger.logInfo(destinationFile)
-	GlobalVariable.destinationFilePath = destinationFile.replace('/','\\')
+	GlobalVariable.destinationFilePath = destinationFile.replace('//','/')
 	logger.logInfo(GlobalVariable.destinationFilePath)
     WebUI.callTestCase(findTestCase('SF/Payslip/Verify Payslip Data in Downloaded PDF'), [:], FailureHandling.STOP_ON_FAILURE)
 
     renderedPaySlip = (renderedPaySlip - 1)
+	
 
-    WebUI.closeWindowUrl(pdfUrl)
-
-    if (Integer.valueOf(GlobalVariable.leaveStartPayPeriod) >= renderedPaySlip) {
+    if (Integer.valueOf(GlobalVariable.leaveStartPayPeriod) <= renderedPaySlip) {
         WebUI.switchToWindowIndex(windowIndex)
 
         WebUI.waitForElementPresent(findTestObject('Page_Print Preview/Previous Document button'), 0)
 
         WebUI.click(findTestObject('Page_Print Preview/Previous Document button'))
 
-        WebUI.delay(2)
+        WebUI.delay(5)
+		WebUI.waitForPageLoad(5)
     }
 }
 

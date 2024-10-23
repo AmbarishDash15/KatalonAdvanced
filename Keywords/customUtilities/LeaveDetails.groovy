@@ -29,19 +29,19 @@ public class LeaveDetails {
 	public static void getLeaveDetails(String leaveType) {
 		switch (leaveType) {
 			case 'Annual Leave' :
-			GlobalVariable.leaveUnit = 'HOURS'
+			GlobalVariable.leaveUnit = 'Hours'
 			GlobalVariable.leaveBalanceCheckRequired = 'Yes'
 			GlobalVariable.withoutPay = ''
 			GlobalVariable.halfPay = ''
 			break;
 		case 'Compassionate Leave' :
-			GlobalVariable.leaveUnit = 'HOURS'
+			GlobalVariable.leaveUnit = 'Hours'
 			GlobalVariable.leaveBalanceCheckRequired = ''
 			GlobalVariable.withoutPay = ''
 			GlobalVariable.halfPay = ''
 			break;
 		case 'Carers Leave' :
-			GlobalVariable.leaveUnit = 'HOURS'
+			GlobalVariable.leaveUnit = 'Hours'
 			GlobalVariable.leaveBalanceCheckRequired = 'Yes'
 			GlobalVariable.withoutPay = ''
 			GlobalVariable.halfPay = ''
@@ -52,151 +52,151 @@ public class LeaveDetails {
 			GlobalVariable.halfPay = ''
 			break;
 		case 'Jury Duty' :
-			GlobalVariable.leaveUnit = 'HOURS'
+			GlobalVariable.leaveUnit = 'Hours'
 			GlobalVariable.leaveBalanceCheckRequired = ''
 			GlobalVariable.withoutPay = ''
 			GlobalVariable.halfPay = ''
 			break;
 		case 'Leave Without Pay' :
-			GlobalVariable.leaveUnit = 'HOURS'
+			GlobalVariable.leaveUnit = 'Hours'
 			GlobalVariable.leaveBalanceCheckRequired = ''
 			GlobalVariable.withoutPay = ''
 			GlobalVariable.halfPay = ''
 			break;
 		case 'Parental Leave - Primary Carer' :
-			GlobalVariable.leaveUnit = 'DAYS'
+			GlobalVariable.leaveUnit = 'Days'
 			GlobalVariable.leaveBalanceCheckRequired = ''
 			GlobalVariable.withoutPay = ''
 			GlobalVariable.halfPay = ''
 			break;
 		case 'Parental Leave - Primary Carer Half Pay' :
-			GlobalVariable.leaveUnit = 'DAYS'
+			GlobalVariable.leaveUnit = 'Days'
 			GlobalVariable.leaveBalanceCheckRequired = ''
 			GlobalVariable.halfPay = 'Yes'
 			GlobalVariable.withoutPay = ''
 			break;
 		case 'Parental Leave - Primary Carer Without Pay' :
-			GlobalVariable.leaveUnit = 'DAYS'
+			GlobalVariable.leaveUnit = 'Days'
 			GlobalVariable.leaveBalanceCheckRequired = ''
 			GlobalVariable.withoutPay = 'Yes'
 			GlobalVariable.halfPay = ''
 			break;
 		case 'Miscellaneous Leave' :
-			GlobalVariable.leaveUnit = 'HOURS'
+			GlobalVariable.leaveUnit = 'Hours'
 			GlobalVariable.leaveBalanceCheckRequired = ''
 			GlobalVariable.withoutPay = ''
 			GlobalVariable.halfPay = ''
 			break;
 		case 'Miscellaneous Leave Without Pay' :
-			GlobalVariable.leaveUnit = 'HOURS'
+			GlobalVariable.leaveUnit = 'Hours'
 			GlobalVariable.leaveBalanceCheckRequired = ''
 			GlobalVariable.withoutPay = 'Yes'
 			GlobalVariable.halfPay = ''
 			break;
 		case 'Military Leave' :
-			GlobalVariable.leaveUnit = 'HOURS'
+			GlobalVariable.leaveUnit = 'Hours'
 			GlobalVariable.leaveBalanceCheckRequired = ''
 			GlobalVariable.withoutPay = ''
 			GlobalVariable.halfPay = ''
 			break;
 		case 'Purchased Additional Leave' :
-			GlobalVariable.leaveUnit = 'HOURS'
+			GlobalVariable.leaveUnit = 'Hours'
 			GlobalVariable.leaveBalanceCheckRequired = 'Yes'
 			GlobalVariable.withoutPay = ''
 			GlobalVariable.halfPay = ''
 			break;
 		case 'Parental Leave - Non-Primary Carer' :
-			GlobalVariable.leaveUnit = 'HOURS'
+			GlobalVariable.leaveUnit = 'Hours'
 			GlobalVariable.leaveBalanceCheckRequired = ''
 			GlobalVariable.withoutPay = ''
 			GlobalVariable.halfPay = ''
 			break;
 		case 'Parental Leave - Non-Primary Carer Without Pay' :
-			GlobalVariable.leaveUnit = 'HOURS'
+			GlobalVariable.leaveUnit = 'Hours'
 			GlobalVariable.leaveBalanceCheckRequired = ''
 			GlobalVariable.withoutPay = 'Yes'
 			GlobalVariable.halfPay = ''
 			break;
 		case 'Sick Leave' :
-			GlobalVariable.leaveUnit = 'HOURS'
+			GlobalVariable.leaveUnit = 'Hours'
 			GlobalVariable.leaveBalanceCheckRequired = 'Yes'
 			GlobalVariable.withoutPay = ''
 			GlobalVariable.halfPay = ''
 			break;
 		case 'Sick Leave Half Pay' :
-			GlobalVariable.leaveUnit = 'HOURS'
+			GlobalVariable.leaveUnit = 'Hours'
 			GlobalVariable.leaveBalanceCheckRequired = 'Yes'
 			GlobalVariable.halfPay = 'Yes'
 			GlobalVariable.withoutPay = ''
 			break;
 		case 'Sick Leave Without Pay' :
-			GlobalVariable.leaveUnit = 'HOURS'
+			GlobalVariable.leaveUnit = 'Hours'
 			GlobalVariable.leaveBalanceCheckRequired = ''
 			GlobalVariable.withoutPay = 'Yes'
 			GlobalVariable.halfPay = ''
 			break;
 		case 'Special Leave With Pay' :
-			GlobalVariable.leaveUnit = 'HOURS'
+			GlobalVariable.leaveUnit = 'Hours'
 			GlobalVariable.leaveBalanceCheckRequired = ''
 			GlobalVariable.withoutPay = ''
 			GlobalVariable.halfPay = ''
 			break;
 		case 'Study Leave' :
-			GlobalVariable.leaveUnit = 'HOURS'
+			GlobalVariable.leaveUnit = 'Hours'
 			GlobalVariable.leaveBalanceCheckRequired = ''
 			GlobalVariable.withoutPay = ''
 			GlobalVariable.halfPay = ''
 			break;
 		case 'Workers Compensation Leave' :
-			GlobalVariable.leaveUnit = 'HOURS'
+			GlobalVariable.leaveUnit = 'Hours'
 			GlobalVariable.leaveBalanceCheckRequired = ''
 			GlobalVariable.withoutPay = ''
 			GlobalVariable.halfPay = ''
 			break;
 		case 'Workers Compensation Leave Other Employment' :
-			GlobalVariable.leaveUnit = 'HOURS'
+			GlobalVariable.leaveUnit = 'Hours'
 			GlobalVariable.leaveBalanceCheckRequired = ''
 			GlobalVariable.withoutPay = ''
 			GlobalVariable.halfPay = ''
 			break;
 		case 'Family and Domestic Abuse Leave' :
-			GlobalVariable.leaveUnit = 'HOURS'
+			GlobalVariable.leaveUnit = 'Hours'
 			GlobalVariable.leaveBalanceCheckRequired = 'Yes'
 			GlobalVariable.withoutPay = ''
 			GlobalVariable.halfPay = ''
 			break;
 		case 'Long Term Leave Without Pay' :
-			GlobalVariable.leaveUnit = 'DAYS'
+			GlobalVariable.leaveUnit = 'Days'
 			GlobalVariable.leaveBalanceCheckRequired = ''
 			GlobalVariable.withoutPay = 'Yes'
 			GlobalVariable.halfPay = ''
 			break;
 		case 'Casuals Long Service Leave' :
-			GlobalVariable.leaveUnit = 'HOURS'
+			GlobalVariable.leaveUnit = 'Hours'
 			GlobalVariable.leaveBalanceCheckRequired = ''
 			GlobalVariable.withoutPay = ''
 			GlobalVariable.halfPay = ''
 			break;
 		case 'Adoption Leave' :
-			GlobalVariable.leaveUnit = 'DAYS'
+			GlobalVariable.leaveUnit = 'Days'
 			GlobalVariable.leaveBalanceCheckRequired = ''
 			GlobalVariable.withoutPay = ''
 			GlobalVariable.halfPay = ''
 			break;
 		case 'Annual Leave - Leave Loading' :
-			GlobalVariable.leaveUnit = 'HOURS'
+			GlobalVariable.leaveUnit = 'Hours'
 			GlobalVariable.leaveBalanceCheckRequired = ''
 			GlobalVariable.withoutPay = ''
 			GlobalVariable.halfPay = ''
 			break;
 		case 'Long Service Leave' :
-			GlobalVariable.leaveUnit = 'HOURS'
+			GlobalVariable.leaveUnit = 'Hours'
 			GlobalVariable.leaveBalanceCheckRequired = ''
 			GlobalVariable.withoutPay = ''
 			GlobalVariable.halfPay = ''
 			break;
 		case 'Long Service Half Pay' :
-			GlobalVariable.leaveUnit = 'HOURS'
+			GlobalVariable.leaveUnit = 'Hours'
 			GlobalVariable.leaveBalanceCheckRequired = ''
 			GlobalVariable.halfPay = 'Yes'
 			GlobalVariable.withoutPay = ''

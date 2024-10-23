@@ -35,8 +35,8 @@ import org.openqa.selenium.Keys as Keys
 import customUtilities.GetLatestFile as GetLatestFile
 
 KeywordLogger logger = new KeywordLogger()
-File pdfFile = new File(GlobalVariable.destinationFilePath)
-PDDocument pdDoc = PDDocument.load(pdfFile)
+filePath = GlobalVariable.destinationFilePath
+PDDocument pdDoc = Loader.loadPDF(new File(filePath))
 //pdDoc = PDDocument.load(GlobalVariable.destinationFilePath);
 pdDoc.getClass();
 def pdfFileInText = ''

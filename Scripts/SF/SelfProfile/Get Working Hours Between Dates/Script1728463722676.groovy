@@ -127,7 +127,7 @@ if (LeaveStartDate == LeaveEndDate) {
 
             leaveDeductedinMin = TimeDifference.calculateTimeDifference(((arrTime[0]) + ' – ') + GlobalVariable.LeaveEndTime)
         } else {
-            if (GlobalVariable.leaveUnit == 'HOURS') {
+            if (GlobalVariable.leaveUnit == 'Hours') {
                 leaveDeductedinMin = TimeDifference.calculateTimeDifference(WebUiBuiltInKeywords.getText(findTestObject(
                             'Page_SuccessFactors Home/Work Schedule Details Popup/Working Hours Text (var)', [('date') : dateStart])))
             } else {
@@ -160,7 +160,7 @@ if (LeaveStartDate == LeaveEndDate) {
                             findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Working Hours Text (var)', 
                                 [('date') : currentCalDate]))))
 
-                if (GlobalVariable.leaveUnit == 'HOURS') {
+                if (GlobalVariable.leaveUnit == 'Hours') {
                     leaveDeductedinMin = String.valueOf(Integer.valueOf(leaveDeductedinMin) + Integer.valueOf(leaveDeductedinMinforTheDay))
 
                     leaveArray << [currentDate.toString(), leaveDeductedinMinforTheDay]
