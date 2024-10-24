@@ -72,6 +72,11 @@
    <GlobalVariableEntity>
       <description></description>
       <initValue>''</initValue>
+      <name>EmployeeLastName</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
       <name>LeaveArray</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
@@ -128,11 +133,6 @@
       <description></description>
       <initValue>''</initValue>
       <name>workDays</name>
-   </GlobalVariableEntity>
-   <GlobalVariableEntity>
-      <description></description>
-      <initValue>''</initValue>
-      <name>EmployeeLastName</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>

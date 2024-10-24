@@ -28,7 +28,7 @@ public class PayPeriodDates {
 
 	public static String getPayPeriodDates(String startDateStr, String endDateStr, int periodNumber) {
 		SimpleDateFormat inputFormat = new SimpleDateFormat("dd.MM.yyyy");
-        SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd");
 
 		try {
 			// Parse the start and end dates

@@ -39,6 +39,7 @@ WebUI.click(findTestObject('Page_Print Preview/Last Document button'))
 renderedPaySlip = Integer.valueOf(GlobalVariable.leaveEndPayPeriod)
 
 def previousURL = ''
+
 def pdfUrl = ''
 
 while (renderedPaySlip >= Integer.valueOf(GlobalVariable.leaveStartPayPeriod)) {
@@ -47,21 +48,22 @@ while (renderedPaySlip >= Integer.valueOf(GlobalVariable.leaveStartPayPeriod)) {
     def windowIndex = WebUI.getWindowIndex()
 
     pdfUrl = WebUI.getAttribute(findTestObject('Page_Print Preview/iFrameContainer'), 'src')
-	
-	if (renderedPaySlip == Integer.valueOf(GlobalVariable.leaveEndPayPeriod)) {
-		previousURL = pdfUrl
-	}
-	else {
-		while(WebUI.getAttribute(findTestObject('Page_Print Preview/iFrameContainer'), 'src') == previousURL) {
-			WebUI.delay(1)
-		}
-		pdfUrl = WebUI.getAttribute(findTestObject('Page_Print Preview/iFrameContainer'), 'src')
-		previousURL = pdfUrl
-	}
 
-    destinationFile = (((((GlobalVariable.DownloadPath + '//') + EmployeeID) + '_') + renderedPaySlip) + 
-    '.pdf')
-/*
+    if (renderedPaySlip == Integer.valueOf(GlobalVariable.leaveEndPayPeriod)) {
+        previousURL = pdfUrl
+    } else {
+        while (WebUI.getAttribute(findTestObject('Page_Print Preview/iFrameContainer'), 'src') == previousURL) {
+            WebUI.delay(1)
+        }
+        
+        pdfUrl = WebUI.getAttribute(findTestObject('Page_Print Preview/iFrameContainer'), 'src')
+
+        previousURL = pdfUrl
+    }
+    
+    destinationFile = (((((GlobalVariable.DownloadPath + '//') + EmployeeID) + '_') + renderedPaySlip) + '.pdf')
+
+    /*
     WebUI.executeJavaScript(('window.open(\'' + pdfUrl) + '\', \'_blank\');', null)
 
     def tabIndex = DriverFactory.getCurrentWindowIndex()
@@ -107,13 +109,17 @@ while (renderedPaySlip >= Integer.valueOf(GlobalVariable.leaveStartPayPeriod)) {
     }
     
     connection.disconnect()
-	logger.logInfo(destinationFile)
-	GlobalVariable.destinationFilePath = destinationFile.replace('//','/')
-	logger.logInfo(GlobalVariable.destinationFilePath)
-    WebUI.callTestCase(findTestCase('SF/Payslip/Verify Payslip Data in Downloaded PDF'), [:], FailureHandling.STOP_ON_FAILURE)
+
+    logger.logInfo(destinationFile)
+
+    GlobalVariable.destinationFilePath = destinationFile.replace('//', '/')
+
+    logger.logInfo(GlobalVariable.destinationFilePath)
+
+    WebUI.callTestCase(findTestCase('SF/Payslip/Verify Payslip Data in Downloaded PDF'), [('EmployeeID') : EmployeeID, ('EmployeeName') : EmployeeName
+            , ('LeaveType') : LeaveType, ('LeaveStartDate') : LeaveStartDate, ('LeaveEndDate') : LeaveEndDate], FailureHandling.STOP_ON_FAILURE)
 
     renderedPaySlip = (renderedPaySlip - 1)
-	
 
     if (Integer.valueOf(GlobalVariable.leaveStartPayPeriod) <= renderedPaySlip) {
         WebUI.switchToWindowIndex(windowIndex)
@@ -122,8 +128,7 @@ while (renderedPaySlip >= Integer.valueOf(GlobalVariable.leaveStartPayPeriod)) {
 
         WebUI.click(findTestObject('Page_Print Preview/Previous Document button'))
 
-        WebUI.delay(5)
-		WebUI.waitForPageLoad(5)
+        WebUI.waitForPageLoad(5)
     }
 }
 

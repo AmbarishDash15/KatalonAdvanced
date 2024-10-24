@@ -65,18 +65,21 @@ WebUI.setText(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Payrol
 WebUI.sendKeys(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Payroll period-Other priod - year - input'), 
     Keys.chord(Keys.ENTER))
 
-WebUI.delay(1)
+WebUI.delay(2)
 
-payPeriodStart = WebUI.getAttribute(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Payroll Period - Start Date'), 
+
+
+
+GlobalVariable.payPeriod1StartDate = WebUI.getAttribute(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Payroll Period - Start Date'), 
     'value')
 
-payPeriodEnd = WebUI.getAttribute(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Payroll period - End Date'), 
+GlobalVariable.payPeriod1EndDate = WebUI.getAttribute(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Payroll period - End Date'), 
     'value')
 
-if (!(DateRangeChecker.isDateInPayPeriodRange(payPeriodStart, payPeriodEnd, LeaveEndDate))) {
-    GlobalVariable.leaveEndPayPeriod = PayPeriodCalculator.calculatePeriod(payPeriodStart, payPeriodEnd, LeaveEndDate)
+if (!(DateRangeChecker.isDateInPayPeriodRange(GlobalVariable.payPeriod1StartDate, GlobalVariable.payPeriod1EndDate, LeaveEndDate))) {
+    GlobalVariable.leaveEndPayPeriod = PayPeriodCalculator.calculatePeriod(GlobalVariable.payPeriod1StartDate, GlobalVariable.payPeriod1EndDate, LeaveEndDate)
 
-    GlobalVariable.leaveStartPayPeriod = PayPeriodCalculator.calculatePeriod(payPeriodStart, payPeriodEnd, LeaveStartDate)
+    GlobalVariable.leaveStartPayPeriod = PayPeriodCalculator.calculatePeriod(GlobalVariable.payPeriod1StartDate, GlobalVariable.payPeriod1EndDate, LeaveStartDate)
 
     WebUI.setText(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Payroll period -Other period - payperiod - input'), 
         GlobalVariable.leaveEndPayPeriod)

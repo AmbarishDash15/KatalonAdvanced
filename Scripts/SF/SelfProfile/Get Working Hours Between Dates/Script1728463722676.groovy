@@ -28,6 +28,7 @@ import java.lang.Integer as Integer
 import customUtilities.DateChecker as DateChecker
 import customUtilities.TimeRangeCalculator as TimeRangeCalculator
 import customUtilities.PublicHolidays as PublicHolidays
+import customUtilities.TimeConverter as TimeConverter
 
 KeywordLogger logger = new KeywordLogger()
 
@@ -163,7 +164,7 @@ if (LeaveStartDate == LeaveEndDate) {
                 if (GlobalVariable.leaveUnit == 'Hours') {
                     leaveDeductedinMin = String.valueOf(Integer.valueOf(leaveDeductedinMin) + Integer.valueOf(leaveDeductedinMinforTheDay))
 
-                    leaveArray << [currentDate.toString(), leaveDeductedinMinforTheDay]
+                    leaveArray << [currentDate.toString(), TimeConverter.convertMinutesToDecimalHours(leaveDeductedinMinforTheDay)]
                 } else {
                     leaveDeductedinDays = String.valueOf(Integer.valueOf(leaveDeductedinDays) + 1)
 

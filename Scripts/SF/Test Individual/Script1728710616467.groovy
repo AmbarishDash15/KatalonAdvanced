@@ -27,6 +27,9 @@ import java.time.temporal.ChronoUnit as ChronoUnit
 import customUtilities.DateRangeChecker as DateRangeChecker
 import customUtilities.LeaveTypeOnPayslip as LeaveTypeOnPayslip
 import customUtilities.ManageDownloads as ManageDownloads
+import customUtilities.TimeConverter as TimeConverter
+import com.kms.katalon.core.util.KeywordUtil
 
-ManageDownloads.manageFolder()
+hour = TimeConverter.convertMinutesToDecimalHours('482')
+KeywordUtil.logInfo(hour)
 

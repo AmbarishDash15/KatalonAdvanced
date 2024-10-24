@@ -31,27 +31,25 @@ public class TimeConverter {
 	}
 
 	public static String convertToDecimalHours2Decimal(String input) {
-		int hours = 0;
-		int minutes = 0;
+		String[] parts = input.split(" ");
+        double hours = 0;
+        double minutes = 0;
 
-		// Regular expression to extract hours and minutes
-		Pattern pattern = Pattern.compile("(\\d+)\\s*hours?|\\d+\\s*minutes?");
-		Matcher matcher = pattern.matcher(input);
+        // Parse the hours
+        if (parts.length > 0 && parts[1].startsWith("hour")) {
+            hours = Double.parseDouble(parts[0]);
+        }
 
-		while (matcher.find()) {
-			String match = matcher.group();
-			if (match.contains("hour")) {
-				hours = Integer.parseInt(match.replaceAll("\\D", "")); // Extracting the number of hours
-			} else if (match.contains("minute")) {
-				minutes = Integer.parseInt(match.replaceAll("\\D", "")); // Extracting the number of minutes
-			}
-		}
+        // Parse the minutes
+        if (parts.length > 2 && parts[3].startsWith("minute")) {
+            minutes = Double.parseDouble(parts[2]);
+        }
 
-		// Convert minutes to decimal hours
-		double decimalHours = hours + (minutes / 60.0);
+        // Calculate total in decimal format
+        double totalDecimal = hours + (minutes / 60);
 
-		// Return formatted to two decimal places
-		return String.format("%.2f", decimalHours); // Format to two decimal places
+        // Format the output to 2 decimal places
+        return String.format("%.2f", totalDecimal);
 	}
 
 	public static String convertToDecimalHoursWhole(String input) {
@@ -97,6 +95,18 @@ public class TimeConverter {
 		} catch (NumberFormatException e) {
 			return "Invalid input"; // Handle invalid input
 		}
+	}
+	public static String convertMinutesToDecimalHours(String minutesString) {
+		// Parse the input string to an integer
+		int minutes = Integer.parseInt(minutesString);
+
+		// Calculate total hours in decimal format
+		double totalDecimalHours = minutes / 60.0;
+
+		// Format the output, removing trailing zeros
+		return String.format("%.2f", totalDecimalHours)
+                     .replaceAll('0+$', '')
+                     .replaceAll('\\.$', '')
 	}
 }
 

@@ -91,7 +91,7 @@
       <name>WorkSchedule</name>
    </variable>
    <variable>
-      <defaultValue>''</defaultValue>
+      <defaultValue>'FullDay'</defaultValue>
       <description></description>
       <id>5821af4d-ca3d-4611-b2aa-bed06774126d</id>
       <masked>false</masked>
