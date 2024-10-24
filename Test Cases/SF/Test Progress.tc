@@ -42,6 +42,12 @@
       <value></value>
       <variableId>941e5ad8-386a-48d0-a46a-b55488826692</variableId>
    </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>5821af4d-ca3d-4611-b2aa-bed06774126d</variableId>
+   </variableLinks>
    <variable>
       <defaultValue>'174159'</defaultValue>
       <description></description>
@@ -83,5 +89,12 @@
       <id>941e5ad8-386a-48d0-a46a-b55488826692</id>
       <masked>false</masked>
       <name>WorkSchedule</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>5821af4d-ca3d-4611-b2aa-bed06774126d</id>
+      <masked>false</masked>
+      <name>FullDayOrHalfDay</name>
    </variable>
 </TestCaseEntity>

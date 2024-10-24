@@ -19,6 +19,13 @@ import org.openqa.selenium.Keys as Keys
 
 WebUI.callTestCase(findTestCase('SF/Common/Login'), [:], FailureHandling.STOP_ON_FAILURE)
 
+WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeetoProxy') : EmployeeID, ('employeeName') : EmployeeName], 
+    FailureHandling.STOP_ON_FAILURE)
+
+WebUI.callTestCase(findTestCase('SF/SelfProfile/Get Working Hours Between Dates'), [('WorkSchedule') : WorkSchedule, ('LeaveStartDate') : LeaveStartDate
+        , ('LeaveEndDate') : LeaveEndDate, ('EmployeeID') : EmployeeID, ('EmployeeName') : EmployeeName, ('FullDayOrHalfDay') : ''], 
+    FailureHandling.STOP_ON_FAILURE)
+
 WebUI.callTestCase(findTestCase('SF/Payslip/Generate Pay Slip'), [('LeaveStartDate') : LeaveStartDate, ('LeaveEndDate') : LeaveEndDate
         , ('EmployeeID') : EmployeeID, ('EmployeeName') : EmployeeName], FailureHandling.STOP_ON_FAILURE)
 
