@@ -144,4 +144,9 @@
       <initValue>''</initValue>
       <name>destinationFilePath</name>
    </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>''</initValue>
+      <name>currentPayPeriod</name>
+   </GlobalVariableEntity>
 </GlobalVariableEntities>

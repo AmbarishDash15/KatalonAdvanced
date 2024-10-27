@@ -66,11 +66,13 @@ for (String line : lines) {
     logger.logInfo(line)
 }
 */
+KeywordUtil.logInfo(pdfFileInText)
+
 SimpleDateFormat formatdMMM = new SimpleDateFormat('d MMM yyyy')
 SimpleDateFormat formatyyyymm = new SimpleDateFormat('yyyy-MM-dd')
 SimpleDateFormat formatddMM = new SimpleDateFormat('dd.MM.yyyy')
 
-
+def leavePeriodIterator = GlobalVariable.currentPayPeriod
 def leaveArray = GlobalVariable.LeaveArray
 def leaveEarningsString = ''
 def leaveTypeString = ''
@@ -78,66 +80,57 @@ def leaveAbsenceDateNumberUnit = ''
 def leaveAbsenceDateStart = ''
 def leaveAbsenceDateEnd = ''
 def leaveAbsenceNumber = '0'
+def leaveNumberUnderAbsence = ''
 def leaveAbsenceDateStartVerification = new Date()
 def leaveAbsenceDateEndVerification = new Date()
 
-def String[] payPeriodArray = new String[2]
+def String[] payPeriodArray = (PayPeriodDates.getPayPeriodDates(GlobalVariable.payPeriod1StartDate, GlobalVariable.payPeriod1EndDate, leavePeriodIterator)).split(':')
 leaveTypeString = LeaveTypeOnPayslip.getLeaveTypeonPayslip(LeaveType)
 leaveTypeString = leaveTypeString.length() > 20 ? leaveTypeString.take(20) : leaveTypeString
 
-if (GlobalVariable.leaveStartPayPeriod != GlobalVariable.leaveEndPayPeriod) {
-	for (def leavePeriodIterator = Integer.Valueof(GlobalVariable.leaveStartPayPeriod);leavePeriodIterator <= Integer.Valueof(GlobalVariable.leaveEndPayPeriod);leavePeriodIterator++) {
-		if(leavePeriodIterator == Integer.Valueof(GlobalVariable.leaveStartPayPeriod)) {
-			leaveAbsenceDateStart = String.valueOf(formatddMM.format(formatdMMM.parse(LeaveStartDate)))
-			leaveAbsenceDateStartVerification = formatyyyymm.format(formatddMM.parse(leaveAbsenceDateStart))
-			payPeriodArray = (PayPeriodDates.getPayPeriodDates(GlobalVariable.payPeriod1StartDate, GlobalVariable.payPeriod1EndDate, leavePeriodIterator)).split(':')
-			leaveAbsenceDateEnd = String.valueOf(formatddMM.format(formatyyyymm.parse(payPeriodArray[1])))
-			leaveAbsenceDateEndVerification = formatyyyymm.format(formatddMM.parse(leaveAbsenceDateEnd))
-		}
-		else if(leavePeriodIterator == Integer.Valueof(GlobalVariable.leaveEndPayPeriod)) {
-			payPeriodArray = (PayPeriodDates.getPayPeriodDates(GlobalVariable.payPeriod1StartDate, GlobalVariable.payPeriod1EndDate, leavePeriodIterator)).split(':')
-			leaveAbsenceDateStart = String.valueOf(formatddMM.format(formatyyyymm.parse(payPeriodArray[0])))
-			leaveAbsenceDateEnd = String.valueOf(formatddMM.format(formatdMMM.parse(LeaveEndDate)))
-			leaveAbsenceDateStartVerification = formatyyyymm.format(formatddMM.parse(leaveAbsenceDateStart))
-			leaveAbsenceDateEndVerification = formatyyyymm.format(formatddMM.parse(leaveAbsenceDateEnd))
-		}
-		else {
-			payPeriodArray = (PayPeriodDates.getPayPeriodDates(GlobalVariable.payPeriod1StartDate, GlobalVariable.payPeriod1EndDate, leavePeriodIterator)).split(':')
-			leaveAbsenceDateStart = String.valueOf(formatddMM.format(formatyyyymm.parse(payPeriodArray[0])))
-			leaveAbsenceDateEnd = String.valueOf(formatddMM.format(formatyyyymm.parse(payPeriodArray[1])))
-			leaveAbsenceDateStartVerification = formatyyyymm.format(formatddMM.parse(leaveAbsenceDateStart))
-			leaveAbsenceDateEndVerification = formatyyyymm.format(formatddMM.parse(leaveAbsenceDateEnd))
-		}
-		for (def leaveArrayIterator = 0; leaveArrayIterator <= leaveArray.length; leaveArrayIterator++) {
-			Date currentDate = formatddMM.format(formatyyyymm.parse(leaveArray[leaveArrayIterator][0]))
 
-			if ((currentDate >= leaveAbsenceDateStartVerification)&&(currentDate <= leaveAbsenceDateEndVerification)) {
-				leaveAbsenceNumber = String.valueOf(Double.valueOf(leaveAbsenceNumber)+Double.valueOf(array[1]))
-			}
-			else if (currentDate > leaveAbsenceDateEndVerification) {
-				break;
-			}
+if (GlobalVariable.leaveStartPayPeriod != GlobalVariable.leaveEndPayPeriod) {
+	if(leavePeriodIterator == Integer.valueOf(GlobalVariable.leaveEndPayPeriod)) {
+		leaveAbsenceDateStart = formatddMM.format(formatyyyymm.parse(payPeriodArray[0]))
+		leaveAbsenceDateEnd = formatddMM.format(formatdMMM.parse(LeaveEndDate))
+		leaveAbsenceDateStartVerification = formatddMM.parse(leaveAbsenceDateStart)
+		leaveAbsenceDateEndVerification = formatddMM.parse(leaveAbsenceDateEnd)
+	}
+	else if(leavePeriodIterator == Integer.valueOf(GlobalVariable.leaveStartPayPeriod)){
+		leaveAbsenceDateStart = formatddMM.format(formatdMMM.parse(LeaveStartDate))
+		leaveAbsenceDateStartVerification = formatddMM.parse(leaveAbsenceDateStart)
+		leaveAbsenceDateEnd = formatddMM.format(formatyyyymm.parse(payPeriodArray[1]))
+		leaveAbsenceDateEndVerification = formatddMM.parse(leaveAbsenceDateEnd)
+	}
+	
+	else {
+		leaveAbsenceDateStart = formatddMM.format(formatyyyymm.parse(payPeriodArray[0]))
+		leaveAbsenceDateEnd = formatddMM.format(formatyyyymm.parse(payPeriodArray[1]))
+		leaveAbsenceDateStartVerification = formatddMM.parse(leaveAbsenceDateStart)
+		leaveAbsenceDateEndVerification = formatddMM.parse(leaveAbsenceDateEnd)
+	}
+	for (int leaveArrayIterator = 0; leaveArrayIterator < leaveArray.size(); leaveArrayIterator++) {
+		Date currentDate = formatyyyymm.parse(leaveArray[leaveArrayIterator][0])
+		if ((currentDate >= leaveAbsenceDateStartVerification)&&(currentDate <= leaveAbsenceDateEndVerification)) {
+			leaveAbsenceNumber = String.valueOf(Double.valueOf(leaveAbsenceNumber)+Double.valueOf(leaveArray[leaveArrayIterator][1]))
 		}
 	}
 }
 else {
-	leaveAbsenceDateStart = String.valueOf(formatddMM.format(formatdMMM.parse(LeaveStartDate)))
-	leaveAbsenceDateEnd = String.valueOf(formatddMM.format(formatdMMM.parse(LeaveEndDate)))
-	leaveAbsenceDateStartVerification = formatyyyymm.format(formatddMM.parse(leaveAbsenceDateStart))
-	leaveAbsenceDateEndVerification = formatyyyymm.format(formatddMM.parse(leaveAbsenceDateEnd))
+	leaveAbsenceDateStart = formatddMM.format(formatdMMM.parse(LeaveStartDate))
+	leaveAbsenceDateEnd = formatddMM.format(formatdMMM.parse(LeaveEndDate))
+	leaveAbsenceDateStartVerification = formatddMM.parse(leaveAbsenceDateStart)
+	leaveAbsenceDateEndVerification = formatddMM.parse(leaveAbsenceDateEnd)
 	if (GlobalVariable.leaveUnit == 'Hours') {
 		if (LeaveStartDate == LeaveEndDate) {
 			leaveAbsenceNumber = TimeConverter.convertMinutesToDecimalHours(GlobalVariable.workMinutes)
 		}
 		else {
-			for (def leaveArrayIterator = 0; leaveArrayIterator <= leaveArray.length; leaveArrayIterator++) {
-				Date currentDate = formatddMM.format(formatyyyymm.parse(leaveArray[leaveArrayIterator][0]))
+			for (def leaveArrayIterator = 0; leaveArrayIterator < leaveArray.size(); leaveArrayIterator++) {
+				Date currentDate = formatyyyymm.parse(leaveArray[leaveArrayIterator][0])
 	
 				if ((currentDate >= leaveAbsenceDateStartVerification)&&(currentDate <= leaveAbsenceDateEndVerification)) {
-					leaveAbsenceNumber = String.valueOf(Double.valueOf(leaveAbsenceNumber)+Double.valueOf(array[1]))
-				}
-				else if (currentDate > leaveAbsenceDateEndVerification) {
-					break;
+					leaveAbsenceNumber = String.valueOf(Double.valueOf(leaveAbsenceNumber)+Double.valueOf(leaveArray[leaveArrayIterator][1]))
 				}
 			}
 		}
@@ -154,23 +147,51 @@ else {
 	}
 }
 
-leaveEarningsString = leaveTypeString+' '+leaveAbsenceUnit
-leaveAbsenceDateNumberUnit = leaveAbsenceDateStart+' '+leaveAbsenceDateEnd+' '+leaveAbsenceNumber+' '+ GlobalVariable.leaveUnit
+if (leaveAbsenceNumber.contains('.')) {
+	def parts = leaveAbsenceNumber.split('\\.')
+	if (parts.length == 2 && parts[1].length() == 1) {
+		leaveNumberUnderAbsence = "${parts[0]}.${parts[1]}0"
+	}
+	else {
+		leaveNumberUnderAbsence = leaveAbsenceNumber
+	}
+}
+else {
+	leaveNumberUnderAbsence = leaveAbsenceNumber
+}
+
+leaveEarningsString = leaveTypeString+' '+ leaveAbsenceNumber
+leaveAbsenceDateNumberUnit = leaveAbsenceDateStart+' '+leaveAbsenceDateEnd+'           '+leaveNumberUnderAbsence+' '+ GlobalVariable.leaveUnit
 
 if (pdfFileInText.contains(GlobalVariable.EmployeeFirstName+' '+GlobalVariable.EmployeeLastName)) {
 	KeywordUtil.logInfo('Verified Employee name as : '+GlobalVariable.EmployeeFirstName+' '+GlobalVariable.EmployeeLastName)
 }
+else {
+	KeywordUtil.logInfo('Tried to verify Employee name as : '+GlobalVariable.EmployeeFirstName+' '+GlobalVariable.EmployeeLastName)
+}
 if (pdfFileInText.contains(EmployeeID)) {
 	KeywordUtil.logInfo('Verified Employee ID as : '+ EmployeeID)
+}
+else {
+	KeywordUtil.logInfo('Tried to verify Employee ID as : '+ EmployeeID)
 }
 if (pdfFileInText.contains(leaveTypeString)) {
 	KeywordUtil.logInfo('Verified Leave Type as : '+ leaveTypeString)
 }
+else {
+	KeywordUtil.logInfo('Tried to verify Leave Type as : '+ leaveTypeString)
+}
 if (pdfFileInText.contains(leaveEarningsString)) {
 	KeywordUtil.logInfo('Verified Under Earnings : '+ leaveEarningsString)
 }
+else {
+	KeywordUtil.logInfo('Tried to verify Under Earnings : '+ leaveEarningsString)
+}
 if (pdfFileInText.contains(leaveAbsenceDateNumberUnit)) {
 	KeywordUtil.logInfo('Verified Under Absences : '+ leaveAbsenceDateNumberUnit)
+}
+else {
+	KeywordUtil.logInfo('Tried to verify Under Absences : '+ leaveAbsenceDateNumberUnit)
 }
 
 

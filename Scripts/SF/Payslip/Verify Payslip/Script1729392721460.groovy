@@ -62,6 +62,7 @@ while (renderedPaySlip >= Integer.valueOf(GlobalVariable.leaveStartPayPeriod)) {
     }
     
     destinationFile = (((((GlobalVariable.DownloadPath + '//') + EmployeeID) + '_') + renderedPaySlip) + '.pdf')
+	GlobalVariable.currentPayPeriod = renderedPaySlip
 
     /*
     WebUI.executeJavaScript(('window.open(\'' + pdfUrl) + '\', \'_blank\');', null)
