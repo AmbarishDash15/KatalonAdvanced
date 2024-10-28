@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>Get Working Hours Between Dates</name>
+   <name>Get Leave Details and Duration</name>
    <tag></tag>
    <comment></comment>
    <recordOption>OTHER</recordOption>
@@ -41,6 +41,12 @@
       <type>DEFAULT</type>
       <value></value>
       <variableId>f23c2711-ce0b-491a-aaa2-2e1848579d73</variableId>
+   </variableLinks>
+   <variableLinks>
+      <testDataLinkId></testDataLinkId>
+      <type>DEFAULT</type>
+      <value></value>
+      <variableId>7faeecd1-0cf9-42c0-9820-a50db9e01615</variableId>
    </variableLinks>
    <variable>
       <defaultValue>'STD 10 DAY'</defaultValue>
@@ -83,5 +89,12 @@
       <id>f23c2711-ce0b-491a-aaa2-2e1848579d73</id>
       <masked>false</masked>
       <name>FullDayOrHalfDay</name>
+   </variable>
+   <variable>
+      <defaultValue>''</defaultValue>
+      <description></description>
+      <id>7faeecd1-0cf9-42c0-9820-a50db9e01615</id>
+      <masked>false</masked>
+      <name>LeaveType</name>
    </variable>
 </TestCaseEntity>

@@ -6,12 +6,12 @@
    <elementGuidId>1f3e095a-58ba-4cc4-b013-c92573cee51d</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>CSS</key>
-         <value>button.ui5-button-root</value>
+         <key>XPATH</key>
+         <value></value>
       </entry>
       <entry>
-         <key>XPATH</key>
-         <value>//*/text()[normalize-space(.)='']/parent::*</value>
+         <key>CSS</key>
+         <value>button.ui5-button-root</value>
       </entry>
    </selectorCollection>
    <selectorMethod>CSS</selectorMethod>
@@ -29,7 +29,7 @@
       <name>tag</name>
       <type>Main</type>
       <value>button</value>
-      <webElementGuid>ca8f77e4-8301-4074-9148-b98fa47d2e0d</webElementGuid>
+      <webElementGuid>a7ee39ec-d77c-4d52-998d-f8728314fdc7</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -37,7 +37,7 @@
       <name>type</name>
       <type>Main</type>
       <value>button</value>
-      <webElementGuid>065b6b1f-a5e8-4b87-b5cd-cc50b57c60e4</webElementGuid>
+      <webElementGuid>ff877399-891b-4a2f-9d31-ab968895a20f</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -45,7 +45,7 @@
       <name>class</name>
       <type>Main</type>
       <value>ui5-button-root</value>
-      <webElementGuid>d3b2db48-edc9-49d7-a44a-89506cc3094f</webElementGuid>
+      <webElementGuid>96a8dea3-4bc6-41c2-89c1-f9019246fa52</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -53,7 +53,7 @@
       <name>part</name>
       <type>Main</type>
       <value>button</value>
-      <webElementGuid>fefb223c-66e3-48cf-b3c6-410065a7c7e0</webElementGuid>
+      <webElementGuid>24b986b2-6b0f-4d86-b246-53585ab602ec</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -61,7 +61,7 @@
       <name>tabindex</name>
       <type>Main</type>
       <value>0</value>
-      <webElementGuid>38517fc2-e744-420f-b8a0-c963ba219dfa</webElementGuid>
+      <webElementGuid>b52bb05f-b2d5-4eba-9c92-0c5e6feea9aa</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -69,7 +69,7 @@
       <name>title</name>
       <type>Main</type>
       <value>Account Navigation for Ambarish Dash ‎(adash)‎</value>
-      <webElementGuid>0eb44cee-6c63-4fb6-9ac4-98e548627d59</webElementGuid>
+      <webElementGuid>d65479d8-7e7e-4b2d-b839-aaaaa25d06d0</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -77,7 +77,7 @@
       <name>aria-expanded</name>
       <type>Main</type>
       <value>false</value>
-      <webElementGuid>9b2269e6-e766-4b32-9d02-132f464fa728</webElementGuid>
+      <webElementGuid>6b8afde3-bebe-4750-9ee5-bfc792008dd4</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -85,7 +85,7 @@
       <name>aria-haspopup</name>
       <type>Main</type>
       <value>menu</value>
-      <webElementGuid>6f6a561d-8b63-4877-a83e-a47507860352</webElementGuid>
+      <webElementGuid>df8b3475-cc52-4be0-b5f6-0aca4ef85164</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>false</isSelected>
@@ -93,7 +93,7 @@
       <name>xpath</name>
       <type>Main</type>
       <value>/button[@class=&quot;ui5-button-root&quot;]</value>
-      <webElementGuid>6dd4dae4-9e1b-4ad1-96c6-29b9cfd3e99f</webElementGuid>
+      <webElementGuid>af055cab-e963-466a-a964-df6916de02b2</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -101,7 +101,7 @@
       <name>ref_element</name>
       <type>Main</type>
       <value>Object Repository/Page_SuccessFactors Home/TitleBar/HomeScreen_ShadowRoot_Parent2_ProfileButton</value>
-      <webElementGuid>018e3919-be48-4eaa-b807-ee4e2158c770</webElementGuid>
+      <webElementGuid>a17dd05f-fc23-4f0c-9088-442448f2ee21</webElementGuid>
    </webElementProperties>
    <webElementProperties>
       <isSelected>true</isSelected>
@@ -109,22 +109,22 @@
       <name>ref_element_is_shadow_root</name>
       <type>Main</type>
       <value>true</value>
-      <webElementGuid>fd3fa396-e717-432d-854b-74a953b89f0d</webElementGuid>
+      <webElementGuid>d618b63d-9ec3-454c-bd2e-4986a61c02ce</webElementGuid>
    </webElementProperties>
    <webElementXpaths>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:neighbor</name>
       <type>Main</type>
-      <value>//*/text()[normalize-space(.)='']/parent::*</value>
-      <webElementGuid>c8f2af00-2a8f-4d12-a358-83f72fa2c7dc</webElementGuid>
+      <value></value>
+      <webElementGuid>9f0bcad2-72f8-46d1-846b-19cd1af9b768</webElementGuid>
    </webElementXpaths>
    <webElementXpaths>
       <isSelected>false</isSelected>
       <matchCondition>equals</matchCondition>
       <name>xpath:customAttributes</name>
       <type>Main</type>
-      <value>//button[@type = 'button' and @title = 'Account Navigation for Ambarish Dash ‎(adash)‎']</value>
-      <webElementGuid>db28d366-c0bc-49ab-850d-c101b90518e1</webElementGuid>
+      <value></value>
+      <webElementGuid>ff8cc588-99b4-4ca9-9f4b-32f17d2b7816</webElementGuid>
    </webElementXpaths>
 </WebElementEntity>

@@ -25,7 +25,7 @@ WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeetoProxy') 
 
 LeaveDetails.getLeaveDetails(LeaveType)
 
-WebUI.callTestCase(findTestCase('SF/SelfProfile/Get Working Hours Between Dates'), [('WorkSchedule') : WorkSchedule, ('LeaveStartDate') : LeaveStartDate
+WebUI.callTestCase(findTestCase('SF/SelfProfile/Get Leave Details and Duration'), [('WorkSchedule') : WorkSchedule, ('LeaveStartDate') : LeaveStartDate
         , ('LeaveEndDate') : LeaveEndDate, ('EmployeeID') : EmployeeID, ('EmployeeName') : EmployeeName, ('FullDayOrHalfDay') : FullDayOrHalfDay], 
     FailureHandling.STOP_ON_FAILURE)
 

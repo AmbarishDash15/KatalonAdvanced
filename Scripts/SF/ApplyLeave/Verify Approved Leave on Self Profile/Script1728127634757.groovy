@@ -20,6 +20,7 @@ import customUtilities.DateChecker as DateChecker
 import customUtilities.CalendarNavigator as CalendarNavigator
 import customUtilities.MonthConverter as MonthConverter
 import customUtilities.DatewithDay as DatewithDay
+import com.kms.katalon.core.util.KeywordUtil
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
 
@@ -91,6 +92,8 @@ WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/My Profile/Upco
 WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/My Profile/Upcoming Timeoff - Approval Status (var)', [
             ('leaveDates') : DatewithDay.formatDateRange(LeaveStartDate, LeaveEndDate)]), 'Approved')
 
+KeywordUtil.markPassed('Verified Leave under Upcoming Time Off')
+
 WebUI.takeFullPageScreenshot()
 
 if (GlobalVariable.leaveBalanceCheckRequired == 'Yes') {
@@ -137,6 +140,8 @@ if (GlobalVariable.leaveBalanceCheckRequired == 'Yes') {
 			[('leaveType') : LeaveType]))
 	
 	WebUI.verifyMatch(leaveBalance, GlobalVariable.RemainingLeaveBalance, true)
+	
+	KeywordUtil.markPassed('Verified Leave Balance as of Leave End Date - ' + LeaveEndDate + 'as : ' + GlobalVariable.RemainingLeaveBalance)
 	
 	WebUI.takeFullPageScreenshot()
 	

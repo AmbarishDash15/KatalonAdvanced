@@ -20,15 +20,24 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUiBuiltInKe
 import customUtilities.DateRangeFormatter as DateRangeFormatter
 import customUtilities.DateFormatConverter as DateFormatConverter
 import customUtilities.MonthConverter as MonthConverter
-import com.kms.katalon.core.logging.KeywordLogger as KeywordLogger
-
-KeywordLogger logger = new KeywordLogger()
+import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
+import customUtilities.GetNameFromDesignation as GetNameFromDesignation
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/tilebutton_Request Time Off'))
 
+WebUI.waitForElementNotPresent(findTestObject('Page_SuccessFactors Home/Homepage/busyIndicator'), 5)
+
+WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/dialogBox'), 0)
+
+WebUI.delay(2)
+
+WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/dialogHeader'), 'Request Time Off')
+
 WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/Time Off Link'), 0)
+
+WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/Time Off Link'), 0)
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/Time Off Link'))
 
@@ -47,14 +56,6 @@ def leaveYear = arrStartDate[2]
 while (!((WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Time Off Page/Left Calendar Month')) == 
 leaveMonth) && (WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Time Off Page/Left Calendar Year')) == 
 leaveYear))) {
-    logger.logInfo(leaveMonth)
-
-    logger.logInfo(leaveYear)
-
-    logger.logInfo(WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Time Off Page/Left Calendar Month')))
-
-    logger.logInfo(WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Time Off Page/Left Calendar Year')))
-
     WebUI.click(findTestObject('Page_SuccessFactors Home/Time Off Page/Month Forward Button'))
 }
 
@@ -72,6 +73,10 @@ if (WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Time O
     GlobalVariable.LeaveStatus = 'Approved'
 
     GlobalVariable.NextApprover = ''
+
+    KeywordUtil.markPassed('Leave is Approved')
+
+    WebUI.takeFullPageScreenshot()
 } else if (WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Time Off Page/Leave Status on Popup')) == 
 'Pending') {
     GlobalVariable.LeaveStatus = 'Pending'
@@ -87,11 +92,17 @@ if (WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Time O
 
     GlobalVariable.NextApprover = WebUI.getText(findTestObject('Page_SuccessFactors Home/Time Off Page/Value in To Be Approved By'))
 
+    if ((GlobalVariable.NextApprover == 'HR Admin') || (GlobalVariable.NextApprover == 'HR Admin')) {
+        GlobalVariable.NextApprover = GetNameFromDesignation.getApproverName(GlobalVariable.NextApprover)
+    }
+    
+    KeywordUtil.logInfo('Leave Status is Pending and Next Approver is : ' + GlobalVariable.NextApprover)
+
     WebUI.callTestCase(findTestCase('SF/Common/Approve Leave'), [('ApproverName') : GlobalVariable.NextApprover, ('EmployeeID') : EmployeeID
             , ('EmployeeName') : EmployeeName, ('LeaveType') : LeaveType, ('LeaveStartDate') : LeaveStartDate, ('LeaveEndDate') : LeaveEndDate], 
         FailureHandling.STOP_ON_FAILURE)
 
     WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeetoProxy') : EmployeeID, ('employeeName') : EmployeeName], 
-            FailureHandling.STOP_ON_FAILURE)
+        FailureHandling.STOP_ON_FAILURE)
 }
 

@@ -7,14 +7,17 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value></value>
       </entry>
       <entry>
          <key>CSS</key>
          <value>input#__picker1-inner</value>
       </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//bdi[text()='End Date']//ancestor::div[contains(@class,'sapExtentUilibUtilEditFormGeneratorField')]//input</value>
+      </entry>
    </selectorCollection>
-   <selectorMethod>CSS</selectorMethod>
+   <selectorMethod>XPATH</selectorMethod>
    <smartLocatorEnabled>false</smartLocatorEnabled>
    <useRalativeImagePath>false</useRalativeImagePath>
 </WebElementEntity>

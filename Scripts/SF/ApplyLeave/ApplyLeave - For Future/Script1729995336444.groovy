@@ -21,27 +21,45 @@ import customUtilities.TimeDifference as TimeDifference
 import customUtilities.WorkingDaysCalculator as WorkingDaysCalculator
 import customUtilities.TimeDifferenceChecker as TimeDifferenceChecker
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUiBuiltInKeywords
+import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/tilebutton_Request Time Off'))
 
-WebUI.delay(2)
-
-WebUI.waitForElementNotPresent(findTestObject('Page_SuccessFactors Home/Homepage/busyIndicator'), 0)
+WebUI.waitForElementNotPresent(findTestObject('Page_SuccessFactors Home/Homepage/busyIndicator'), 5)
 
 WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/dialogBox'), 0)
+
+WebUI.delay(2)
 
 WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/dialogHeader'), 'Request Time Off')
 
 WebUI.takeFullPageScreenshot()
 
-WebUI.setText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/timeType'), LeaveType, FailureHandling.STOP_ON_FAILURE)
+WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/timeType'), 0)
+
+attempts = 0
+
+while (attempts < 5) {
+    try {
+        WebUI.setText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/timeType'), LeaveType)
+
+        break
+    }
+    catch (Exception e) {
+        attempts++
+
+        WebUI.delay(1)
+    } 
+}
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/timeTypeOption (var)', [('timeType') : LeaveType]), 
     FailureHandling.STOP_ON_FAILURE)
 
-WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/Returning to Work on'), 10)
+WebUI.delay(2, FailureHandling.STOP_ON_FAILURE)
+
+WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/Returning to Work on'))
 
 if (LeaveType == 'Compassionate Leave') {
     WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/compassionateLeaveReason'), 0)
@@ -71,44 +89,101 @@ if (LeaveType == 'Compassionate Leave') {
             break
     }
     
-    WebUI.setText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/compassionateLeaveReason'), LeaveReason)
+    attempts = 0
 
+    while (attempts < 5) {
+        try {
+            WebUI.setText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/compassionateLeaveReason'), LeaveReason)
+
+            break
+        }
+        catch (Exception e) {
+            attempts++
+
+            WebUI.delay(1)
+        } 
+    }
+    
     WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/Reason Code Options (var)', [('reasonCode') : reasonString]))
 }
 
-WebUI.setText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/leaveStartDate'), LeaveStartDate)
+WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/leaveStartDate'), 0)
+
+attempts = 0
+
+while (attempts < 5) {
+    try {
+        WebUI.setText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/leaveStartDate'), LeaveStartDate)
+
+        break
+    }
+    catch (Exception e) {
+        attempts++
+
+        WebUI.delay(1)
+    } 
+}
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/Returning to Work on'))
 
 if (FullDayOrHalfDay == 'FullDay') {
-    WebUI.setText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/leaveEndDate'), LeaveEndDate)
+    WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/leaveEndDate'), 0)
+
+    attempts = 0
+
+    while (attempts < 5) {
+        try {
+            WebUI.setText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/leaveEndDate'), LeaveEndDate)
+
+            break
+        }
+        catch (Exception e) {
+            attempts++
+
+            WebUI.delay(1)
+        } 
+    }
+    
+    WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/Returning to Work on'))
+
+    WebUI.delay(2)
 } else if (FullDayOrHalfDay == 'HalfDay') {
     if (WebUiBuiltInKeywords.verifyElementAttributeValue(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/fullDayChkBx'), 
         'aria-checked', 'true', 0)) {
+        WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/fullDayChkBx'), 0)
+
         WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/fullDayChkBx'))
 
+        WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/leaveStartTime'), 0)
+
         WebUI.setText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/leaveStartTime'), GlobalVariable.LeaveStartTime)
+
+        WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/leaveEndTime'), 0)
 
         WebUI.setText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/leaveEndTime'), GlobalVariable.LeaveEndTime)
     }
 }
 
 if (GlobalVariable.leaveBalanceCheckRequired == 'Yes') {
-	WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/availableBalance'))
-	
-	WebUI.verifyElementAttributeValue(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/availableBalance'), 'value',
-		GlobalVariable.LeaveBalance, 0)
+    WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/availableBalance'))
+
+    WebUI.verifyElementAttributeValue(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/availableBalance'), 
+        'value', GlobalVariable.LeaveBalance, 0)
+
+    KeywordUtil.markPassed((('Verified Leave Balance of Leave Type - ' + LeaveType) + ' is : ') + GlobalVariable.LeaveBalance)
 }
-
-
 
 valueOnApp = WebUI.getAttribute(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/leavesToBeDeducted'), 'value')
 
 WebUI.verifyMatch(valueOnApp, GlobalVariable.LeaveDeducted, false)
 
+KeywordUtil.markPassed('Verified Leave to be Deducted is : ' + GlobalVariable.LeaveDeducted)
+
 WebUI.takeFullPageScreenshot()
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/submitButton'))
+
+KeywordUtil.markPassed('Leave Applied')
 
 WebUI.delay(2)
 

@@ -16,6 +16,7 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
+import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
 
 WebUI.waitForPageLoad(10)
 
@@ -38,6 +39,8 @@ WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/Pr
 WebUI.verifyElementAttributeValue(findTestObject('Page_SuccessFactors Home/Homepage/ProxyPopupSearchResult'), 'title', employeeName, 
     0)
 
+KeywordUtil.logInfo('Name Suggested : ' + employeeName)
+
 WebUI.takeFullPageScreenshot()
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/ProxyPopupSearchResult'))
@@ -49,6 +52,8 @@ WebUI.delay(10)
 title = WebUI.getAttribute(findTestObject('Page_SuccessFactors Home/TitleBar/button_ProfileButton'), 'title')
 
 WebUI.verifyMatch(title, '.*on behalf of ' + (employeeName + '.*'), true)
+
+KeywordUtil.markPassed('Successfully proxied as : ' + employeeName)
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/button_ProfileButton'))
 

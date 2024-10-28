@@ -21,6 +21,7 @@ import com.kms.katalon.core.webui.keyword.builtin.GetTextKeyword as GetTextKeywo
 import java.lang.String as String
 import customUtilities.DateRangeFormatter as DateRangeFormatter
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUiBuiltInKeywords
+import com.kms.katalon.core.util.KeywordUtil
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
 
@@ -73,6 +74,7 @@ WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/Team Absence Ca
     DateRangeFormatter.formatDateRangeTeamAbsence(LeaveStartDate, LeaveEndDate))
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_LeaveDate'), FailureHandling.STOP_ON_FAILURE)
+KeywordUtil.markPassed("Verified Presence of Leave in Team Absence Calendar of Manager - " + GlobalVariable.EmployeeManager)
 
 WebUI.takeFullPageScreenshot()
 

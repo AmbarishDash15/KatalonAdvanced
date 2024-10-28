@@ -19,7 +19,7 @@ import org.openqa.selenium.Keys as Keys
 import customUtilities.DateChecker as DateChecker
 import customUtilities.CalendarNavigator as CalendarNavigator
 import customUtilities.MonthConverter as MonthConverter
-
+import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
 
@@ -51,7 +51,6 @@ if (!(DateChecker.isTodayOrPast(LeaveStartDate))) {
         WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Next Month Button'))
     }
     
-
     if (fullMonthName == WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Month Value'))) {
         WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Date Icon (var)', [('date') : paramDate]))
     }
@@ -65,6 +64,10 @@ if (!(DateChecker.isTodayOrPast(LeaveStartDate))) {
 WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/SectionTabName (var)', [('tabName') : 'Time']))
 
 if (WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Time - Section Show More Button'), 0)) {
+    WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - title'), 0)
+
+    WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/My Profile/Time - Section Show More Button'), 0)
+
     WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/Time - Section Show More Button'))
 }
 
@@ -101,7 +104,7 @@ if (LeaveStartDate != LeaveEndDate) {
     (paramEndYear == WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Year Value'))))) {
         WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Next Month Button'))
     }
-
+    
     if (fullEndMonthName == WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Month Value'))) {
         WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Date Icon (var)', [('date') : paramEndDate]))
     }
@@ -110,24 +113,27 @@ if (LeaveStartDate != LeaveEndDate) {
         'title', 'As of ' + LeaveEndDate, 0)
 
     WebUI.takeFullPageScreenshot()
-	
-	WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/SectionTabName (var)', [('tabName') : 'Time']))
-	
-	
-	WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - title'), 0)
-	
-	WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - title'), 0)
-	
-	WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - Leave Type (var)', [('leaveType') : LeaveType]),
-		0)
-	
-	leaveBalanceEndDate = WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - Leave Balance (var)',
-			[('leaveType') : LeaveType]))
+
+    WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/SectionTabName (var)', [('tabName') : 'Time']))
+
+    WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - title'), 0)
+
+    WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - title'), 0)
+
+    WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - Leave Type (var)', 
+            [('leaveType') : LeaveType]), 0)
+
+    leaveBalanceEndDate = WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - Leave Balance (var)', 
+            [('leaveType') : LeaveType]))
 }
 
 GlobalVariable.LeaveBalance = leaveBalance
+
+KeywordUtil.logInfo((((('Leave Balance of Leave Type - ' + LeaveType) + 'as on Leave Start Date - ') + LeaveStartDate) + 
+    ' is : ') + GlobalVariable.LeaveBalance)
+
 GlobalVariable.EndDateLeaveBalance = leaveBalanceEndDate
 
-
-
+KeywordUtil.logInfo((((('Leave Balance of Leave Type - ' + LeaveType) + 'as on Leave End Date - ') + LeaveEndDate) + ' is : ') + 
+    GlobalVariable.EndDateLeaveBalance)
 

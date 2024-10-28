@@ -16,18 +16,15 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
-import customUtilities.LeaveDetails as LeaveDetails
-
-LeaveDetails.getLeaveDetails(LeaveType)
 
 WebUI.callTestCase(findTestCase('SF/Common/Login'), [:], FailureHandling.STOP_ON_FAILURE)
 
 WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeetoProxy') : EmployeeID, ('employeeName') : EmployeeName], 
     FailureHandling.STOP_ON_FAILURE)
 
-WebUI.callTestCase(findTestCase('SF/SelfProfile/Get Working Hours Between Dates'), [('WorkSchedule') : WorkSchedule, ('LeaveStartDate') : LeaveStartDate
-        , ('LeaveEndDate') : LeaveEndDate, ('EmployeeID') : EmployeeID, ('EmployeeName') : EmployeeName, ('FullDayOrHalfDay') : FullDayOrHalfDay], 
-    FailureHandling.STOP_ON_FAILURE)
+WebUI.callTestCase(findTestCase('SF/SelfProfile/Get Leave Details and Duration'), [('WorkSchedule') : WorkSchedule, ('LeaveStartDate') : LeaveStartDate
+        , ('LeaveEndDate') : LeaveEndDate, ('EmployeeID') : EmployeeID, ('EmployeeName') : EmployeeName, ('FullDayOrHalfDay') : FullDayOrHalfDay
+        , ('LeaveType') : LeaveType], FailureHandling.STOP_ON_FAILURE)
 
 if (GlobalVariable.leaveBalanceCheckRequired == 'Yes') {
     WebUI.callTestCase(findTestCase('SF/SelfProfile/CheckSelfProfile - Time'), [('EmployeeName') : EmployeeName, ('EmployeeID') : EmployeeID
@@ -35,7 +32,7 @@ if (GlobalVariable.leaveBalanceCheckRequired == 'Yes') {
 }
 
 if (Initiator == 'Employee') {
-    WebUI.callTestCase(findTestCase('SF/ApplyLeave/ApplyLeave - Counted in Hours'), [('LeaveType') : LeaveType, ('LeaveStartDate') : LeaveStartDate
+    WebUI.callTestCase(findTestCase('SF/ApplyLeave/ApplyLeave - For Future'), [('LeaveType') : LeaveType, ('LeaveStartDate') : LeaveStartDate
             , ('LeaveEndDate') : LeaveEndDate, ('FullDayOrHalfDay') : FullDayOrHalfDay, ('LeaveReason') : LeaveReason], 
         FailureHandling.STOP_ON_FAILURE)
 }

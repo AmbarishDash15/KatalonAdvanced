@@ -17,6 +17,7 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 import java.lang.Integer as Integer
+import com.kms.katalon.core.util.KeywordUtil
 
 WebUI.openBrowser('')
 
@@ -39,6 +40,8 @@ WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/TitleBar/Co
 WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'), 0)
 
 WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/TitleBar/button_ProfileButton'), 0)
+
+KeywordUtil.markPassed("Login Successful")
 
 WebUI.takeFullPageScreenshot()
 

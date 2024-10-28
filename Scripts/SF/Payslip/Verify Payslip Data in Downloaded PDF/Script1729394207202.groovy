@@ -160,38 +160,58 @@ else {
 	leaveNumberUnderAbsence = leaveAbsenceNumber
 }
 
-leaveEarningsString = leaveTypeString+' '+ leaveAbsenceNumber
-leaveAbsenceDateNumberUnit = leaveAbsenceDateStart+' '+leaveAbsenceDateEnd+'           '+leaveNumberUnderAbsence+' '+ GlobalVariable.leaveUnit
+KeywordUtil.logInfo("Starting Verification of Pay Slip for Pay Period - " + GlobalVariable.currentPayPeriod)
+
 
 if (pdfFileInText.contains(GlobalVariable.EmployeeFirstName+' '+GlobalVariable.EmployeeLastName)) {
-	KeywordUtil.logInfo('Verified Employee name as : '+GlobalVariable.EmployeeFirstName+' '+GlobalVariable.EmployeeLastName)
+	KeywordUtil.markPassed('Verified Employee name as : '+GlobalVariable.EmployeeFirstName+' '+GlobalVariable.EmployeeLastName)
 }
 else {
-	KeywordUtil.logInfo('Tried to verify Employee name as : '+GlobalVariable.EmployeeFirstName+' '+GlobalVariable.EmployeeLastName)
+	KeywordUtil.markFailed('Tried to verify Employee name as : '+GlobalVariable.EmployeeFirstName+' '+GlobalVariable.EmployeeLastName)
 }
 if (pdfFileInText.contains(EmployeeID)) {
-	KeywordUtil.logInfo('Verified Employee ID as : '+ EmployeeID)
+	KeywordUtil.markPassed('Verified Employee ID as : '+ EmployeeID)
 }
 else {
-	KeywordUtil.logInfo('Tried to verify Employee ID as : '+ EmployeeID)
+	KeywordUtil.markFailed('Tried to verify Employee ID as : '+ EmployeeID)
 }
 if (pdfFileInText.contains(leaveTypeString)) {
-	KeywordUtil.logInfo('Verified Leave Type as : '+ leaveTypeString)
+	KeywordUtil.markPassed('Verified Leave Type as : '+ leaveTypeString)
 }
 else {
-	KeywordUtil.logInfo('Tried to verify Leave Type as : '+ leaveTypeString)
+	KeywordUtil.markFailed('Tried to verify Leave Type as : '+ leaveTypeString)
 }
-if (pdfFileInText.contains(leaveEarningsString)) {
-	KeywordUtil.logInfo('Verified Under Earnings : '+ leaveEarningsString)
-}
-else {
-	KeywordUtil.logInfo('Tried to verify Under Earnings : '+ leaveEarningsString)
-}
-if (pdfFileInText.contains(leaveAbsenceDateNumberUnit)) {
-	KeywordUtil.logInfo('Verified Under Absences : '+ leaveAbsenceDateNumberUnit)
+if (pdfFileInText.contains(leaveAbsenceNumber)) {
+	KeywordUtil.markPassed('Verified Leave Hours Under Earnings : '+ leaveAbsenceNumber)
 }
 else {
-	KeywordUtil.logInfo('Tried to verify Under Absences : '+ leaveAbsenceDateNumberUnit)
+	KeywordUtil.markFailed('Tried to verify Under Earnings : '+ leaveAbsenceNumber)
+}
+if (pdfFileInText.contains(leaveAbsenceDateStart)) {
+	KeywordUtil.markPassed('Verified Leave Start Date under Absences : '+ leaveAbsenceDateStart)
+}
+else {
+	KeywordUtil.markFailed('Tried to verify Leave Start Date under Absences : '+ leaveAbsenceDateStart)
+}
+
+if (pdfFileInText.contains(leaveAbsenceDateEnd)) {
+	KeywordUtil.markPassed('Verified Leave End Date under Absences : '+ leaveAbsenceDateEnd)
+}
+else {
+	KeywordUtil.markFailed('Tried to verify Leave End Date under Absences : '+ leaveAbsenceDateEnd)
+}
+
+if (pdfFileInText.contains(leaveNumberUnderAbsence)) {
+	KeywordUtil.markPassed('Verified Leave Hours Under Absences : '+ leaveNumberUnderAbsence)
+}
+else {
+	KeywordUtil.markFailed('Tried to verify Leave Hours Under Absences : '+ leaveNumberUnderAbsence)
+}
+if (pdfFileInText.contains(GlobalVariable.leaveUnit)) {
+	KeywordUtil.markPassed('Verified Leave Unit under Absences : '+ GlobalVariable.leaveUnit)
+}
+else {
+	KeywordUtil.markFailed('Tried to verify Leave Unit under Absences : '+ GlobalVariable.leaveUnit)
 }
 
 

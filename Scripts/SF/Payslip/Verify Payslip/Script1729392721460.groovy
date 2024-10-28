@@ -24,17 +24,19 @@ import java.io.*
 import java.net.HttpURLConnection as HttpURLConnection
 import java.net.URL as URL
 import com.kms.katalon.core.configuration.RunConfiguration as RunConfiguration
-import com.kms.katalon.core.logging.KeywordLogger as KeywordLogger
-
-KeywordLogger logger = new KeywordLogger()
+import com.kms.katalon.core.util.KeywordUtil
 
 WebUI.verifyElementPresent(findTestObject('Page_Print Preview/Print Preview title'), 0)
 
 ManageDownloads.manageFolder()
 
+KeywordUtil.logInfo('Payslip generated successfully')
+
 WebUI.waitForElementPresent(findTestObject('Page_Print Preview/Last Document button'), 0)
 
 WebUI.click(findTestObject('Page_Print Preview/Last Document button'))
+
+KeywordUtil.logInfo('Navigated to Last Payslip')
 
 renderedPaySlip = Integer.valueOf(GlobalVariable.leaveEndPayPeriod)
 
@@ -64,13 +66,7 @@ while (renderedPaySlip >= Integer.valueOf(GlobalVariable.leaveStartPayPeriod)) {
     destinationFile = (((((GlobalVariable.DownloadPath + '//') + EmployeeID) + '_') + renderedPaySlip) + '.pdf')
 	GlobalVariable.currentPayPeriod = renderedPaySlip
 
-    /*
-    WebUI.executeJavaScript(('window.open(\'' + pdfUrl) + '\', \'_blank\');', null)
-
-    def tabIndex = DriverFactory.getCurrentWindowIndex()
-
-    WebUI.switchToWindowIndex(windowIndex + 1)
-*/
+    
     Set<Cookie> cookies = DriverFactory.getWebDriver().manage().getCookies()
 
     URL url = new URL(pdfUrl)
@@ -111,11 +107,10 @@ while (renderedPaySlip >= Integer.valueOf(GlobalVariable.leaveStartPayPeriod)) {
     
     connection.disconnect()
 
-    logger.logInfo(destinationFile)
+    KeywordUtil.markPassed('Successfully downloaded Payslip for Pay Period' + GlobalVariable.currentPayPeriod + 'at : ' + destinationFile)
 
     GlobalVariable.destinationFilePath = destinationFile.replace('//', '/')
 
-    logger.logInfo(GlobalVariable.destinationFilePath)
 
     WebUI.callTestCase(findTestCase('SF/Payslip/Verify Payslip Data in Downloaded PDF'), [('EmployeeID') : EmployeeID, ('EmployeeName') : EmployeeName
             , ('LeaveType') : LeaveType, ('LeaveStartDate') : LeaveStartDate, ('LeaveEndDate') : LeaveEndDate], FailureHandling.STOP_ON_FAILURE)

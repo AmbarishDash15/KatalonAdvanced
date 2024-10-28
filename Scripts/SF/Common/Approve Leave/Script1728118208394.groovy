@@ -20,6 +20,7 @@ import customUtilities.DateConverter as DateConverter
 import customUtilities.TimeSubtractor as TimeSubtractor
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUiBuiltInKeywords
 import org.openqa.selenium.WebElement as WebElement
+import com.kms.katalon.core.util.KeywordUtil
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
 
@@ -48,7 +49,6 @@ if (!ViewAll.length == null) {
 
         def cardID = cardContentID.split('-cardContent')[0]
 
-        logger.logInfo(cardID)
 
         if (((WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Homepage/All Time Off Approval Popup/Approval Popup Card Initiator', 
                 [('cardID') : cardID])) == EmployeeName) && (WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Homepage/All Time Off Approval Popup/Approval Popup Card Details Field Value (var)', 
@@ -71,26 +71,9 @@ else {
     WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/Approval Card TimeOff - Home Page'))
 
 }
-/*
-WebUI.verifyElementAttributeValue(findTestObject('Page_SuccessFactors Home/Homepage/Approval Card Initiator'), 'title', 
-    EmployeeName, 0)
 
-WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/Aprroval Card Details Field Name (var)', [('fieldName') : 'Period']), 
-    0)
+KeywordUtil.logInfo('Verifying Leave Approval Request at Approver : ' + ApproverName)
 
-WebUI.verifyElementAttributeValue(findTestObject('Page_SuccessFactors Home/Homepage/Approval Card Details Field Value (var)', 
-        [('fieldName') : 'Period']), 'title', LeaveStartDate + (' - ' + LeaveEndDate), 0)
-
-WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/Aprroval Card Details Field Name (var)', [('fieldName') : 'Time Type']), 
-    0)
-
-WebUI.verifyElementAttributeValue(findTestObject('Page_SuccessFactors Home/Homepage/Approval Card Details Field Value (var)', 
-        [('fieldName') : 'Time Type']), 'title', LeaveType, 0)
-
-WebUI.takeFullPageScreenshot()
-
-WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/Approval Card TimeOff - Home Page'))
-*/
 WebUI.waitForPageLoad(10)
 
 WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/WorkFlowDetails/ApprovalQuestionBanner'), 0)
@@ -98,8 +81,11 @@ WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/WorkFlowDeta
 WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/WorkFlowDetails/Approval Request Field Name (var)', 
         [('fieldName') : 'User']), 0)
 
+
 WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/WorkFlowDetails/Approval Request Name Value (var)', [('fieldName') : 'User']), 
     EmployeeName)
+
+KeywordUtil.markPassed('Verified User Name as : ' + EmployeeName)
 
 WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/WorkFlowDetails/Approval Request Field Name (var)', 
         [('fieldName') : 'Time Type']), 0)
@@ -108,30 +94,36 @@ leaveType = WebUI.getText(findTestObject('Page_SuccessFactors Home/WorkFlowDetai
         [('fieldName') : 'Time Type']), FailureHandling.STOP_ON_FAILURE)
 
 WebUI.verifyMatch(leaveType, LeaveType + '.*', true)
+KeywordUtil.markPassed('Verified Leave Type as : ' + LeaveType)
 
 WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/WorkFlowDetails/Approval Request Field Name (var)', 
         [('fieldName') : 'Start Date']), 0)
 
 WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/WorkFlowDetails/Approval Request FieldWithQuestionMark Value (var)', 
         [('fieldName') : 'Start Date']), DateConverter.convertDateFormat(LeaveStartDate))
+KeywordUtil.markPassed('Verified Start Date as : ' + DateConverter.convertDateFormat(LeaveStartDate))
 
 WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/WorkFlowDetails/Approval Request Field Name (var)', 
         [('fieldName') : 'End Date']), 0)
 
 WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/WorkFlowDetails/Approval Request FieldWithQuestionMark Value (var)', 
         [('fieldName') : 'End Date']), customUtilities.DateConverter.convertDateFormat(LeaveEndDate))
+KeywordUtil.markPassed('Verified End Date as : ' + DateConverter.convertDateFormat(LeaveEndDate))
 
 WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/WorkFlowDetails/Approval Request Field Name (var)', 
         [('fieldName') : 'Time Off Used']), 0)
 
 WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/WorkFlowDetails/Approval Request FieldWithOutQuestionMark Value (var)', 
         [('fieldName') : 'Time Off Used']), GlobalVariable.LeaveDeducted)
+KeywordUtil.markPassed('Verified Time Off Used as : ' + GlobalVariable.LeaveDeducted)
 
 WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/WorkFlowDetails/Approval Request Field Name (var)', 
         [('fieldName') : 'Balance as of ' + customUtilities.DateConverter.convertDateFormat(LeaveEndDate)]), 0)
 
 WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/WorkFlowDetails/Approval Request FieldWithOutQuestionMark Value (var)', 
         [('fieldName') : 'Balance as of ' + customUtilities.DateConverter.convertDateFormat(LeaveEndDate)]), TimeSubtractor.subtractTime(
+        GlobalVariable.EndDateLeaveBalance , GlobalVariable.LeaveDeducted))
+KeywordUtil.markPassed('Verified Balance as of ' + customUtilities.DateConverter.convertDateFormat(LeaveEndDate) +' as : ' + TimeSubtractor.subtractTime(
         GlobalVariable.EndDateLeaveBalance , GlobalVariable.LeaveDeducted))
 
 GlobalVariable.RemainingLeaveBalance = TimeSubtractor.subtractTime(GlobalVariable.EndDateLeaveBalance, GlobalVariable.LeaveDeducted)
@@ -144,6 +136,7 @@ WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/WorkFlowDetails/A
 WebUI.takeFullPageScreenshot()
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/WorkFlowDetails/Approve Button'))
+KeywordUtil.markPassed('Leave Approved by : ' + ApproverName)
 
 WebUI.delay(1)
 

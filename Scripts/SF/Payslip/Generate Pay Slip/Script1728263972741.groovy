@@ -22,6 +22,7 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUiBuiltInKe
 import customUtilities.DateFormatConverter as DateFormatConverter
 import customUtilities.TimeConverter as TimeConverter
 import customUtilities.GetNameFromDesignation as GetNameFromDesignation
+import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
 
 def textToVerify = ''
 
@@ -30,6 +31,9 @@ def payrollAdmin = GetNameFromDesignation.getApproverName('Payroll Admin')
 WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
 
 WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeetoProxy') : payrollAdmin, ('employeeName') : payrollAdmin], 
+    FailureHandling.STOP_ON_FAILURE)
+
+WebUI.callTestCase(findTestCase('SF/Payslip/Check Data Replication'), [('EmployeeName') : EmployeeName, ('EmployeeID') : EmployeeID], 
     FailureHandling.STOP_ON_FAILURE)
 
 //WebUI.callTestCase(findTestCase('SF/Payslip/Check Data Replication'), [('EmployeeName') : EmployeeName, ('EmployeeID') : EmployeeID], 
@@ -55,6 +59,8 @@ WebUI.verifyElementPresent(findTestObject('Page_Payroll Driver Australia/Payroll
 
 WebUI.setText(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Payroll Area Time Period - input'), 'F1')
 
+KeywordUtil.logInfo('Entered F1 as Payroll Area Time Period')
+
 WebUI.click(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Payroll period - Other Period'))
 
 WebUI.setText(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Payroll period -Other period - payperiod - input'), 
@@ -67,9 +73,6 @@ WebUI.sendKeys(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Payro
 
 WebUI.delay(2)
 
-
-
-
 GlobalVariable.payPeriod1StartDate = WebUI.getAttribute(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Payroll Period - Start Date'), 
     'value')
 
@@ -77,15 +80,21 @@ GlobalVariable.payPeriod1EndDate = WebUI.getAttribute(findTestObject('Page_Payro
     'value')
 
 if (!(DateRangeChecker.isDateInPayPeriodRange(GlobalVariable.payPeriod1StartDate, GlobalVariable.payPeriod1EndDate, LeaveEndDate))) {
-    GlobalVariable.leaveEndPayPeriod = PayPeriodCalculator.calculatePeriod(GlobalVariable.payPeriod1StartDate, GlobalVariable.payPeriod1EndDate, LeaveEndDate)
+    GlobalVariable.leaveEndPayPeriod = PayPeriodCalculator.calculatePeriod(GlobalVariable.payPeriod1StartDate, GlobalVariable.payPeriod1EndDate, 
+        LeaveEndDate)
 
-    GlobalVariable.leaveStartPayPeriod = PayPeriodCalculator.calculatePeriod(GlobalVariable.payPeriod1StartDate, GlobalVariable.payPeriod1EndDate, LeaveStartDate)
+    GlobalVariable.leaveStartPayPeriod = PayPeriodCalculator.calculatePeriod(GlobalVariable.payPeriod1StartDate, GlobalVariable.payPeriod1EndDate, 
+        LeaveStartDate)
+
+    KeywordUtil.logInfo('Calculated Leave End Pay Period as : ' + GlobalVariable.leaveEndPayPeriod)
 
     WebUI.setText(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Payroll period -Other period - payperiod - input'), 
         GlobalVariable.leaveEndPayPeriod)
 
     WebUI.sendKeys(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Payroll period -Other period - payperiod - input'), 
         Keys.chord(Keys.ENTER))
+
+    KeywordUtil.logInfo('Entered Other Pay Period as : ' + GlobalVariable.leaveEndPayPeriod)
 
     WebUI.delay(2)
 }
@@ -99,12 +108,16 @@ payPeriodEnd = WebUI.getAttribute(findTestObject('Page_Payroll Driver Australia/
 if (DateRangeChecker.isDateInPayPeriodRange(payPeriodStart, payPeriodEnd, LeaveEndDate)) {
     WebUI.setText(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Selection - Personnel Number - input'), EmployeeID)
 
+    KeywordUtil.logInfo('Entered Personnel number as : ' + EmployeeID)
+
     WebUI.setText(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Selection - Payroll area - input'), 'F1')
+
+    KeywordUtil.logInfo('Entered F1 as Selection - Payroll area')
 
     WebUI.setText(findTestObject('Page_Payroll Driver Australia/PayrollWindow/General program control - Schema - input'), 
         'ZQ01')
 
-    WebUI.takeFullPageScreenshot()
+    KeywordUtil.logInfo('Entered ZQ01 as General program control - Schema')
 
     WebUI.scrollToElement(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Remuneration - HR form name - option'), 
         0)
@@ -123,6 +136,8 @@ if (DateRangeChecker.isDateInPayPeriodRange(payPeriodStart, payPeriodEnd, LeaveE
 
     WebUI.setText(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Remuneration - HR form name - input'), 'ZHR_PAYSLIP_NEW')
 
+    KeywordUtil.logInfo('Entered ZHR_PAYSLIP_NEW as Remuneration - HR form name')
+
     WebUI.scrollToElement(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Payroll Area Time Period - input'), 
         0)
 
@@ -131,6 +146,8 @@ if (DateRangeChecker.isDateInPayPeriodRange(payPeriodStart, payPeriodEnd, LeaveE
     WebUI.verifyElementPresent(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Payroll Execute Button'), 0)
 
     WebUI.click(findTestObject('Page_Payroll Driver Australia/PayrollWindow/Payroll Execute Button'))
+
+    KeywordUtil.logInfo('Executed Payroll')
 
     WebUI.delay(2)
 }
