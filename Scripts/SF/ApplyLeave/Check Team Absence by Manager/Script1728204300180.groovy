@@ -22,61 +22,64 @@ import java.lang.String as String
 import customUtilities.DateRangeFormatter as DateRangeFormatter
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUiBuiltInKeywords
 import com.kms.katalon.core.util.KeywordUtil
+import customUtilities.reusableFunctions as reusableFunctions
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
+reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
 
 WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeetoProxy') : GlobalVariable.EmployeeManager, ('employeeName') : GlobalVariable.EmployeeManager], 
     FailureHandling.STOP_ON_FAILURE)
 
+reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
+
 WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/tileButton_View Team Absences'), 0)
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/tileButton_View Team Absences'))
+reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/Homepage/tileButton_View Team Absences'))
 
 WebUI.waitForPageLoad(10)
 
 WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/panelheader_My Reporting Hierarchy'), 
     0)
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_My Drirect Reports tab'))
+reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_My Drirect Reports tab'))
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_Half Month tab'))
+reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_Half Month tab'))
 
 WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/My Reporting Hierarchy - EmployeeName (var)', 
-        [('employeeName') : EmployeeName]), 0)
+        [('employeeName') : EmployeeName]), 10)
 
 WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Reporting Hierarchy_Checkbox (var)', 
-        [('employeeName') : EmployeeName]), 0)
+        [('employeeName') : EmployeeName]), 10)
 
 WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Reporting Hierarchy_Checkbox (var)', 
-        [('employeeName') : EmployeeName]), 0)
+        [('employeeName') : EmployeeName]), 10)
 
-WebUI.check(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Reporting Hierarchy_Checkbox (var)', [('employeeName') : EmployeeName]))
+reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Reporting Hierarchy_Checkbox (var)', [('employeeName') : EmployeeName]))
 
 WebUI.delay(1)
 
 WebUI.verifyElementAttributeValue(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Reporting Hierarchy_Checkbox (var)', 
-        [('employeeName') : EmployeeName]), 'aria-checked', 'true', 0)
+        [('employeeName') : EmployeeName]), 'aria-checked', 'true', 10)
 
 while (!(DateRangeChecker.isDateInRange(LeaveStartDate, WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_Date Range'))))) {
     WebUI.click(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_Calendar Forward button'))
+	reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_Calendar Forward button'))
 }
 
 WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_LeaveTitle'), 
-    0)
+    10)
 
-WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_LeaveTitle'), 
-    LeaveType)
+reusableFunctions.verifyElementText(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_LeaveTitle'), LeaveType)
 
 WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_LeaveDate'), 
-    0)
+    10)
 
-WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_LeaveDate'), 
+reusableFunctions.verifyElementText(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_LeaveDate'), 
     DateRangeFormatter.formatDateRangeTeamAbsence(LeaveStartDate, LeaveEndDate))
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_LeaveDate'), FailureHandling.STOP_ON_FAILURE)
+reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/Team Absence Calendar/Team Absence Calendar_LeaveDate'))
 KeywordUtil.markPassed("Verified Presence of Leave in Team Absence Calendar of Manager - " + GlobalVariable.EmployeeManager)
 
 WebUI.takeFullPageScreenshot()
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
+reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
 

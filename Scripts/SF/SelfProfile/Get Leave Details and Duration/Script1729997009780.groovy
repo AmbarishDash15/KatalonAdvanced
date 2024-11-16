@@ -30,6 +30,7 @@ import customUtilities.TimeRangeCalculator as TimeRangeCalculator
 import customUtilities.PublicHolidays as PublicHolidays
 import customUtilities.LeaveDetails as LeaveDetails
 import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
+import customUtilities.reusableFunctions as reusableFunctions
 
 LeaveDetails.getLeaveDetails(LeaveType)
 
@@ -55,9 +56,16 @@ def currentCalDate = '0'
 
 def leaveArray = []
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
+if (WebUiBuiltInKeywords.verifyElementPresent(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'), 10)) {
+    reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
+}
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/tilebutton_View My Profile'))
+WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/tilebutton_View My Profile'), 0)
+
+if (WebUiBuiltInKeywords.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/tilebutton_View My Profile'), 
+    10)) {
+    reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/Homepage/tilebutton_View My Profile'))
+}
 
 WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Basic Profile First Name Value'), 0)
 
@@ -71,7 +79,7 @@ GlobalVariable.EmployeeLastName = WebUI.getText(findTestObject('Page_SuccessFact
 
 KeywordUtil.logInfo('Retrieved Employee LastName as : ' + GlobalVariable.EmployeeLastName)
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/SectionTabName (var)', [('tabName') : 'Employment Information']))
+reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/My Profile/SectionTabName (var)', [('tabName') : 'Employment Information']))
 
 WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Organisational Information Group Value'), 
     0)
@@ -85,8 +93,10 @@ KeywordUtil.logInfo('Retrieved Employee Group as : ' + GlobalVariable.EmployeeGr
 
 if (WebUiBuiltInKeywords.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Job Information - Section Show More button'), 
     0)) {
-    WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/Job Information - Section Show More button'))
+    reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/My Profile/Job Information - Section Show More button'))
 }
+
+WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/My Profile/Manager Name'), 0)
 
 GlobalVariable.EmployeeManager = WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Manager Name'))
 
@@ -94,21 +104,24 @@ KeywordUtil.logInfo('Retrieved Employee Manager as : ' + GlobalVariable.Employee
 
 WebUI.takeFullPageScreenshot()
 
-WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/My Profile/Job Information -Work Schedule label'), 0)
+reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/My Profile/Job Information - Work Schedule details link'))
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/Job Information - Work Schedule details link'))
+WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Header'), 10)
 
-WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Header'), 0)
+WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Work Schedule Name'), 10)
 
 def scheduleName = WebUI.getText(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Work Schedule Name'))
 
 WebUI.verifyMatch(scheduleName, WorkSchedule + '.*', true)
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Preview tab'))
+reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Preview tab'))
 
 while (!(DateRangeChecker.isDateInValueRange(WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Selected Week')), 
     LeaveStartDate))) {
-    WebUI.click(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Next Week Button'))
+    if (WebUiBuiltInKeywords.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Next Week Button'), 
+        0)) {
+        reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Next Week Button'))
+    }
 }
 
 if (LeaveStartDate == LeaveEndDate) {
@@ -162,7 +175,6 @@ if (LeaveStartDate == LeaveEndDate) {
     LocalDate currentDate = startDate
 
     while (!(currentDate.isAfter(endDate))) {
-		WebUI.takeFullPageScreenshot()
         currentCalDate = currentDate.getDayOfMonth().toString()
 
         dayType = WebUI.getAttribute(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Day Type (var)', 
@@ -187,10 +199,11 @@ if (LeaveStartDate == LeaveEndDate) {
         }
         
         if (currentDate.getDayOfWeek().getValue() == 7) {
+            if (WebUiBuiltInKeywords.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Next Week Button'), 
+                0)) {
+                reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Next Week Button'))
+            }
             
-
-            WebUI.click(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Next Week Button'))
-
             WebUI.delay(1)
         }
         
@@ -236,7 +249,7 @@ if (leaveDeductedinDays != '0') {
     }
 }
 
-KeywordUtil.logInfo('Total working hours : ' + GlobalVariable.LeaveDeducted)
+KeywordUtil.markPassed('Total working hours : ' + GlobalVariable.LeaveDeducted)
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Popup Close Button'))
+reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Popup Close Button'))
 

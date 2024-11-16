@@ -7,11 +7,10 @@
    <selectorCollection>
       <entry>
          <key>BASIC</key>
-         <value></value>
       </entry>
       <entry>
          <key>XPATH</key>
-         <value>//span[text() = 'Upcoming Time Off']</value>
+         <value>//span[contains(text(),'ing Time Off')]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>

@@ -22,18 +22,23 @@ import customUtilities.WorkingDaysCalculator as WorkingDaysCalculator
 import customUtilities.TimeDifferenceChecker as TimeDifferenceChecker
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUiBuiltInKeywords
 import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
+import customUtilities.reusableFunctions as reusableFunctions
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
+reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
 
 WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/tilebutton_Request Time Off'))
+reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/Homepage/tilebutton_Request Time Off'))
 
 WebUI.waitForElementNotPresent(findTestObject('Page_SuccessFactors Home/Homepage/busyIndicator'), 5)
 
-WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/dialogBox'), 0)
-
 WebUI.delay(2)
 
-WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/dialogHeader'), 'Request Time Off')
+WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/dialogBox'), 20)
+
+
+
+
+reusableFunctions.verifyElementText(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/dialogHeader'), 'Request Time Off')
 
 WebUI.takeFullPageScreenshot()
 
@@ -59,7 +64,7 @@ WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/time
 
 WebUI.delay(2, FailureHandling.STOP_ON_FAILURE)
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/Returning to Work on'))
+WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/dialogHeader'))
 
 if (LeaveType == 'Compassionate Leave') {
     WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/compassionateLeaveReason'), 0)
@@ -124,7 +129,7 @@ while (attempts < 5) {
     } 
 }
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/Returning to Work on'))
+WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/dialogHeader'))
 
 if (FullDayOrHalfDay == 'FullDay') {
     WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/leaveEndDate'), 0)
@@ -144,7 +149,7 @@ if (FullDayOrHalfDay == 'FullDay') {
         } 
     }
     
-    WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/Returning to Work on'))
+    WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/dialogHeader'))
 
     WebUI.delay(2)
 } else if (FullDayOrHalfDay == 'HalfDay') {

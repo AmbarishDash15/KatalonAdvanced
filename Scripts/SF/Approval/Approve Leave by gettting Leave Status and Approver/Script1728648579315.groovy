@@ -22,10 +22,16 @@ import customUtilities.DateFormatConverter as DateFormatConverter
 import customUtilities.MonthConverter as MonthConverter
 import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
 import customUtilities.GetNameFromDesignation as GetNameFromDesignation
+import customUtilities.reusableFunctions as reusableFunctions
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
+if (WebUiBuiltInKeywords.verifyElementPresent(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'), 10)) {
+    reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
+}
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/tilebutton_Request Time Off'))
+if (WebUiBuiltInKeywords.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/tilebutton_Request Time Off'), 
+    10)) {
+    reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/Homepage/tilebutton_Request Time Off'))
+}
 
 WebUI.waitForElementNotPresent(findTestObject('Page_SuccessFactors Home/Homepage/busyIndicator'), 5)
 
@@ -39,7 +45,10 @@ WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Request Time
 
 WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/Time Off Link'), 0)
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/Time Off Link'))
+if (WebUiBuiltInKeywords.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/Time Off Link'), 
+    10)) {
+    reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/Request Time Off Popup/Time Off Link'))
+}
 
 WebUI.waitForPageLoad(0)
 
@@ -62,12 +71,35 @@ leaveYear))) {
 def convertedStartDate = DateFormatConverter.convertDateFormatToyyyymmdd(LeaveStartDate)
 
 WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Time Off Page/Leave Day on Left Calendar (var)', [('startdate') : convertedStartDate]), 
-    0)
+    10)
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/Time Off Page/Leave Day on Left Calendar (var)', [('startdate') : convertedStartDate]), 
-    FailureHandling.STOP_ON_FAILURE)
+if (WebUiBuiltInKeywords.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Time Off Page/Leave Day on Left Calendar (var)', 
+        [('startdate') : convertedStartDate]), 20)) {
+	WebUI.waitForElementClickable(findTestObject('Page_SuccessFactors Home/Time Off Page/Leave Day on Left Calendar (var)', 
+        [('startdate') : convertedStartDate]), 20)    
+	reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/Time Off Page/Leave Day on Left Calendar (var)', 
+        [('startdate') : convertedStartDate]))
+}
 
-WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Time Off Page/Leave Link on Popup'), 0)
+int waitCount = 0
+
+while (waitCount <= 5) {
+	try {
+		if (WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Time Off Page/Leave Link on Popup'), 10)) {
+			break
+		}
+	}
+	catch (Exception E) {
+		WebUI.click((findTestObject('Page_SuccessFactors Home/Time Off Page/Leave Day on Left Calendar (var)', 
+        [('startdate') : convertedStartDate])))
+		WebUI.delay(1)
+		waitCount++
+	}
+}
+
+
+
+WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Time Off Page/Leave Link on Popup'), 10)
 
 if (WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Time Off Page/Leave Status on Popup')) == 'Approved') {
     GlobalVariable.LeaveStatus = 'Approved'
@@ -81,8 +113,11 @@ if (WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Time O
 'Pending') {
     GlobalVariable.LeaveStatus = 'Pending'
 
-    WebUI.click(findTestObject('Page_SuccessFactors Home/Time Off Page/Leave Link on Popup'))
-
+    if (WebUiBuiltInKeywords.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Time Off Page/Leave Link on Popup'), 
+        10)) {
+        reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/Time Off Page/Leave Link on Popup'))
+    }
+    
     WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Time Off Page/View Absence Label'), 0)
 
     WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/Time Off Page/Value in Time Type'), LeaveType)

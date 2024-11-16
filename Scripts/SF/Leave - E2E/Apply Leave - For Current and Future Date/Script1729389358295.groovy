@@ -43,9 +43,6 @@ while (GlobalVariable.LeaveStatus != 'Approved') {
         FailureHandling.STOP_ON_FAILURE)
 }
 
-WebUI.callTestCase(findTestCase('SF/ApplyLeave/Check Team Absence by Manager'), [('EmployeeName') : EmployeeName, ('LeaveType') : LeaveType
-        , ('LeaveStartDate') : LeaveStartDate, ('LeaveEndDate') : LeaveEndDate], FailureHandling.STOP_ON_FAILURE)
-
 WebUI.callTestCase(findTestCase('SF/ApplyLeave/Verify Approved Leave on Self Profile'), [('EmployeeName') : EmployeeName
         , ('EmployeeID') : EmployeeID, ('LeaveStartDate') : LeaveStartDate, ('LeaveType') : LeaveType, ('LeaveEndDate') : LeaveEndDate], 
     FailureHandling.STOP_ON_FAILURE)

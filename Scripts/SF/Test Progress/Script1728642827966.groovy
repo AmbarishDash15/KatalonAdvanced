@@ -23,15 +23,12 @@ WebUI.callTestCase(findTestCase('SF/Common/Login'), [:], FailureHandling.STOP_ON
 WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeetoProxy') : EmployeeID, ('employeeName') : EmployeeName], 
     FailureHandling.STOP_ON_FAILURE)
 
-LeaveDetails.getLeaveDetails(LeaveType)
-
-WebUI.callTestCase(findTestCase('SF/SelfProfile/Get Leave Details and Duration'), [('WorkSchedule') : WorkSchedule, ('LeaveStartDate') : LeaveStartDate
-        , ('LeaveEndDate') : LeaveEndDate, ('EmployeeID') : EmployeeID, ('EmployeeName') : EmployeeName, ('FullDayOrHalfDay') : FullDayOrHalfDay], 
+WebUI.callTestCase(findTestCase('SF/ApplyLeave/Verify Approved Leave on Self Profile'), [('EmployeeName') : EmployeeName
+        , ('EmployeeID') : EmployeeID, ('LeaveStartDate') : LeaveStartDate, ('LeaveType') : LeaveType, ('LeaveEndDate') : LeaveEndDate], 
     FailureHandling.STOP_ON_FAILURE)
 
 WebUI.callTestCase(findTestCase('SF/Payslip/Generate Pay Slip'), [('LeaveStartDate') : LeaveStartDate, ('LeaveEndDate') : LeaveEndDate
         , ('EmployeeID') : EmployeeID, ('EmployeeName') : EmployeeName], FailureHandling.STOP_ON_FAILURE)
 
-WebUI.callTestCase(findTestCase('SF/Payslip/Verify Payslip'), [('EmployeeID') : EmployeeID, ('EmployeeName') : EmployeeName
-        , ('LeaveType') : LeaveType, ('LeaveStartDate') : LeaveStartDate, ('LeaveEndDate') : LeaveEndDate], FailureHandling.STOP_ON_FAILURE)
+WebUI.callTestCase(findTestCase('SF/Payslip/Verify Payslip'), [('EmployeeID') : EmployeeID], FailureHandling.STOP_ON_FAILURE)
 

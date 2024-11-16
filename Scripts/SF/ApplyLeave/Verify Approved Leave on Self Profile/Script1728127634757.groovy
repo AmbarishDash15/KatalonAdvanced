@@ -21,22 +21,23 @@ import customUtilities.CalendarNavigator as CalendarNavigator
 import customUtilities.MonthConverter as MonthConverter
 import customUtilities.DatewithDay as DatewithDay
 import com.kms.katalon.core.util.KeywordUtil
+import customUtilities.reusableFunctions as reusableFunctions
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
+reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
 
 WebUI.callTestCase(findTestCase('SF/Common/ProxyAsOther'), [('employeetoProxy') : EmployeeID, ('employeeName') : EmployeeName], 
     FailureHandling.STOP_ON_FAILURE)
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/tilebutton_View My Profile'))
+reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/Homepage/tilebutton_View My Profile'))
 
 WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/heading Full Name'), 10)
 
-WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/My Profile/heading Full Name'), EmployeeName)
+reusableFunctions.verifyElementText(findTestObject('Page_SuccessFactors Home/My Profile/heading Full Name'), EmployeeName)
 
 WebUI.takeFullPageScreenshot()
 
 if (!(DateChecker.isTodayOrPast(LeaveStartDate))) {
-    WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/CalendarIcon'))
+    reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/My Profile/CalendarIcon'))
 
     WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Calendar'), 0)
 
@@ -52,7 +53,7 @@ if (!(DateChecker.isTodayOrPast(LeaveStartDate))) {
 
     while (!((fullMonthName == WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Month Value'))) & 
     (paramYear == WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Year Value'))))) {
-        WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Next Month Button'))
+        reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Next Month Button'))
     }
     
     /*
@@ -65,7 +66,7 @@ if (!(DateChecker.isTodayOrPast(LeaveStartDate))) {
     selectedMonth = WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Month Value'))
 
     if (selectedMonth == MonthConverter.getFullMonthName(paramMonth)) {
-        WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Date Icon (var)', [('date') : paramDate]))
+        reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Date Icon (var)', [('date') : paramDate]))
     }
     
     WebUI.verifyElementAttributeValue(findTestObject('Page_SuccessFactors Home/My Profile/CalendarIconAfterDateChange'), 
@@ -74,10 +75,10 @@ if (!(DateChecker.isTodayOrPast(LeaveStartDate))) {
     WebUI.takeFullPageScreenshot()
 }
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/SectionTabName (var)', [('tabName') : 'Time']))
+reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/My Profile/SectionTabName (var)', [('tabName') : 'Time']))
 
 if (WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Time - Section Show More Button'), 0)) {
-    WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/Time - Section Show More Button'))
+    reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/My Profile/Time - Section Show More Button'))
 }
 
 WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/My Profile/Upcoming Timeoff Banner'), 0)
@@ -98,7 +99,7 @@ WebUI.takeFullPageScreenshot()
 
 if (GlobalVariable.leaveBalanceCheckRequired == 'Yes') {
 	if (!(DateChecker.isTodayOrPast(LeaveEndDate))) {
-		WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/CalendarIconAfterDateChange'))
+		reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/My Profile/CalendarIconAfterDateChange'))
 	
 		WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Calendar'), 0)
 	
@@ -114,13 +115,13 @@ if (GlobalVariable.leaveBalanceCheckRequired == 'Yes') {
 	
 		while (!((fullMonthName == WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Month Value'))) &
 		(paramYear == WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Year Value'))))) {
-			WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Next Month Button'))
+			reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Next Month Button'))
 		}
 		
 		selectedMonth = WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Month Value'))
 	
 		if (selectedMonth == MonthConverter.getFullMonthName(paramMonth)) {
-			WebUI.click(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Date Icon (var)', [('date') : paramDate]))
+			reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/My Profile/Calendar - Date Icon (var)', [('date') : paramDate]))
 		}
 		
 		WebUI.verifyElementAttributeValue(findTestObject('Page_SuccessFactors Home/My Profile/CalendarIconAfterDateChange'),
@@ -147,6 +148,5 @@ if (GlobalVariable.leaveBalanceCheckRequired == 'Yes') {
 	
 }
 
-
-WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
+reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
 

@@ -17,20 +17,21 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 import com.kms.katalon.core.util.KeywordUtil as KeywordUtil
+import customUtilities.reusableFunctions as reusableFunctions
 
 WebUI.waitForPageLoad(10)
 
 WebUI.waitForElementClickable(findTestObject('Page_SuccessFactors Home/TitleBar/button_ProfileButton'), 10)
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/button_ProfileButton'))
+reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/TitleBar/button_ProfileButton'))
 
 WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/button_Proxy Now'), 0)
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/button_Proxy Now'))
+reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/Homepage/button_Proxy Now'))
 
 WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Homepage/input_UserName'), 0)
 
-WebUI.setText(findTestObject('Page_SuccessFactors Home/Homepage/input_UserName'), employeetoProxy)
+reusableFunctions.setTextinElement(findTestObject('Page_SuccessFactors Home/Homepage/input_UserName'), employeetoProxy)
 
 WebUI.delay(1)
 
@@ -43,9 +44,9 @@ KeywordUtil.logInfo('Name Suggested : ' + employeeName)
 
 WebUI.takeFullPageScreenshot()
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/ProxyPopupSearchResult'))
+reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/Homepage/ProxyPopupSearchResult'))
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/ProxyPopup_OkButton'))
+reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/Homepage/ProxyPopup_OkButton'))
 
 WebUI.delay(10)
 
@@ -55,9 +56,7 @@ WebUI.verifyMatch(title, '.*on behalf of ' + (employeeName + '.*'), true)
 
 KeywordUtil.markPassed('Successfully proxied as : ' + employeeName)
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/button_ProfileButton'))
+reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/TitleBar/button_ProfileButton'))
 
 WebUI.takeFullPageScreenshot()
-
-WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/button_ProfileButton'))
 

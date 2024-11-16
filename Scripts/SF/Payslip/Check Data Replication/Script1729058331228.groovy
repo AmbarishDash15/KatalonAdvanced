@@ -19,41 +19,49 @@ import org.openqa.selenium.Keys as Keys
 import customUtilities.TimeChecker as TimeChecker
 import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUiBuiltInKeywords
 import com.kms.katalon.core.logging.KeywordLogger as KeywordLogger
+import customUtilities.reusableFunctions as reusableFunctions
 
 KeywordLogger logger = new KeywordLogger()
 
 def refreshCounter = 0
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
+reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
 
-WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/TitleBar/Search Input'), 0)
+WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/TitleBar/Search Input'), 10)
 
-WebUI.setText(findTestObject('Page_SuccessFactors Home/TitleBar/Search Input'), 'Data Replication Monitor')
+reusableFunctions.setTextinElement(findTestObject('Page_SuccessFactors Home/TitleBar/Search Input'), 'Data Replication Monitor')
+
+WebUI.delay(1)
 
 WebUI.sendKeys(findTestObject('Page_SuccessFactors Home/TitleBar/Search Input'), Keys.chord(Keys.ENTER))
 
-WebUI.sendKeys(findTestObject('Page_SuccessFactors Home/TitleBar/Search Input'), Keys.chord(Keys.ENTER))
+WebUI.delay(2)
 
-WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/Data Replication Monitor/Page Header'), 0)
+WebUI.waitForPageLoad(10)
 
-WebUI.setText(findTestObject('Page_SuccessFactors Home/Data Replication Monitor/Input - Employee ID'), EmployeeID)
+WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/Data Replication Monitor/Page Header'), 10)
+
+reusableFunctions.setTextinElement(findTestObject('Page_SuccessFactors Home/Data Replication Monitor/Input - Employee ID'), 
+    EmployeeID)
+
+WebUI.delay(2)
 
 WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/Data Replication Monitor/Input Selection Employee Name'), 
-    0)
+    10)
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/Data Replication Monitor/Input Selection Employee Name'), FailureHandling.STOP_ON_FAILURE)
+reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/Data Replication Monitor/Input Selection Employee Name'))
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/Data Replication Monitor/Status Dropdown Icon'))
+reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/Data Replication Monitor/Status Dropdown Icon'))
 
 WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/Data Replication Monitor/Status - Successful - Checkbox'), 
-    0)
+    10)
 
 if (WebUiBuiltInKeywords.getAttribute(findTestObject('Page_SuccessFactors Home/Data Replication Monitor/Status - Successful - Checkbox'), 
     'aria-selected') == 'false') {
-    WebUI.click(findTestObject('Page_SuccessFactors Home/Data Replication Monitor/Status - Successful - Checkbox'))
+    reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/Data Replication Monitor/Status - Successful - Checkbox'))
 }
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/Data Replication Monitor/Go Button'))
+reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/Data Replication Monitor/Go Button'))
 
 while (refreshCounter < 6) {
     try {
@@ -63,7 +71,7 @@ while (refreshCounter < 6) {
         }
     }
     catch (Exception E) {
-        WebUI.click(findTestObject('Page_SuccessFactors Home/Data Replication Monitor/Go Button'))
+        reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/Data Replication Monitor/Go Button'))
 
         WebUI.waitForPageLoad(0)
 
@@ -77,7 +85,7 @@ if (refreshCounter == 6) {
     assert false
 }
 
-WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/Data Replication Monitor/Search Result - Employee Name'), 
+reusableFunctions.verifyElementText(findTestObject('Page_SuccessFactors Home/Data Replication Monitor/Search Result - Employee Name'), 
     EmployeeName)
 
 refreshCounter = 0
@@ -100,7 +108,8 @@ while (!(TimeChecker.isWithinTenMinutesPast(WebUiBuiltInKeywords.getText(findTes
     }
 }
 
-WebUI.verifyElementText(findTestObject('Page_SuccessFactors Home/Data Replication Monitor/Search Result - Status'), 'Successful')
+reusableFunctions.verifyElementText(findTestObject('Page_SuccessFactors Home/Data Replication Monitor/Search Result - Status'), 
+    'Successful')
 
 WebUI.takeFullPageScreenshot()
 
