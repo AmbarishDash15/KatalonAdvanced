@@ -63,7 +63,9 @@ if (WebUiBuiltInKeywords.getAttribute(findTestObject('Page_SuccessFactors Home/D
 
 reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/Data Replication Monitor/Go Button'))
 
-while (refreshCounter < 6) {
+WebUI.delay(2)
+
+while (refreshCounter < 5) {
     try {
         if (WebUiBuiltInKeywords.findWebElement(findTestObject('Page_SuccessFactors Home/Data Replication Monitor/Search Result - Employee Absence Data'), 
             10)) {
@@ -71,15 +73,25 @@ while (refreshCounter < 6) {
         }
     }
     catch (Exception E) {
+        while (waitCounter <= 5) {
+            try {
+                if (WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Data Replication Monitor/Search Section'), 
+                    10)) { 
+                        break
+                    }
+            }
+            catch (Exception E1) {
+                WebUI.click(findTestObject('Page_SuccessFactors Home/Data Replication Monitor/Expand Search Section'))
+            } 
+        }
+        
         reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/Data Replication Monitor/Go Button'))
 
         WebUI.waitForPageLoad(0)
-
-        refreshCounter = (refreshCounter + 1)
     } 
 }
 
-if (refreshCounter == 6) {
+if (refreshCounter >= 50) {
     logger.FAILED('Data Replication timed out')
 
     assert false
@@ -90,8 +102,8 @@ reusableFunctions.verifyElementText(findTestObject('Page_SuccessFactors Home/Dat
 
 refreshCounter = 0
 
-while (!(TimeChecker.isWithinTenMinutesPast(WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Data Replication Monitor/Search Result - Last Replicated Time'))))) {
-    WebUI.click(findTestObject('Page_SuccessFactors Home/Data Replication Monitor/Go Button'))
+while (!(TimeChecker.isWithinFiveMinutesPast(WebUiBuiltInKeywords.getText(findTestObject('Page_SuccessFactors Home/Data Replication Monitor/Search Result - Last Replicated Time'))))) {
+    reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/Data Replication Monitor/Go Button'))
 
     WebUI.waitForPageLoad(0)
 
@@ -99,7 +111,12 @@ while (!(TimeChecker.isWithinTenMinutesPast(WebUiBuiltInKeywords.getText(findTes
 
     refreshCounter = (refreshCounter + 1)
 
-    if (refreshCounter == 30) {
+    if (refreshCounter == 10) {
+        reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/Data Replication Monitor/Search Result Row Checkbox'))
+		reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/Data Replication Monitor/Reprocess Button'))
+    }
+    
+    if (refreshCounter == 50) {
         logger.FAILED('Data Replication timed out')
 
         assert false

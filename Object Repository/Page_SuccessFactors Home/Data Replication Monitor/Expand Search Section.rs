@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>Search Result - Employee Name</name>
+   <name>Expand Search Section</name>
    <tag></tag>
-   <elementGuidId>9d2ef6ae-0ce5-474c-b799-adf2b09c3152</elementGuidId>
+   <elementGuidId>037a2841-6338-48b3-a462-199b75d03755</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
+         <value></value>
       </entry>
       <entry>
-         <key>XPATH</key>
-         <value>//span[text()='Employee Absence Data']//ancestor::tr//a</value>
+         <key>CSS</key>
+         <value>button#__title1-expandBtn</value>
       </entry>
    </selectorCollection>
-   <selectorMethod>XPATH</selectorMethod>
+   <selectorMethod>CSS</selectorMethod>
    <smartLocatorEnabled>false</smartLocatorEnabled>
    <useRalativeImagePath>false</useRalativeImagePath>
 </WebElementEntity>

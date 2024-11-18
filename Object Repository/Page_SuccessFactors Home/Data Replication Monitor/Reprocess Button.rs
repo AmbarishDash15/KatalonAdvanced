@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>Search Result - Employee Name</name>
+   <name>Reprocess Button</name>
    <tag></tag>
-   <elementGuidId>9d2ef6ae-0ce5-474c-b799-adf2b09c3152</elementGuidId>
+   <elementGuidId>2abf87e0-1266-4857-b6f5-f543680fef1f</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
+         <value></value>
       </entry>
       <entry>
-         <key>XPATH</key>
-         <value>//span[text()='Employee Absence Data']//ancestor::tr//a</value>
+         <key>CSS</key>
+         <value>//bdi[text()='Reprocess']</value>
       </entry>
    </selectorCollection>
-   <selectorMethod>XPATH</selectorMethod>
+   <selectorMethod>CSS</selectorMethod>
    <smartLocatorEnabled>false</smartLocatorEnabled>
    <useRalativeImagePath>false</useRalativeImagePath>
 </WebElementEntity>

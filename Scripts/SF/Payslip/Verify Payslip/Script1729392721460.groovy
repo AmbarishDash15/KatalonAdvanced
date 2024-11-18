@@ -25,6 +25,7 @@ import java.net.HttpURLConnection as HttpURLConnection
 import java.net.URL as URL
 import com.kms.katalon.core.configuration.RunConfiguration as RunConfiguration
 import com.kms.katalon.core.util.KeywordUtil
+import customUtilities.reusableFunctions as reusableFunctions
 
 WebUI.verifyElementPresent(findTestObject('Page_Print Preview/Print Preview title'), 0)
 
@@ -34,7 +35,7 @@ KeywordUtil.logInfo('Payslip generated successfully')
 
 WebUI.waitForElementPresent(findTestObject('Page_Print Preview/Last Document button'), 0)
 
-WebUI.click(findTestObject('Page_Print Preview/Last Document button'))
+reusableFunctions.clickElementonScreen(findTestObject('Page_Print Preview/Last Document button'))
 
 KeywordUtil.logInfo('Navigated to Last Payslip')
 
@@ -45,7 +46,8 @@ def previousURL = ''
 def pdfUrl = ''
 
 while (renderedPaySlip >= Integer.valueOf(GlobalVariable.leaveStartPayPeriod)) {
-    WebUI.takeFullPageScreenshot()
+    WebUI.delay(2)
+	WebUI.takeScreenshot()
 
     def windowIndex = WebUI.getWindowIndex()
 

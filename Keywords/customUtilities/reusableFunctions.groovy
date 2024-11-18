@@ -21,7 +21,7 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable
 
 public class reusableFunctions {
-	
+
 	public static void main(String[] args) {
 		// Example usage
 		String dateString = "15 Nov 2024"; // Adjust this to test different dates
@@ -42,7 +42,7 @@ public class reusableFunctions {
 			}
 		}
 	}
-	
+
 	public static void setTextinElement(Object object, String textToSet) {
 		int retryCount = 0
 		while (retryCount <= 10) {
@@ -58,7 +58,7 @@ public class reusableFunctions {
 			}
 		}
 	}
-	
+
 	public static void verifyElementonScreen(object) {
 		int retryCount = 0
 		while (retryCount <= 5) {
@@ -73,7 +73,7 @@ public class reusableFunctions {
 			}
 		}
 	}
-	
+
 	public static void verifyElementText(Object object, String textToVerify) {
 		int retryCount = 0
 		while (retryCount <= 10) {
@@ -89,5 +89,4 @@ public class reusableFunctions {
 			}
 		}
 	}
-	
 }

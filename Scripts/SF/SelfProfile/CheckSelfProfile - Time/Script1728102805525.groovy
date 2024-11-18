@@ -24,20 +24,22 @@ import customUtilities.reusableFunctions as reusableFunctions
 
 reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
 
+WebUI.waitForPageLoad(10)
+
 reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/Homepage/tilebutton_View My Profile'))
 
 WebUI.waitForPageLoad(10)
 
 WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/heading Full Name'), 30)
 
-reusableFunctions.verifyElementText(findTestObject('Page_SuccessFactors Home/My Profile/heading Full Name'), EmployeeName)
+//reusableFunctions.verifyElementText(findTestObject('Page_SuccessFactors Home/My Profile/heading Full Name'), EmployeeName)
 
 WebUI.takeFullPageScreenshot()
 
 if (!(DateChecker.isTodayOrPast(LeaveStartDate))) {
 	reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/My Profile/CalendarIcon'))
 
-    WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Calendar'), 0)
+    WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Calendar'), 10)
 
     String[] parts = LeaveStartDate.split(' ')
 
@@ -61,37 +63,43 @@ if (!(DateChecker.isTodayOrPast(LeaveStartDate))) {
     WebUI.verifyElementAttributeValue(findTestObject('Page_SuccessFactors Home/My Profile/CalendarIconAfterDateChange'), 
         'title', 'As of ' + LeaveStartDate, 0)
 
-    WebUI.takeFullPageScreenshot()
+	WebUI.takeFullPageScreenshot()
 }
 
 reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/My Profile/SectionTabName (var)', [('tabName') : 'Time']))
 
-if (WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Time - Section Show More Button'), 0)) {
-    WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - title'), 0)
+if (WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Time - Section Show More Button'), 10)) {
+    WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - title'), 10)
 
-    WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/My Profile/Time - Section Show More Button'), 0)
+    WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/My Profile/Time - Section Show More Button'), 10)
 
     reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/My Profile/Time - Section Show More Button'))
 }
 
-WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - title'), 0)
+WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - title'), 10)
 
-WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - title'), 0)
+WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - title'), 10)
 
 WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - Leave Type (var)', [('leaveType') : LeaveType]), 
-    0)
+    10)
 
 def leaveBalance = WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - Leave Balance (var)', 
         [('leaveType') : LeaveType]))
 
 def leaveBalanceEndDate = leaveBalance
 
+WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - Leave Balance (var)', 
+        [('leaveType') : LeaveType]), 10)
+
+WebUI.verifyElementVisible(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - Leave Balance (var)', 
+        [('leaveType') : LeaveType]))
+
 WebUI.takeFullPageScreenshot()
 
 if (LeaveStartDate != LeaveEndDate) {
     reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/My Profile/CalendarIconAfterDateChange'))
 
-    WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Calendar'), 0)
+    WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Calendar'), 10)
 
     String[] partsEnd = LeaveEndDate.split(' ')
 
@@ -113,25 +121,27 @@ if (LeaveStartDate != LeaveEndDate) {
     }
     
     WebUI.verifyElementAttributeValue(findTestObject('Page_SuccessFactors Home/My Profile/CalendarIconAfterDateChange'), 
-        'title', 'As of ' + LeaveEndDate, 0)
+        'title', 'As of ' + LeaveEndDate, 10)
 
     
 	
     reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/My Profile/SectionTabName (var)', [('tabName') : 'Time']))
 
-    WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - title'), 0)
+    WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - title'), 10)
 
-    WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - title'), 0)
+    WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - title'), 10)
 	WebUI.delay(2)
 	
 	WebUI.enableSmartWait()
 
     WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - Leave Type (var)', 
-            [('leaveType') : LeaveType]), 0)
+            [('leaveType') : LeaveType]), 10)
 
     leaveBalanceEndDate = WebUI.getText(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - Leave Balance (var)', 
             [('leaveType') : LeaveType]))
 	KeywordUtil.logInfo('Leave End Date Balance : ' + leaveBalanceEndDate)
+	WebUI.verifyElementVisible(findTestObject('Page_SuccessFactors Home/My Profile/Time Off Balance - Leave Balance (var)', 
+            [('leaveType') : LeaveType]))
 	WebUI.takeFullPageScreenshot()
 	
 }

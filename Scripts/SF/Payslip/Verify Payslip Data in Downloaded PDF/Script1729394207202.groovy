@@ -13,8 +13,8 @@ import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 import java.io.File as File
 import java.io.RandomAccessFile as RandomAccessFile
 import com.kms.katalon.core.logging.KeywordLogger as KeywordLogger
-import com.kms.katalon.keyword.pdf.PDF as PDF
-import com.kms.katalon.keyword.pdf.PDFUtils as PDFUtils
+//import com.kms.katalon.keyword.pdf.PDF as PDF
+//import com.kms.katalon.keyword.pdf.PDFUtils as PDFUtils
 import org.apache.pdfbox.pdmodel.PDDocument as PDDocument
 import org.apache.pdfbox.text.PDFTextStripper as PDFTextStripper
 import org.apache.pdfbox.text.PDFTextStripperByArea as PDFTextStripperByArea

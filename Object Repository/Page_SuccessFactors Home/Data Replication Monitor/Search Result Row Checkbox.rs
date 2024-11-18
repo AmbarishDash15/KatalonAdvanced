@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebElementEntity>
    <description></description>
-   <name>Search Result - Employee Name</name>
+   <name>Search Result Row Checkbox</name>
    <tag></tag>
-   <elementGuidId>9d2ef6ae-0ce5-474c-b799-adf2b09c3152</elementGuidId>
+   <elementGuidId>d1ca8fe3-a2b5-4513-a912-624d0af72716</elementGuidId>
    <selectorCollection>
       <entry>
          <key>BASIC</key>
+         <value></value>
       </entry>
       <entry>
-         <key>XPATH</key>
-         <value>//span[text()='Employee Absence Data']//ancestor::tr//a</value>
+         <key>CSS</key>
+         <value>//span[text()='Employee Absence Data']//ancestor::tr//div[@role='checkbox']</value>
       </entry>
    </selectorCollection>
-   <selectorMethod>XPATH</selectorMethod>
+   <selectorMethod>CSS</selectorMethod>
    <smartLocatorEnabled>false</smartLocatorEnabled>
    <useRalativeImagePath>false</useRalativeImagePath>
 </WebElementEntity>

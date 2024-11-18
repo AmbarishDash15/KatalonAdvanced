@@ -28,37 +28,36 @@ import java.util.TimeZone;
 
 public class TimeChecker {
 
-    public static boolean isWithinTenMinutesPast(String timeString) {
-        // Define the date format
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy, HH:mm:ss");
-        dateFormat.setTimeZone(TimeZone.getTimeZone("Australia/Sydney")); // Handles both AEST and AEDT
-        
-        try {
-            // Parse the input time string to a Date object
-            Date inputTime = dateFormat.parse(timeString);
-            // Get the current time in AEST/AEDT
-            Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("Australia/Sydney"));
-            Date currentTime = calendar.getTime();
-            System.out.println("Current Time: " + currentTime);
+	public static boolean isWithinFiveMinutesPast(String timeString) {
+		// Define the date format
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy, HH:mm:ss");
+		dateFormat.setTimeZone(TimeZone.getTimeZone("Australia/Sydney")); // Handles both AEST and AEDT
 
-            // Calculate the difference in milliseconds
-            long differenceInMillis = currentTime.getTime() - inputTime.getTime();
-            // Convert milliseconds to minutes
-            long differenceInMinutes = differenceInMillis / (1000 * 60);
-            System.out.println("Difference in Minutes: " + differenceInMinutes);
+		try {
+			// Parse the input time string to a Date object
+			Date inputTime = dateFormat.parse(timeString);
+			// Get the current time in AEST/AEDT
+			Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("Australia/Sydney"));
+			Date currentTime = calendar.getTime();
+			System.out.println("Current Time: " + currentTime);
 
-            // Check if the input time is within 10 minutes in the past
-            return differenceInMinutes >= 0 && differenceInMinutes <= 10;
+			// Calculate the difference in milliseconds
+			long differenceInMillis = currentTime.getTime() - inputTime.getTime();
+			// Convert milliseconds to minutes
+			long differenceInMinutes = differenceInMillis / (1000 * 60);
+			System.out.println("Difference in Minutes: " + differenceInMinutes);
 
-        } catch (ParseException e) {
-            e.printStackTrace();
-            return false; // In case of a parse error, return false
-        }
-    }
+			// Check if the input time is within 10 minutes in the past
+			return differenceInMinutes >= 0 && differenceInMinutes <= 5;
+		} catch (ParseException e) {
+			e.printStackTrace();
+			return false; // In case of a parse error, return false
+		}
+	}
 
-    public static void main(String[] args) {
-        String timeToCheck = "16 Oct 2024, 15:58:42";
-        boolean result = isWithinTenMinutesPast(timeToCheck);
-        System.out.println("Is the time within the last 10 minutes? " + result);
-    }
+	public static void main(String[] args) {
+		String timeToCheck = "16 Oct 2024, 15:58:42";
+		boolean result = isWithinFiveMinutesPast(timeToCheck);
+		System.out.println("Is the time within the last 10 minutes? " + result);
+	}
 }

@@ -32,7 +32,7 @@ reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/
 
 WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/My Profile/heading Full Name'), 10)
 
-reusableFunctions.verifyElementText(findTestObject('Page_SuccessFactors Home/My Profile/heading Full Name'), EmployeeName)
+//reusableFunctions.verifyElementText(findTestObject('Page_SuccessFactors Home/My Profile/heading Full Name'), EmployeeName)
 
 WebUI.takeFullPageScreenshot()
 

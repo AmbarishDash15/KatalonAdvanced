@@ -106,7 +106,21 @@ WebUI.takeFullPageScreenshot()
 
 reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/My Profile/Job Information - Work Schedule details link'))
 
-WebUI.waitForElementPresent(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Header'), 10)
+int retryCount = 0
+while (retryCount <= 5) {
+	try {
+		if (WebUI.verifyElementPresent(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Header'), 10)) {
+			break
+		}
+	}
+	catch (Exception E) {
+		reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/My Profile/Job Information - Work Schedule details link'))
+		retryCount++
+		WebUI.delay(1)
+	}
+}
+
+
 
 WebUI.scrollToElement(findTestObject('Page_SuccessFactors Home/Work Schedule Details Popup/Work Schedule Name'), 10)
 

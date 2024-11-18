@@ -50,5 +50,6 @@ WebUI.callTestCase(findTestCase('SF/ApplyLeave/Verify Approved Leave on Self Pro
 WebUI.callTestCase(findTestCase('SF/Payslip/Generate Pay Slip'), [('LeaveStartDate') : LeaveStartDate, ('LeaveEndDate') : LeaveEndDate
         , ('EmployeeID') : EmployeeID, ('EmployeeName') : EmployeeName], FailureHandling.STOP_ON_FAILURE)
 
-WebUI.callTestCase(findTestCase('SF/Payslip/Verify Payslip'), [('EmployeeID') : EmployeeID], FailureHandling.STOP_ON_FAILURE)
+WebUI.callTestCase(findTestCase('SF/Payslip/Verify Payslip'), [('EmployeeID') : EmployeeID, ('EmployeeName') : EmployeeName
+        , ('LeaveType') : LeaveType, ('LeaveStartDate') : LeaveStartDate, ('LeaveEndDate') : LeaveEndDate], FailureHandling.STOP_ON_FAILURE)
 
