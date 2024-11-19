@@ -27,15 +27,17 @@ import com.kms.katalon.core.configuration.RunConfiguration as RunConfiguration
 import com.kms.katalon.core.util.KeywordUtil
 import customUtilities.reusableFunctions as reusableFunctions
 
-WebUI.verifyElementPresent(findTestObject('Page_Print Preview/Print Preview title'), 0)
+WebUI.verifyElementPresent(findTestObject('Page_Print Preview/Print Preview title'), 10)
 
 ManageDownloads.manageFolder()
 
 KeywordUtil.logInfo('Payslip generated successfully')
 
-WebUI.waitForElementPresent(findTestObject('Page_Print Preview/Last Document button'), 0)
+WebUI.waitForElementPresent(findTestObject('Page_Print Preview/Last Document button'), 10)
 
 reusableFunctions.clickElementonScreen(findTestObject('Page_Print Preview/Last Document button'))
+
+WebUI.waitForElementNotPresent(findTestObject('Page_Print Preview/Last Document button'), 10)
 
 KeywordUtil.logInfo('Navigated to Last Payslip')
 
@@ -122,11 +124,11 @@ while (renderedPaySlip >= Integer.valueOf(GlobalVariable.leaveStartPayPeriod)) {
     if (Integer.valueOf(GlobalVariable.leaveStartPayPeriod) <= renderedPaySlip) {
         WebUI.switchToWindowIndex(windowIndex)
 
-        WebUI.waitForElementPresent(findTestObject('Page_Print Preview/Previous Document button'), 0)
+        WebUI.waitForElementPresent(findTestObject('Page_Print Preview/Previous Document button'), 10)
 
-        WebUI.click(findTestObject('Page_Print Preview/Previous Document button'))
+		reusableFunctions.clickElementonScreen(findTestObject('Page_Print Preview/Previous Document button'))
 
-        WebUI.waitForPageLoad(5)
+        WebUI.waitForPageLoad(10)
     }
 }
 

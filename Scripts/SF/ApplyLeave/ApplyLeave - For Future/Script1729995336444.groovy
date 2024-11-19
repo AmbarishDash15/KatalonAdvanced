@@ -26,7 +26,6 @@ import customUtilities.reusableFunctions as reusableFunctions
 
 reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/TitleBar/CompanyIcon'))
 
-WebUI.click(findTestObject('Page_SuccessFactors Home/Homepage/tilebutton_Request Time Off'))
 reusableFunctions.clickElementonScreen(findTestObject('Page_SuccessFactors Home/Homepage/tilebutton_Request Time Off'))
 
 WebUI.waitForElementNotPresent(findTestObject('Page_SuccessFactors Home/Homepage/busyIndicator'), 5)
